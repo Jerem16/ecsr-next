@@ -1,0 +1,1289 @@
+{
+    "slug": "oeil-conduite",
+    "title": "L’œil et la conduite",
+    "category": "Cours ECSR — Conducteur et conduite",
+    "summary": "Cours complet intégré dans Next.js : contenu éditable, images contextualisées, cartes pédagogiques, tableaux HTML restaurés et pages sources accessibles.",
+    "objectives": [
+        "Comprendre le rôle de la vue dans la tâche de conduite.",
+        "Identifier les limites de la perception visuelle.",
+        "Relier l’œil, le cerveau, le temps de latence et la distance parcourue.",
+        "Expliquer les risques liés à la vitesse, à la nuit, à l’éblouissement, aux feux et aux angles morts."
+    ],
+    "sections": [
+        {
+            "id": "plan-cours",
+            "title": "Plan du cours",
+            "intro": "Le cours suit la progression du support source, en transformant les pages textuelles en cartes, tableaux et visuels pédagogiques.",
+            "blocks": [
+                {
+                    "type": "list-card",
+                    "id": "plan-general",
+                    "title": "Progression proposée",
+                    "ordered": true,
+                    "items": [
+                        "Rôle des organes sensoriels et place de la vue.",
+                        "Constitution de l’œil et tache aveugle.",
+                        "Temps de latence et retard de perception.",
+                        "Champ perceptif, vitesse et zones de vision.",
+                        "Conduite de nuit, pathologies, précautions et réglementation."
+                    ],
+                    "keywords": [
+                        "Vue",
+                        "Perception",
+                        "Latence",
+                        "Champ perceptif",
+                        "Nuit"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sens",
+            "title": "Rôle des organes sensoriels et place de la vue",
+            "intro": [
+                {
+                    "type": "paragraph",
+                    "text": [
+                        {
+                            "text": "La conduite mobilise plusieurs sens",
+                            "strong": true
+                        },
+                        {
+                            "text": ", "
+                        },
+                        {
+                            "text": "mais la vue reste le canal principal d’information",
+                            "strong": true
+                        },
+                        {
+                            "text": " ("
+                        },
+                        {
+                            "text": "90 % des informations utiles à la conduite passent par la vue",
+                            "italic": true
+                        },
+                        {
+                            "text": ")."
+                        }
+                    ]
+                }
+            ],
+            "blocks": [
+                {
+                    "type": "table",
+                    "id": "table-sens-mobilises",
+                    "title": "Sens mobilisés dans la conduite",
+                    "caption": "Place des principaux sens dans la tâche de conduite",
+                    "columns": [
+                        "Sens",
+                        "Rôle dans la conduite",
+                        "Idée à retenir"
+                    ],
+                    "rows": [
+                        [
+                            {
+                                "label": "L’ouïe",
+                                "strong": true
+                            },
+                            {
+                                "label": "Peu utile pour la conduite. On peut conduire en étant sourd."
+                            },
+                            {
+                                "label": "Information secondaire."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "L’odorat",
+                                "strong": true
+                            },
+                            {
+                                "label": "Peu utile pour la conduite."
+                            },
+                            {
+                                "label": "Information secondaire."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Le goût",
+                                "strong": true
+                            },
+                            {
+                                "label": "Peu utile pour la conduite."
+                            },
+                            {
+                                "label": "Sans rôle direct."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Le toucher",
+                                "strong": true
+                            },
+                            {
+                                "label": "Permet de ressentir les mouvements, les accélérations, les freinages et les changements de trajectoire."
+                            },
+                            {
+                                "label": "Aide au ressenti du véhicule."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "La vue",
+                                "strong": true
+                            },
+                            {
+                                "label": "Essentielle : environ 90 % des informations utiles à la conduite passent par elle."
+                            },
+                            {
+                                "label": "Sens principal pour percevoir, analyser et anticiper."
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "id": "perception-apprentissage",
+                    "title": "Point pédagogique",
+                    "tone": "info",
+                    "content": "La perception ne dépend pas seulement de l’œil. Elle dépend aussi de l’apprentissage du regard, de l’expérience, des représentations, de l’âge, de la vigilance et des facteurs psychologiques."
+                },
+                {
+                    "type": "text-card",
+                    "id": "voir-regarder-observer",
+                    "title": "Voir, regarder, observer",
+                    "content": [
+                        "Voir, c’est recevoir une information visuelle. Regarder, c’est diriger volontairement son regard. Observer, c’est rechercher les indices utiles pour comprendre la situation.",
+                        "En conduite, l’objectif n’est donc pas seulement de voir la route, mais de prélever les bonnes informations au bon moment."
+                    ],
+                    "keywords": [
+                        "Voir",
+                        "Regarder",
+                        "Observer",
+                        "PADA",
+                        "Anticipation"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "oeil",
+            "title": "L’œil : constitution et limites",
+            "intro": "Le schéma de l’œil sert à comprendre que l’image n’est pas une copie instantanée du réel : elle est reçue, transformée puis interprétée.",
+            "blocks": [
+                {
+                    "type": "image-card",
+                    "id": "schema-constitution-oeil",
+                    "title": "Schéma de constitution de l’œil",
+                    "imagePosition": "left",
+                    "image": {
+                        "src": "/cours/oeil-conduite/refined/schema-constitution-oeil.jpg",
+                        "alt": "Schéma de coupe de l’œil indiquant la cornée, la choroïde, la sclérotique, l’iris, la pupille, la macula, le point aveugle, le cristallin, la rétine et le nerf optique.",
+                        "caption": "Schéma explicatif de l’œil.",
+                        "role": "schema"
+                    },
+                    "content": [
+                        "Le schéma permet d’identifier les principales parties de l’œil utiles pour comprendre la perception visuelle.",
+                        "Le point aveugle est important, car il correspond à une zone sans photorécepteurs."
+                    ]
+                },
+                {
+                    "type": "table",
+                    "id": "table-constitution-oeil",
+                    "title": "Constitution de l’œil",
+                    "caption": "Repères essentiels pour expliquer le fonctionnement de l’œil",
+                    "columns": [
+                        "Élément",
+                        "Rôle ou repère"
+                    ],
+                    "rows": [
+                        [
+                            {
+                                "label": "Cornée",
+                                "strong": true
+                            },
+                            {
+                                "label": "Partie transparente située à l’avant de l’œil."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Iris et pupille",
+                                "strong": true
+                            },
+                            {
+                                "label": "L’iris correspond à la couleur de l’œil ; la pupille laisse entrer la lumière."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Cristallin",
+                                "strong": true
+                            },
+                            {
+                                "label": "Participe à la mise au point de l’image."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Rétine",
+                                "strong": true
+                            },
+                            {
+                                "label": "Zone sensible à la lumière, où l’information lumineuse devient information nerveuse."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Macula",
+                                "strong": true
+                            },
+                            {
+                                "label": "Zone centrale de la vision fine."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Point aveugle",
+                                "strong": true
+                            },
+                            {
+                                "label": "Zone sans photorécepteurs à la jonction avec le nerf optique."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Nerf optique",
+                                "strong": true
+                            },
+                            {
+                                "label": "Transmet l’information visuelle vers le cerveau."
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "tache-aveugle",
+            "title": "Mise en évidence de la tache aveugle",
+            "intro": "La tache aveugle est une zone de la rétine caractérisée par l’absence de photorécepteurs. La stimulation lumineuse de cette zone ne produit donc pas de réponse visuelle du cerveau.",
+            "blocks": [
+                {
+                    "type": "image-card",
+                    "id": "experience-tache-aveugle",
+                    "title": "Expérience de la tache aveugle",
+                    "imagePosition": "right",
+                    "image": {
+                        "src": "/cours/oeil-conduite/refined/experience-tache-aveugle-quadrillage.jpg",
+                        "alt": "Quadrillage de l’expérience de la tache aveugle avec une étoile verte à gauche et un cercle rouge à droite.",
+                        "caption": "Quadrillage utilisé pour faire disparaître l’étoile dans la tache aveugle.",
+                        "role": "schema"
+                    },
+                    "content": [
+                        "Avec les deux yeux, la tache aveugle d’un œil est compensée par l’autre œil. Avec un seul œil, le phénomène devient perceptible.",
+                        "L’expérience consiste à fixer le cercle rouge avec l’œil gauche en gardant l’étoile verte dans le champ périphérique. À environ 40 cm, l’étoile disparaît."
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "id": "consequence-controles",
+                    "title": "Conséquence en conduite",
+                    "tone": "warning",
+                    "content": "Il ne faut pas seulement jeter un coup d’œil. Il faut tourner suffisamment la tête pour conserver une vision binoculaire lors des contrôles, notamment avec les rétroviseurs extérieurs et lors du franchissement d’un STOP."
+                }
+            ]
+        },
+        {
+            "id": "temps-latence",
+            "title": "Temps de latence et formation de l’image",
+            "intro": "La vision n’est pas instantanée. La lumière reçue par l’œil doit être transformée en courant électrique, transmise par le nerf optique, puis interprétée par le cerveau.",
+            "blocks": [
+                {
+                    "type": "comparison-card",
+                    "id": "trajet-oeil-cerveau",
+                    "title": "De l’œil au cerveau",
+                    "intro": "Deux schémas complémentaires permettent de comprendre le trajet de l’information visuelle et le rôle des rayonnements.",
+                    "items": [
+                        {
+                            "title": "Trajet entre les yeux et le cerveau",
+                            "content": "L’information visuelle part des yeux, circule par les nerfs optiques puis arrive au centre visuel du cerveau.",
+                            "image": {
+                                "src": "/cours/oeil-conduite/refined/schema-trajet-oeil-cerveau.jpg",
+                                "alt": "Schéma du trajet de l’information visuelle entre les yeux, le nerf optique et le cerveau.",
+                                "caption": "Trajet entre les yeux et le cerveau.",
+                                "role": "schema"
+                            }
+                        },
+                        {
+                            "title": "Coupe de l’œil et rayonnements",
+                            "content": "Le support situe aussi les UVA, UVB et UVC pour montrer que toutes les longueurs d’onde ne sont pas perçues de la même manière.",
+                            "image": {
+                                "src": "/cours/oeil-conduite/refined/schema-coupe-oeil-uv.jpg",
+                                "alt": "Coupe de l’œil montrant l’arrivée des rayons UVA, UVB et UVC et les principales parties de l’œil.",
+                                "caption": "Coupe de l’œil et rayonnement ultraviolet.",
+                                "role": "schema"
+                            }
+                        }
+                    ],
+                    "conclusion": "L’œil est à l’avant du crâne, mais le centre visuel est à l’arrière. Il faut donc un temps de traitement avant que l’image soit consciemment interprétée."
+                },
+                {
+                    "type": "table",
+                    "id": "table-temps-latence",
+                    "title": "Temps de latence et distance parcourue",
+                    "caption": "Conséquences pédagogiques du retard de perception",
+                    "columns": [
+                        "Situation",
+                        "Calcul ou donnée",
+                        "Conséquence pédagogique"
+                    ],
+                    "rows": [
+                        [
+                            {
+                                "label": "Temps de latence visuelle",
+                                "strong": true
+                            },
+                            {
+                                "label": "0,22 seconde, soit 22/100e de seconde."
+                            },
+                            {
+                                "label": "L’image arrive toujours avec un léger retard."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "À 90 km/h",
+                                "strong": true
+                            },
+                            {
+                                "label": "Le véhicule parcourt 25 m/s."
+                            },
+                            {
+                                "label": "Pendant 0,22 s, il parcourt environ 5,50 m."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Deux véhicules qui se croisent à 90 km/h",
+                                "strong": true
+                            },
+                            {
+                                "label": "Chaque véhicule parcourt environ 5,50 m pendant la latence."
+                            },
+                            {
+                                "label": "Quand on voit l’autre à 11 m, il est déjà quasiment à côté."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "À 45 km/h",
+                                "strong": true
+                            },
+                            {
+                                "label": "Le véhicule parcourt 12,5 m/s."
+                            },
+                            {
+                                "label": "Pendant 0,22 s, il parcourt environ 2,75 m."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Feu vu à 10 m à 90 km/h",
+                                "strong": true
+                            },
+                            {
+                                "label": "10 m - 5,50 m = 4,50 m."
+                            },
+                            {
+                                "label": "La position réellement atteinte est déjà beaucoup plus proche."
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "spectre",
+            "title": "Spectre visible et limites de perception",
+            "intro": "L’œil ne perçoit pas tout ce qui existe. Il ne capte qu’une partie des longueurs d’onde.",
+            "blocks": [
+                {
+                    "type": "image-card",
+                    "id": "spectre-visible",
+                    "title": "Ce que l’œil peut percevoir",
+                    "imagePosition": "left",
+                    "image": {
+                        "src": "/cours/oeil-conduite/refined/schema-spectre-visible-380-780.jpg",
+                        "alt": "Schéma du spectre visible indiquant les ultraviolets, la lumière visible entre 380 et 780 nanomètres et l’infrarouge.",
+                        "caption": "Spectre visible et limites de perception.",
+                        "role": "schema"
+                    },
+                    "content": [
+                        "L’œil humain ne capte qu’une partie des longueurs d’onde : la lumière visible, située entre environ 380 et 780 nanomètres.",
+                        "En dessous de 380 nanomètres, les yeux ne perçoivent pas directement ; au-delà de 780 nanomètres, la peau peut percevoir de la chaleur, mais l’œil ne voit pas l’infrarouge."
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "id": "humilite-perception",
+                    "title": "Idée à retenir",
+                    "tone": "info",
+                    "content": "Il faut rester modeste : nos yeux ne permettent pas de percevoir tout ce qui existe dans l’environnement. La conduite impose donc de compenser les limites naturelles de la perception."
+                }
+            ]
+        },
+        {
+            "id": "lumiere-soleil",
+            "title": "Exemple : lumière, vision et éblouissement",
+            "intro": "L’exemple de la lumière du soleil permet de montrer qu’une information lumineuse met un temps à parvenir, puis à être transformée et interprétée.",
+            "blocks": [
+                {
+                    "type": "image-card",
+                    "id": "photo-eblouissement",
+                    "title": "Exemple de la lumière du soleil",
+                    "imagePosition": "right",
+                    "image": {
+                        "src": "/cours/oeil-conduite/refined/photo-eblouissement-route-soleil.jpg",
+                        "alt": "Route vue depuis un véhicule avec un soleil bas qui éblouit le conducteur.",
+                        "caption": "Image illustrative d’une situation d’éblouissement.",
+                        "role": "illustration"
+                    },
+                    "content": [
+                        "La photo de route face au soleil est conservée comme image illustrative : elle permet d’aborder l’éblouissement, les contrastes et la difficulté à identifier les indices.",
+                        "Dans une séance, elle sert surtout à faire verbaliser les conséquences : repérage plus tardif, inconfort visuel, mauvaise lecture des détails."
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "id": "exemple-soleil",
+                    "title": "Exemple du support",
+                    "tone": "info",
+                    "content": "Distance moyenne Terre-Soleil : 149 500 000 km ; vitesse de la lumière : 300 000 km/s ; temps nécessaire : environ 478 secondes, soit environ 8 minutes."
+                }
+            ]
+        },
+        {
+            "id": "croisement",
+            "title": "Conséquence à 90 km/h : retard de perception",
+            "intro": "À 90 km/h, un véhicule parcourt 25 mètres par seconde. Pendant le temps de latence de 0,22 seconde, il parcourt environ 5,50 mètres.",
+            "blocks": [
+                {
+                    "type": "sequence-card",
+                    "id": "camion-retard-perception",
+                    "title": "Exemple du camion : ce que l’on croit voir et ce qui se passe réellement",
+                    "intro": "L’image du camion illustre le retard de perception. Quand deux véhicules se croisent à 90 km/h, chacun avance pendant que l’information visuelle est traitée.",
+                    "parts": [
+                        {
+                            "type": "figure",
+                            "title": "Situation observée",
+                            "image": {
+                                "src": "/cours/oeil-conduite/refined/photo-croisement-camion-90kmh.jpg",
+                                "alt": "Camion croisé sur une route depuis le point de vue du conducteur.",
+                                "caption": "Image essentielle pour expliquer le retard de perception à 90 km/h.",
+                                "role": "comparaison"
+                            },
+                            "content": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le conducteur croit percevoir la position actuelle du camion, alors que l’information traitée par le cerveau est déjà en retard."
+                                },
+                                {
+                                    "type": "list",
+                                    "ordered": true,
+                                    "items": [
+                                        "L’image arrive sur la rétine.",
+                                        "Le cerveau traite l’information avec un léger retard.",
+                                        "Le véhicule a déjà avancé pendant ce délai."
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "alert",
+                            "tone": "warning",
+                            "content": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Quand on voit le véhicule en face à environ 11 mètres, dans la réalité il est déjà quasiment à côté.",
+                                    "strong": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "figure",
+                            "title": "Perception et réalité",
+                            "image": {
+                                "src": "/cours/oeil-conduite/refined/photo-croisement-camion-90kmh-real.jpg",
+                                "alt": "Camion croisé sur une route depuis le point de vue du conducteur, montrant l’écart entre perception et réalité.",
+                                "caption": "Perception et réalité : le véhicule est déjà quasiment à côté pendant que l’information visuelle est encore traitée.",
+                                "role": "comparaison"
+                            },
+                            "content": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Le conducteur peut entendre le camion et ressentir son appel d’air alors que son cerveau traite encore l’information visuelle."
+                                },
+                                {
+                                    "type": "key-values",
+                                    "items": [
+                                        {
+                                            "label": "Audition",
+                                            "value": "140 à 160 ms."
+                                        },
+                                        {
+                                            "label": "Toucher",
+                                            "value": "Environ 155 ms."
+                                        },
+                                        {
+                                            "label": "Vision",
+                                            "value": "Environ 220 ms pour une réaction simple au stimulus."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "note",
+                                    "text": [
+                                        {
+                                            "text": "Le temps de réaction utilisé en conduite reste généralement estimé à environ 1 seconde",
+                                            "strong": true
+                                        },
+                                        {
+                                            "text": ", car il inclut la perception, l’analyse, la décision et le début de l’action.",
+                                            "italic": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "sources",
+                                    "items": [
+                                        {
+                                            "label": "BioNumbers — Temps de réaction au son, à la lumière et au toucher",
+                                            "href": "https://bionumbers.hms.harvard.edu/bionumber.aspx?id=110800&s=n&v=4"
+                                        },
+                                        {
+                                            "label": "BioNumbers — Temps de réaction simple à un stimulus",
+                                            "href": "https://bionumbers.hms.harvard.edu/bionumber.aspx?id=110799&s=n&v=2"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "id": "phrase-cle-retard",
+                    "title": "Phrase clé",
+                    "tone": "warning",
+                    "content": "Nous voyons toujours la réalité avec 22/100e de seconde de retard."
+                }
+            ]
+        },
+        {
+            "id": "feux",
+            "title": "Feux, intersection et temps de perception",
+            "intro": "Le cours applique le retard de perception à la situation des feux. Quand un feu est vu tardivement, la position réelle du véhicule est déjà plus avancée que la position perçue.",
+            "blocks": [
+                {
+                    "type": "comparison-card",
+                    "id": "feux-apres-carrefour",
+                    "title": "Feux après le carrefour : logique pédagogique",
+                    "intro": "Le support compare la perception du feu et la solution utilisée sur le continent américain : placer les feux après le carrefour et ajouter un décompte.",
+                    "items": [
+                        {
+                            "title": "Feu et intersection",
+                            "content": "Le conducteur doit identifier le feu, les usagers et l’intersection.",
+                            "image": {
+                                "src": "/cours/oeil-conduite/refined/photo-feu-avant-carrefour.jpg",
+                                "alt": "Intersection avec feu tricolore et usagers traversant la chaussée.",
+                                "caption": "Feu et intersection.",
+                                "role": "contexte"
+                            }
+                        },
+                        {
+                            "title": "Feu après le carrefour",
+                            "content": "Le décompte aide à anticiper le temps restant.",
+                            "image": {
+                                "src": "/cours/oeil-conduite/refined/photo-feu-apres-carrefour-decompte.jpg",
+                                "alt": "Feu tricolore placé après le carrefour avec un décompte lumineux.",
+                                "caption": "Feu après le carrefour avec décompte.",
+                                "role": "comparaison"
+                            }
+                        }
+                    ],
+                    "conclusion": "Ces images sont liées : elles servent à expliquer que l’emplacement du feu et le décompte peuvent réduire l’ambiguïté pour le conducteur."
+                },
+                {
+                    "type": "comparison-card",
+                    "id": "feu-orange-rouge",
+                    "title": "Feu orange et feu rouge : deux états à distinguer",
+                    "intro": "Lorsque le feu passe à l’orange, le décompte s’éteint. Lorsque le feu est rouge, le décompte laisse la place à une main levée.",
+                    "items": [
+                        {
+                            "title": "Feu orange",
+                            "content": "Le changement de couleur peut être perçu trop tard.",
+                            "image": {
+                                "src": "/cours/oeil-conduite/refined/photo-feu-orange-decompte-eteint.jpg",
+                                "alt": "Feu tricolore orange avec décompte éteint.",
+                                "caption": "Feu orange : le décompte s’éteint.",
+                                "role": "comparaison"
+                            }
+                        },
+                        {
+                            "title": "Feu rouge",
+                            "content": "La main levée enlève l’équivoque.",
+                            "image": {
+                                "src": "/cours/oeil-conduite/refined/photo-feu-rouge-main-levee.jpg",
+                                "alt": "Feu rouge associé à une main levée sur le signal piéton.",
+                                "caption": "Feu rouge : main levée.",
+                                "role": "comparaison"
+                            }
+                        }
+                    ],
+                    "conclusion": "Ces deux images doivent rester groupées, car elles expliquent une progression : orange = décompte éteint ; rouge = main levée."
+                },
+                {
+                    "type": "callout",
+                    "id": "feu-orange-moins-3m",
+                    "title": "Point de vigilance",
+                    "tone": "warning",
+                    "content": "Si le feu passe à l’orange et que le conducteur se trouve à moins de 3 mètres, le support indique qu’il peut ne pas voir le changement de couleur à cause du retard de perception et de la difficulté à discerner les couleurs sur les côtés."
+                }
+            ]
+        },
+        {
+            "id": "champ",
+            "title": "Champ perceptif, vitesse et zones de vision",
+            "intro": "Le champ de vision global est large à l’arrêt, mais le champ réellement exploitable se réduit avec la vitesse.",
+            "blocks": [
+                {
+                    "type": "image-card",
+                    "id": "schema-champ-vitesse",
+                    "title": "Réduction du champ perceptif avec la vitesse",
+                    "imagePosition": "right",
+                    "image": {
+                        "src": "/cours/oeil-conduite/refined/schema-champ-perceptif-vitesse.jpg",
+                        "alt": "Schéma montrant la réduction du champ perceptif selon la vitesse : 0 km/h, 35 km/h, 65 km/h, 100 km/h et 140 km/h.",
+                        "caption": "Schéma de réduction du champ perceptif.",
+                        "role": "schema"
+                    },
+                    "content": [
+                        "Le champ de vision global est présenté comme étant de 180°. Mais avec la vitesse, le champ réellement exploitable se réduit.",
+                        "Plus l’allure augmente, plus le conducteur doit anticiper loin et mobiliser son regard."
+                    ]
+                },
+                {
+                    "type": "table",
+                    "id": "table-champ-vitesse",
+                    "title": "Réduction du champ perceptif avec la vitesse",
+                    "caption": "Valeurs utilisées dans le support pédagogique",
+                    "columns": [
+                        "Vitesse",
+                        "Champ perceptif exploitable indiqué dans le support",
+                        "Lecture pédagogique"
+                    ],
+                    "rows": [
+                        [
+                            {
+                                "label": "0 km/h",
+                                "strong": true
+                            },
+                            {
+                                "label": "180°"
+                            },
+                            {
+                                "label": "Champ global large."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "35 km/h",
+                                "strong": true
+                            },
+                            {
+                                "label": "105°"
+                            },
+                            {
+                                "label": "Le champ utile commence déjà à se refermer."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "65 km/h",
+                                "strong": true
+                            },
+                            {
+                                "label": "70°"
+                            },
+                            {
+                                "label": "Les informations latérales deviennent moins exploitables."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "100 km/h",
+                                "strong": true
+                            },
+                            {
+                                "label": "50°"
+                            },
+                            {
+                                "label": "Le regard doit être plus anticipé et plus mobile."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "140 km/h",
+                                "strong": true
+                            },
+                            {
+                                "label": "30°"
+                            },
+                            {
+                                "label": "Le champ perceptif devient très réduit."
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "type": "image-card",
+                    "id": "vision-nette-floue-angles-morts",
+                    "title": "Vision nette, vision floue et angles morts",
+                    "imagePosition": "left",
+                    "image": {
+                        "src": "/cours/oeil-conduite/refined/schema-zone-vision-nette-floue-angles-morts.jpg",
+                        "alt": "Schéma indiquant une zone de vision nette, deux zones de vision floue et deux angles morts.",
+                        "caption": "Zone nette, zones floues et angles morts.",
+                        "role": "schema"
+                    },
+                    "content": [
+                        "La zone de vision nette est très réduite au centre du regard. Le reste du champ visuel est moins précis : couleurs moins évidentes, formes imprécises, mouvements latéraux parfois perçus sans être identifiés.",
+                        "Les angles morts rappellent que certains espaces ne sont pas visibles sans contrôle adapté."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "nuit",
+            "title": "La conduite de nuit",
+            "intro": "La nuit modifie fortement la perception. La vision centrale diminue rapidement, les contrastes s’inversent et les distances deviennent plus difficiles à apprécier.",
+            "blocks": [
+                {
+                    "type": "table",
+                    "id": "table-jour-nuit",
+                    "title": "Vision de jour et conduite de nuit",
+                    "caption": "Différences principales entre perception de jour et perception de nuit",
+                    "columns": [
+                        "Point observé",
+                        "De jour",
+                        "De nuit",
+                        "Conséquence"
+                    ],
+                    "rows": [
+                        [
+                            {
+                                "label": "Contrastes",
+                                "strong": true
+                            },
+                            {
+                                "label": "Les obstacles apparaissent sur fond clair."
+                            },
+                            {
+                                "label": "Les obstacles éclairés par les phares apparaissent sur fond sombre."
+                            },
+                            {
+                                "label": "L’inversion des contrastes complique l’orientation."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Vision centrale",
+                                "strong": true
+                            },
+                            {
+                                "label": "Elle reste efficace en condition normale."
+                            },
+                            {
+                                "label": "Elle diminue très rapidement."
+                            },
+                            {
+                                "label": "L’identification des obstacles devient plus difficile."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Distances et vitesses",
+                                "strong": true
+                            },
+                            {
+                                "label": "L’estimation est plus facile avec plus de repères."
+                            },
+                            {
+                                "label": "L’estimation devient moins fiable."
+                            },
+                            {
+                                "label": "Il faut adapter l’allure."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Feux de croisement",
+                                "strong": true
+                            },
+                            {
+                                "label": "Pas de limite liée à l’éclairage du véhicule."
+                            },
+                            {
+                                "label": "Visibilité souvent limitée à environ 50 m."
+                            },
+                            {
+                                "label": "La vitesse doit rester compatible avec la distance visible."
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "id": "allure-visibilite-nuit",
+                    "title": "Conséquence directe",
+                    "tone": "warning",
+                    "content": "Hors routes éclairées, la visibilité dépend beaucoup des phares. Les feux de croisement éclairant environ 50 mètres, l’allure doit rester compatible avec la distance visible."
+                }
+            ]
+        },
+        {
+            "id": "deficiences",
+            "title": "Déficiences, précautions et réglementation",
+            "intro": "Le support termine par les pathologies visuelles, les précautions de conduite et la distinction réglementaire entre groupe léger et groupe lourd.",
+            "blocks": [
+                {
+                    "type": "table",
+                    "id": "table-pathologies",
+                    "title": "Pathologies ou limites visuelles",
+                    "caption": "Effets possibles des principales limites visuelles sur la conduite",
+                    "columns": [
+                        "Pathologie ou limite",
+                        "Effet possible sur la conduite"
+                    ],
+                    "rows": [
+                        [
+                            {
+                                "label": "Myopie",
+                                "strong": true
+                            },
+                            {
+                                "label": "Difficulté à voir net de loin."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Hypermétropie",
+                                "strong": true
+                            },
+                            {
+                                "label": "Difficulté de mise au point, surtout de près, avec fatigue visuelle possible."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Astigmatisme",
+                                "strong": true
+                            },
+                            {
+                                "label": "Vision déformée ou floue selon les axes."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Presbytie",
+                                "strong": true
+                            },
+                            {
+                                "label": "Difficulté progressive à voir net de près avec l’âge."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Daltonisme",
+                                "strong": true
+                            },
+                            {
+                                "label": "Difficulté à distinguer certaines couleurs."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Altération du champ visuel",
+                                "strong": true
+                            },
+                            {
+                                "label": "Réduction des informations latérales et risque de mauvaise détection."
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "type": "table",
+                    "id": "table-precautions",
+                    "title": "Précautions de conduite liées à la vision",
+                    "caption": "Gestes et attitudes qui compensent les limites de la perception",
+                    "columns": [
+                        "Précaution",
+                        "Pourquoi c’est important"
+                    ],
+                    "rows": [
+                        [
+                            {
+                                "label": "Regarder loin",
+                                "strong": true
+                            },
+                            {
+                                "label": "Anticiper plus tôt et préparer les décisions."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Avoir un regard mobile",
+                                "strong": true
+                            },
+                            {
+                                "label": "Explorer l’environnement sans se fixer sur un seul point."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Ne pas fixer",
+                                "strong": true
+                            },
+                            {
+                                "label": "Le regard conditionne la trajectoire : fixer un danger peut attirer vers lui."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Utiliser les rétroviseurs",
+                                "strong": true
+                            },
+                            {
+                                "label": "Compléter la vision directe avec les informations arrière et latérales."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Tourner suffisamment la tête",
+                                "strong": true
+                            },
+                            {
+                                "label": "Conserver une vision binoculaire lors des contrôles latéraux et éviter l’effet de tache aveugle."
+                            }
+                        ],
+                        [
+                            {
+                                "label": "Adapter l’allure",
+                                "strong": true
+                            },
+                            {
+                                "label": "La vitesse réduit le champ perceptif et augmente la distance parcourue pendant le temps de perception."
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "id": "reglementation-groupes",
+                    "title": "Réglementation",
+                    "tone": "info",
+                    "content": "Le support source annonce deux catégories à traiter : groupe léger et groupe lourd. Dans cette version, la structure est prête à recevoir le tableau réglementaire détaillé dès que le contenu source complet est validé."
+                }
+            ]
+        },
+        {
+            "id": "revision",
+            "title": "Questions de révision",
+            "intro": "Ces questions servent à vérifier que l’élève relie bien le fonctionnement physiologique à une conséquence concrète en conduite.",
+            "blocks": [
+                {
+                    "type": "list-card",
+                    "id": "questions-revision",
+                    "title": "Questions possibles",
+                    "ordered": true,
+                    "items": [
+                        "Pourquoi la vue est-elle le sens principal en conduite ?",
+                        "Quelle différence peut-on faire entre voir, regarder et observer ?",
+                        "Pourquoi la tache aveugle justifie-t-elle de tourner suffisamment la tête ?",
+                        "Que signifie le temps de latence de 0,22 seconde ?",
+                        "À 90 km/h, quelle distance est parcourue pendant 0,22 seconde ?",
+                        "Pourquoi le champ perceptif se réduit-il avec la vitesse ?",
+                        "Pourquoi la conduite de nuit impose-t-elle d’adapter l’allure ?"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sources",
+            "title": "Pages sources accessibles",
+            "intro": "Les pages sources sont conservées en fin de cours pour garder la trace du document d’origine et vérifier le lien entre transcription, tableau et image.",
+            "blocks": [
+                {
+                    "type": "source-pages",
+                    "id": "pages-sources",
+                    "title": "Pages sources du support",
+                    "intro": "Chaque page contient l’image source et sa transcription accessible. Les détails sont repliés par défaut pour préserver le confort de lecture sur mobile.",
+                    "pages": [
+                        {
+                            "page": 1,
+                            "title": "Chapitre II — les fondamentaux de l’enseignement",
+                            "image": "/cours/oeil-conduite/source/page-001-source.jpg",
+                            "alt": "Page source 1 du cours : Chapitre II — les fondamentaux de l’enseignement",
+                            "transcript": [
+                                "CHAPITRE II / LES FONDAMENTAUX DE L’ENSEIGNEMENT DE LA CONDUITE ET DE LA SÉCURITÉ ROUTIÈRE",
+                                "CH2.1 / LES CONDUCTEURS ET LA CONDUITE",
+                                "M2 / AVOIR DES NOTIONS DE PHYSIOLOGIE",
+                                "[CH2.1 M2]",
+                                "Logo : Euro Formation."
+                            ]
+                        },
+                        {
+                            "page": 2,
+                            "title": "PLAN DU COURS",
+                            "image": "/cours/oeil-conduite/source/page-002-source.jpg",
+                            "alt": "Page source 2 du cours : PLAN DU COURS",
+                            "transcript": [
+                                "PLAN DU COURS",
+                                "I/ Rôle des différents organes sensoriels",
+                                "a) Les sens concernés par la conduite b) L’œil Constitution Fonctionnement Déficiences Réglementation",
+                                "II/ Le temps de réaction",
+                                "a) La tâche de conduite b) La vigilance c) La fatigue",
+                                "III/ Les produits psycho-actifs",
+                                "a) Définition b) L’alcool c) Les drogues d) Les médicaments",
+                                "IV/ Les affections incompatibles avec la conduite",
+                                "a) Groupe léger b) Groupe lourd"
+                            ]
+                        },
+                        {
+                            "page": 3,
+                            "title": "I/ Le rôle des différents organes sensoriels",
+                            "image": "/cours/oeil-conduite/source/page-003-source.jpg",
+                            "alt": "Page source 3 du cours : I/ Le rôle des différents organes sensoriels",
+                            "transcript": [
+                                "I/ Le rôle des différents organes sensoriels",
+                                "(Temps de lecture : 10 minutes)",
+                                "a) Les sens utiles à la conduite",
+                                "- L’ouïe : peu utile pour la conduite. On peut d’ailleurs conduire et être sourd. - L’odorat : idem. - Le goût : idem. - Le toucher : permet de ressentir les mouvements, les accélérations, freinages, les changements de trajectoire. - La vue : essentielle, 90 % des informations utiles à la conduite.",
+                                "La perception du conducteur est influencée par de nombreux phénomènes, notamment par des facteurs psychologiques, l’apprentissage du regard, l’expérience, les représentations… Ainsi, les « stratégies perceptives » ne sont pas les mêmes pour un débutant, pour un conducteur expérimenté, pour un jeune ou pour une personne âgée, etc.",
+                                "Nous nous contenterons ici d’évoquer le fonctionnement purement physiologique, les limites de l’œil, les principaux facteurs physiologiques influant la perception tels que les produits psycho-actifs et la fatigue."
+                            ]
+                        },
+                        {
+                            "page": 4,
+                            "title": "b) L’œil",
+                            "image": "/cours/oeil-conduite/source/page-004-source.jpg",
+                            "alt": "Page source 4 du cours : b) L’œil",
+                            "transcript": [
+                                "b) L’œil",
+                                "Schéma de l’œil :",
+                                "- Cornée - Choroïde - Sclérotique (blanc de l’œil) - Iris (couleur de l’œil) - Pupille - Macula - Point aveugle - Humeur aqueuse - Cristallin - Rétine - Vitré - Nerf optique"
+                            ]
+                        },
+                        {
+                            "page": 5,
+                            "title": "Mise en évidence de la tache aveugle",
+                            "image": "/cours/oeil-conduite/source/page-005-source.jpg",
+                            "alt": "Page source 5 du cours : Mise en évidence de la tache aveugle",
+                            "transcript": [
+                                "Mise en évidence de la tache aveugle",
+                                "C’est une zone de la rétine caractérisée par l’absence de photorécepteurs. La stimulation lumineuse de cet endroit de la rétine ne produit pas de réponse visuelle du cerveau. La tache aveugle est située à la jonction entre la rétine et le nerf optique.",
+                                "Lorsque nous regardons avec les 2 yeux, la tache aveugle d’un œil est compensée par l’autre œil. C’est quand nous regardons d’un seul œil que nous pouvons être victime du phénomène engendré par la tache aveugle.",
+                                "Pour en prendre conscience, il faut se livrer à l’expérience suivante, qui utilise le quadrillage ci-dessous :",
+                                "1) Tenir le dessin du quadrillage verticalement de la main gauche, le bras déplié en avant de soi.",
+                                "2) Obturez l’œil droit de la main droite, et fixez le rond avec l’œil gauche, en gardant dans le champ de vision périphérique l’étoile verte.",
+                                "3) Approchez doucement le quadrillage en fixant toujours le cercle rouge.",
+                                "4) À une certaine distance (environ 40 cm), l’étoile va disparaître. Attention, à ce moment-là, on a tendance à bouger l’œil pour retrouver la vision périphérique de l’étoile.",
+                                "5) En rapprochant encore la feuille, l’étoile verte réapparaît.",
+                                "À l’endroit où l’étoile disparaît, l’étoile se trouvait précisément dans le champ de la tache aveugle. Le plus extraordinaire, c’est que le cerveau rétablit une vraisemblance de l’image en complétant le quadrillage. Si le fond était jaune, le cerveau rétablirait du jaune comme fond."
+                            ]
+                        },
+                        {
+                            "page": 6,
+                            "title": "Exercice de la tache aveugle",
+                            "image": "/cours/oeil-conduite/source/page-006-source.jpg",
+                            "alt": "Page source 6 du cours : Exercice de la tache aveugle",
+                            "transcript": [
+                                "Exercice de la tache aveugle",
+                                "Image : quadrillage avec une étoile verte à gauche et un cercle rouge à droite.",
+                                "La connaissance de l’existence de la tache aveugle est essentielle pour justifier l’utilisation des deux yeux lorsqu’on contrôle dans les rétroviseurs et pour le cours sur les intersections : le franchissement du STOP.",
+                                "Moralité : il ne faut pas jeter un coup d’œil, il faut suffisamment tourner la tête pour conserver une vision binoculaire lorsqu’on contrôle.",
+                                "En effet, le nez gêne et on ne voit que d’un œil lorsqu’on contrôle dans les rétroviseurs extérieurs, si on ne tourne pas suffisamment la tête."
+                            ]
+                        },
+                        {
+                            "page": 7,
+                            "title": "Le temps de latence",
+                            "image": "/cours/oeil-conduite/source/page-007-source.jpg",
+                            "alt": "Page source 7 du cours : Le temps de latence",
+                            "transcript": [
+                                "Le temps de latence",
+                                "Schémas : trajet entre les yeux, le nerf optique et le cerveau ; coupe de l’œil.",
+                                "La Nature nous a-t-elle bien construit ? L’œil (la caméra) est à l’avant du crâne, et la zone mémoire de la vision (le disque dur) est à l’arrière.",
+                                "Il faut donc un certain temps pour aller de l’œil au disque dur de la mémoire visuelle !",
+                                "Éléments visibles sur le schéma de coupe de l’œil :",
+                                "- Vitre - Sclérotique (blanc de l’œil) - Cornée - Pupille - Iris - Humeur aqueuse - Cristallin - Rétine - Nerf optique - UV A - UV B - UV C"
+                            ]
+                        },
+                        {
+                            "page": 8,
+                            "title": "Spectre visible et limites de perception de l’œil",
+                            "image": "/cours/oeil-conduite/source/page-008-source.jpg",
+                            "alt": "Page source 8 du cours : Spectre visible et limites de perception de l’œil",
+                            "transcript": [
+                                "Spectre visible et limites de perception de l’œil",
+                                "Schéma : longueurs d’ondes en nanomètres.",
+                                "- UVC - UVB - UVA - Lumière visible - Infrarouge - 180 - 280 - 315 - 380 - 780",
+                                "Les ultraviolets sont les plus dangereux pour les yeux.",
+                                "Il faut aussi être modeste dans nos prétentions : Les yeux ne peuvent capter que certaines longueurs d’ondes, entre 380 et 780 nanomètres. Ce qui signifie qu’il est impossible de voir avec les yeux tout ce qui existe dans l’univers. On ne peut voir que ce qui est « visible » !",
+                                "En dessous de 380 nanomètres, on ne peut rien percevoir, mais notre peau réagit en bronzant. Les chiens peuvent capter des sons inaudibles pour l’homme, les chauves-souris émettent des sons pour se diriger que nous n’entendons absolument pas (discrètes petites bébêtes).",
+                                "Au-delà de 780 nanomètres, notre œil ne perçoit rien, mais notre peau perçoit de la chaleur.",
+                                "Restons modeste : On ne peut percevoir pas avec nos yeux tout ce qui existe dans l’univers."
+                            ]
+                        },
+                        {
+                            "page": 9,
+                            "title": "Pour comprendre le phénomène, prenons un exemple :",
+                            "image": "/cours/oeil-conduite/source/page-009-source.jpg",
+                            "alt": "Page source 9 du cours : Pour comprendre le phénomène, prenons un exemple :",
+                            "transcript": [
+                                "Pour comprendre le phénomène, prenons un exemple :",
+                                "Combien de temps met la lumière du soleil pour arriver jusqu’à nous ?",
+                                "Détail du processus : Les pigments des cellules de la rétine, en se dégradant, produisent un courant électrique faible. C’est ce courant électrique qui va former une image au centre de la vision à l’arrière du cerveau.",
+                                "Le temps de latence : Pour que la lumière qui entre dans l’œil soit transformée en courant électrique et arrive au centre visuel du cerveau (en arrière de la tête), il faut 22 centièmes de seconde.",
+                                "Distance moyenne Terre-Soleil : 149 500 000 km. Vitesse de la lumière : 300 000 km/s. En divisant la distance par la vitesse, on obtient le temps nécessaire : 478 secondes.",
+                                "Soit 8 minutes."
+                            ]
+                        },
+                        {
+                            "page": 10,
+                            "title": "Conséquence",
+                            "image": "/cours/oeil-conduite/source/page-010-source.jpg",
+                            "alt": "Page source 10 du cours : Conséquence",
+                            "transcript": [
+                                "Conséquence",
+                                "À la vitesse de 90 km/h :",
+                                "- Le véhicule parcourt 90 000 m par heure. - Le véhicule parcourt 90 000 m en 3 600 secondes. - Le véhicule parcourt 25 m par seconde.",
+                                "Pendant le temps de latence, le véhicule parcourt 5,50 m (temps nécessaire à la formation de l’image dans le centre visuel du cerveau).",
+                                "Résumons : comment se forment les images.",
+                                "- L’œil reçoit de la lumière. - Cette lumière est transformée en courant électrique. - Le nerf optique achemine cette information jusqu’au centre visuel du cerveau. - Le centre visuel du cerveau forme l’image et la conscience interprète l’image pour lui donner une signification (identifier = recherche dans le connu).",
+                                "Quand on croise un véhicule à la vitesse de 90 km/h :",
+                                "- Chaque véhicule parcourt 5,50 m pendant le temps de latence. - Quand on voit le véhicule en face à 11 mètres, dans la réalité, il est déjà à côté du mien.",
+                                "La vision, un processus mental qui prend du temps : 0,22 secondes."
+                            ]
+                        },
+                        {
+                            "page": 11,
+                            "title": "La perception a toujours du retard",
+                            "image": "/cours/oeil-conduite/source/page-011-source.jpg",
+                            "alt": "Page source 11 du cours : La perception a toujours du retard",
+                            "transcript": [
+                                "La perception a toujours du retard",
+                                "Quand nous voyons un feu à 10 mètres, nous en sommes en réalité à 4,5 m à la vitesse de 90 km/h. À 45 km/h, quand nous voyons un feu à 5 mètres, nous en sommes en réalité à 2,75 m.",
+                                "Sur tout le continent américain, on place les feux après le carrefour. De plus, on ajoute un timing.",
+                                "Une autre solution, pour ne pas piéger les automobilistes, c’est d’indiquer aux conducteurs le temps qu’il leur reste pour franchir l’intersection, par un décompte des secondes où le feu va rester vert."
+                            ]
+                        },
+                        {
+                            "page": 12,
+                            "title": "Feu orange et temps de perception",
+                            "image": "/cours/oeil-conduite/source/page-012-source.jpg",
+                            "alt": "Page source 12 du cours : Feu orange et temps de perception",
+                            "transcript": [
+                                "Feu orange et temps de perception",
+                                "Si le feu passe à l’orange, et que le conducteur se trouve à moins de 3 mètres, il ne peut pas voir le changement de couleur pour 2 raisons :",
+                                "- Il a du retard pour percevoir, et sur les côtés. - Il est impossible de discerner les couleurs.",
+                                "Quand le feu passe à l’orange, le décompte s’éteint.",
+                                "Quand le feu est rouge, le décompte laisse la place à une main levée. Pas d’équivoque !",
+                                "C’est pourquoi, sur tout le continent américain, on place les feux après le carrefour."
+                            ]
+                        },
+                        {
+                            "page": 13,
+                            "title": "Nous voyons toujours la réalité avec 22/100ème de seconde de retard.",
+                            "image": "/cours/oeil-conduite/source/page-013-source.jpg",
+                            "alt": "Page source 13 du cours : Nous voyons toujours la réalité avec 22/100ème de seconde de retard.",
+                            "transcript": [
+                                "Nous voyons toujours la réalité avec 22/100ème de seconde de retard.",
+                                "Remerciements à Formation&Securité, Yann Chanois, pour ces précieuses informations richement documentées et vérifiées."
+                            ]
+                        },
+                        {
+                            "page": 14,
+                            "title": "Le champ de vision global est de 180°, mais la vitesse réduit le champ perceptif : le cerveau n’est pas adapté à des vitesses supérieures à 10-15 km/h, donc il réduit le champ perceptif « exploitable ».",
+                            "image": "/cours/oeil-conduite/source/page-014-source.jpg",
+                            "alt": "Page source 14 du cours : Le champ de vision global est de 180°, mais la vitesse réduit le champ perceptif : le cerveau n’est pas adapté à des vitesses supérieures à 10-15 km/h, donc il réduit le champ perceptif « exploitable ».",
+                            "transcript": [
+                                "Le champ de vision global est de 180°, mais la vitesse réduit le champ perceptif : le cerveau n’est pas adapté à des vitesses supérieures à 10-15 km/h, donc il réduit le champ perceptif « exploitable ».",
+                                "Schéma de réduction du champ perceptif selon la vitesse :",
+                                "- 0 km/h = 180° - 35 km/h = 105° - 65 km/h = 70° - 100 km/h = 50° - 140 km/h = 30°"
+                            ]
+                        },
+                        {
+                            "page": 15,
+                            "title": "Ce champ de vision de 180° se divise en une zone nette de 5 à 6° maximum, au centre de la vision, le point de fixation du regard. Le reste est « flou » : les couleurs ne sont pas évidentes à percevoir, les formes imprécises. Au mieux, on perçoit les mouvements latéraux, sans toujours pouvoir les identifier.",
+                            "image": "/cours/oeil-conduite/source/page-015-source.jpg",
+                            "alt": "Page source 15 du cours : Ce champ de vision de 180° se divise en une zone nette de 5 à 6° maximum, au centre de la vision, le point de fixation du regard. Le reste est « flou » : les couleurs ne sont pas évidentes à percevoir, les formes imprécises. Au mieux, on perçoit les mouvements latéraux, sans toujours pouvoir les identifier.",
+                            "transcript": [
+                                "Ce champ de vision de 180° se divise en une zone nette de 5 à 6° maximum, au centre de la vision, le point de fixation du regard. Le reste est « flou » : les couleurs ne sont pas évidentes à percevoir, les formes imprécises. Au mieux, on perçoit les mouvements latéraux, sans toujours pouvoir les identifier.",
+                                "Schéma :",
+                                "- Zone de vision nette - Zone de vision floue - Angle mort"
+                            ]
+                        },
+                        {
+                            "page": 16,
+                            "title": "La conduite de nuit",
+                            "image": "/cours/oeil-conduite/source/page-016-source.jpg",
+                            "alt": "Page source 16 du cours : La conduite de nuit",
+                            "transcript": [
+                                "La conduite de nuit",
+                                "La nuit, la vision périphérique conserve toute son activité alors que la vision centrale diminue très rapidement.",
+                                "Le jour, les obstacles apparaissent sur fond clair. La nuit, ces mêmes obstacles, éclairés par les phares, apparaissent sur fond sombre.",
+                                "L’inversion des contrastes entraîne des troubles d’orientation et des difficultés à apprécier les distances et les vitesses des véhicules.",
+                                "En dehors des routes éclairées, notre vision est souvent limitée à la distance d’éclairage des phares de nos véhicules.",
+                                "Or, les feux de croisement n’éclairant qu’à 50 mètres, il faut faire preuve de prudence en matière de vitesse."
+                            ]
+                        },
+                        {
+                            "page": 17,
+                            "title": "Pathologies",
+                            "image": "/cours/oeil-conduite/source/page-017-source.jpg",
+                            "alt": "Page source 17 du cours : Pathologies",
+                            "transcript": [
+                                "Pathologies",
+                                "- Myopie - Hypermétropie - Astigmatisme - Presbytie - Daltonisme - Altération du champ visuel"
+                            ]
+                        },
+                        {
+                            "page": 18,
+                            "title": "Précautions",
+                            "image": "/cours/oeil-conduite/source/page-018-source.jpg",
+                            "alt": "Page source 18 du cours : Précautions",
+                            "transcript": [
+                                "Précautions",
+                                "- Regarder loin. - Avoir un regard mobile. - Le regard conditionnant la trajectoire : ne pas fixer. - Nécessité de posséder et d’utiliser des rétroviseurs. - Être conscient que la vitesse diminue le champ de vision ainsi que d’autres facteurs."
+                            ]
+                        },
+                        {
+                            "page": 19,
+                            "title": "Réglementation",
+                            "image": "/cours/oeil-conduite/source/page-019-source.jpg",
+                            "alt": "Page source 19 du cours : Réglementation",
+                            "transcript": [
+                                "Réglementation",
+                                "- Groupe léger - Groupe lourd"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

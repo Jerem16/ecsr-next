@@ -1,0 +1,33 @@
+import type { CourseSection } from "../../../types/course";
+
+export const oeilConduiteSpectreSection: CourseSection = {
+            id: "spectre",
+            title: "Spectre visible et limites de perception",
+            intro: "L’œil ne perçoit pas tout ce qui existe. Il ne capte qu’une partie des longueurs d’onde.",
+            blocks: [
+                {
+                    type: "image-card",
+                    id: "spectre-visible",
+                    title: "Ce que l’œil peut percevoir",
+                    imagePosition: "left",
+                    image: {
+                        src: "/cours/oeil-conduite/refined/schema-spectre-visible-380-780.jpg",
+                        alt: "Schéma du spectre visible indiquant les ultraviolets, la lumière visible entre 380 et 780 nanomètres et l’infrarouge.",
+                        caption: "Spectre visible et limites de perception.",
+                        role: "schema",
+                    },
+                    content: [
+                        "L’œil humain ne capte qu’une partie des longueurs d’onde : la lumière visible, située entre environ 380 et 780 nanomètres.",
+                        "En dessous de 380 nanomètres, les yeux ne perçoivent pas directement ; au-delà de 780 nanomètres, la peau peut percevoir de la chaleur, mais l’œil ne voit pas l’infrarouge.",
+                    ],
+                },
+                {
+                    type: "callout",
+                    id: "humilite-perception",
+                    title: "Idée à retenir",
+                    tone: "info",
+                    content:
+                        "Il faut rester modeste : nos yeux ne permettent pas de percevoir tout ce qui existe dans l’environnement. La conduite impose donc de compenser les limites naturelles de la perception.",
+                },
+            ],
+        };

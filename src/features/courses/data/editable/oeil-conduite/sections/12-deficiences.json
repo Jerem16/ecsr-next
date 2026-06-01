@@ -1,0 +1,146 @@
+{
+    "id": "deficiences",
+    "title": "Déficiences, précautions et réglementation",
+    "intro": "Le support termine par les pathologies visuelles, les précautions de conduite et la distinction réglementaire entre groupe léger et groupe lourd.",
+    "blocks": [
+        {
+            "type": "table",
+            "id": "table-pathologies",
+            "title": "Pathologies ou limites visuelles",
+            "caption": "Effets possibles des principales limites visuelles sur la conduite",
+            "columns": [
+                "Pathologie ou limite",
+                "Effet possible sur la conduite"
+            ],
+            "rows": [
+                [
+                    {
+                        "label": "Myopie",
+                        "strong": true
+                    },
+                    {
+                        "label": "Difficulté à voir net de loin."
+                    }
+                ],
+                [
+                    {
+                        "label": "Hypermétropie",
+                        "strong": true
+                    },
+                    {
+                        "label": "Difficulté de mise au point, surtout de près, avec fatigue visuelle possible."
+                    }
+                ],
+                [
+                    {
+                        "label": "Astigmatisme",
+                        "strong": true
+                    },
+                    {
+                        "label": "Vision déformée ou floue selon les axes."
+                    }
+                ],
+                [
+                    {
+                        "label": "Presbytie",
+                        "strong": true
+                    },
+                    {
+                        "label": "Difficulté progressive à voir net de près avec l’âge."
+                    }
+                ],
+                [
+                    {
+                        "label": "Daltonisme",
+                        "strong": true
+                    },
+                    {
+                        "label": "Difficulté à distinguer certaines couleurs."
+                    }
+                ],
+                [
+                    {
+                        "label": "Altération du champ visuel",
+                        "strong": true
+                    },
+                    {
+                        "label": "Réduction des informations latérales et risque de mauvaise détection."
+                    }
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "id": "table-precautions",
+            "title": "Précautions de conduite liées à la vision",
+            "caption": "Gestes et attitudes qui compensent les limites de la perception",
+            "columns": [
+                "Précaution",
+                "Pourquoi c’est important"
+            ],
+            "rows": [
+                [
+                    {
+                        "label": "Regarder loin",
+                        "strong": true
+                    },
+                    {
+                        "label": "Anticiper plus tôt et préparer les décisions."
+                    }
+                ],
+                [
+                    {
+                        "label": "Avoir un regard mobile",
+                        "strong": true
+                    },
+                    {
+                        "label": "Explorer l’environnement sans se fixer sur un seul point."
+                    }
+                ],
+                [
+                    {
+                        "label": "Ne pas fixer",
+                        "strong": true
+                    },
+                    {
+                        "label": "Le regard conditionne la trajectoire : fixer un danger peut attirer vers lui."
+                    }
+                ],
+                [
+                    {
+                        "label": "Utiliser les rétroviseurs",
+                        "strong": true
+                    },
+                    {
+                        "label": "Compléter la vision directe avec les informations arrière et latérales."
+                    }
+                ],
+                [
+                    {
+                        "label": "Tourner suffisamment la tête",
+                        "strong": true
+                    },
+                    {
+                        "label": "Conserver une vision binoculaire lors des contrôles latéraux et éviter l’effet de tache aveugle."
+                    }
+                ],
+                [
+                    {
+                        "label": "Adapter l’allure",
+                        "strong": true
+                    },
+                    {
+                        "label": "La vitesse réduit le champ perceptif et augmente la distance parcourue pendant le temps de perception."
+                    }
+                ]
+            ]
+        },
+        {
+            "type": "callout",
+            "id": "reglementation-groupes",
+            "title": "Réglementation",
+            "tone": "info",
+            "content": "Le support source annonce deux catégories à traiter : groupe léger et groupe lourd. Dans cette version, la structure est prête à recevoir le tableau réglementaire détaillé dès que le contenu source complet est validé."
+        }
+    ]
+}

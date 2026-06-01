@@ -1,0 +1,59 @@
+/* ==========================================================================
+   FILE: src/assets/styles/02_components/header/_header.scss
+   ROLE: component
+   SCOPE: Header / Navbar (structure principale)
+   DEPENDENCIES: variables.scss
+   BREAKPOINTS:
+     - Mobile: default
+     - Desktop: >= 1024px
+   NOTES: Styles de base de la navbar, le responsive est géré ailleurs.
+   ========================================================================== */
+
+/* --- Table of contents -----------------------------------------------------
+  2) Base / structure
+  3) States (hover, focus, active, open)
+  5) Responsive - Desktop (>= 1024px)
+--------------------------------------------------------------------------- */
+
+/* 2) Base / structure */
+/* nav-bar */
+
+.nav-bar {
+    width: 100%;
+    height: $nav-bar-height;
+    font-family: var(--font-ui);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $margin-nav $margin-nav 0 $margin-nav;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+.nav-bar {
+    background: radial-gradient(
+            1200px 200px at 50% 0%,
+            rgba(39, 215, 255, 0.1),
+            transparent 60%
+        ),
+        rgba(2, 2, 3, 0.92);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.sidebar {
+    background: radial-gradient(
+            200px 1200px at 50% 100%,
+            rgba(39, 215, 255, 0.1),
+            transparent 60%
+        ),
+        rgba(2, 2, 3, 0.92);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Sidebar => plutôt une bordure “séparateur” à droite */
+    border-bottom: 0;
+}

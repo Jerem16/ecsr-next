@@ -1,0 +1,65 @@
+/* ==========================================================================
+   FILE: src/assets/styles/02_components/header/_sidebar.scss
+   ROLE: component
+   SCOPE: Sidebar navigation
+   DEPENDENCIES: variables.scss
+   BREAKPOINTS:
+     - Mobile: default
+     - Desktop: >= 1024px
+   NOTES: Sidebar fixée, vérifier l'interaction avec la navbar.
+   ========================================================================== */
+
+/* --- Table of contents -----------------------------------------------------
+  2) Base / structure
+  3) States (hover, focus, active, open)
+--------------------------------------------------------------------------- */
+
+/* 2) Base / structure */
+.sidebar {
+    width: $side-bar-width;
+    position: fixed;
+    top: $nav-bar-height;
+    z-index: 99;
+    height: calc(100vh - $nav-bar-height);
+    background-color: $nav-bg-black;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    justify-content: center;
+    padding: 0px $margin-nav;
+
+    .side-nav {
+        position: relative;
+        left: 0;
+        width: 64px;
+        height: auto;
+        --side-icon-size: 64px;
+
+        a {
+            display: block;
+            line-height: 0;
+        }
+
+        .side-icon {
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            // border: 2px solid $nav-bg-black;
+            width: var(--side-icon-size);
+            height: var(--side-icon-size);
+            flex: 0 0 var(--side-icon-size);
+            svg {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+            .red-content_icon {
+                fill: $text-white;
+            }
+            .white-bg_icon {
+                fill: rgba(2, 2, 3, 0);
+            }
+        }
+    }
+}

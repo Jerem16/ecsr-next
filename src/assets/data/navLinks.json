@@ -1,0 +1,33 @@
+[
+    {
+        "id": "homeLink",
+        "label": "Accueil",
+        "path": "/",
+        "title": "Aller à la page d'accueil"
+    },
+    {
+        "id": "servicesLink",
+        "label": "Services",
+        "path": "/services",
+        "title": "Découvrir tous les services proposés"
+    },
+    {
+        "id": "achievementsLink",
+        "label": "Réalisations",
+        "path": "/achievements",
+        "title": "Nos réalisations"
+    },
+    {
+        "id": "aboutLink",
+        "label": "À propos",
+        "path": "/about",
+        "title": "Parcours, méthode de travail, avis clients"
+    },
+    {
+        "id": "contactLink",
+        "label": "Contact",
+        "path": "/contact",
+        "title": "Contacter Wii-Design"
+    }
+]
+

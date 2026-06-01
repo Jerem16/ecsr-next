@@ -1,0 +1,179 @@
+import type { MenuItem, SubItem } from "../../data/interfaces/menu";
+import { useEffect, useRef, useCallback } from "react";
+import type { Dispatch, RefObject, SetStateAction } from "react";
+import { useNavigation } from "../context/NavigationContext";
+
+export const isMainItemActive = (
+    itemPath: string,
+    currentRoute: string
+): boolean => {
+    if (itemPath === "/") {
+        return currentRoute === "/" || currentRoute.startsWith("/#");
+    }
+
+    return currentRoute.startsWith(itemPath);
+};
+
+/*-------------------------------------------------------*/
+
+const getRoutePath = (route: string): string => route.split("#")[0] ?? "";
+
+const updateSubItems = (
+    subItems: SubItem[],
+    activeSection: string,
+    currentRoute: string
+): SubItem[] => {
+    const routePath = getRoutePath(currentRoute);
+
+    return subItems.map((sub) => {
+        const targetPath = sub.path ? getRoutePath(sub.path) : "";
+        const routeMatches = targetPath.length > 0 && routePath === targetPath;
+        const anchorMatches =
+            (targetPath.length === 0 || routeMatches) &&
+            sub.AnchorId === `#${activeSection}`;
+        const children = sub.children
+            ? updateSubItems(sub.children, activeSection, currentRoute)
+            : undefined;
+        const hasActiveChild = Boolean(
+            children?.some((child) =>
+                child.class === "active" ||
+                child.children?.some((grandChild) => grandChild.class === "active")
+            )
+        );
+
+        return {
+            ...sub,
+            class: routeMatches || anchorMatches || hasActiveChild ? "active" : "",
+            children,
+        };
+    });
+};
+
+export const updateMenuItems = (
+    items: MenuItem[],
+    activeSection: string,
+    currentRoute: string
+): MenuItem[] => {
+    return items.map((item) => ({
+        ...item,
+        class: isMainItemActive(item.path, currentRoute) ? "active" : "",
+        subItems: item.subItems
+            ? updateSubItems(item.subItems, activeSection, currentRoute)
+            : undefined,
+    }));
+};
+
+/*-------------------------------------------------------*/
+
+export const updateMenuClasses = (
+    mainLink?: MenuItem[],
+    reservation?: MenuItem[],
+    search?: MenuItem[],
+    connection?: MenuItem[],
+    activeSection: string = "",
+    currentRoute: string = ""
+) => {
+    const updatedMenu = {
+        mainLink: updateMenuItems(mainLink || [], activeSection, currentRoute),
+        reservation: updateMenuItems(
+            reservation || [],
+            activeSection,
+            currentRoute
+        ),
+        search: updateMenuItems(search || [], activeSection, currentRoute),
+        connection: updateMenuItems(
+            connection || [],
+            activeSection,
+            currentRoute
+        ),
+    };
+
+    return updatedMenu;
+};
+
+/*-------------------------------------------------------*/
+
+export const resetActiveMenuClasses = () => {
+    const activeLinks = document.querySelectorAll(".nav-link.active");
+
+    activeLinks.forEach((link) => {
+        if (link instanceof HTMLElement) {
+            link.classList.remove("active");
+        }
+    });
+
+    const submenus = document.querySelectorAll(".submenu.open");
+
+    submenus.forEach((submenu) => {
+        if (submenu instanceof HTMLElement) {
+            submenu.style.display = "";
+        }
+    });
+};
+
+/*-------------------------------------------------------*/
+
+const handleClickOutside = (
+    e: MouseEvent,
+    navRef: RefObject<HTMLElement | null>,
+    setOpenSubMenu: Dispatch<SetStateAction<string | null>>
+) => {
+    if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenSubMenu(null);
+    }
+};
+
+const handleKeyDown = (
+    e: KeyboardEvent,
+    setOpenSubMenu: Dispatch<SetStateAction<string | null>>
+) => {
+    if (e.key === "Escape") {
+        e.preventDefault();
+        setOpenSubMenu(null);
+    }
+};
+
+export const useMenuBehavior = () => {
+    const navRef = useRef<HTMLElement | null>(null);
+    const { openSubMenu, setOpenSubMenu } = useNavigation();
+
+    // Garder la valeur la plus récente sans la capturer dans le callback
+    const openSubMenuRef = useRef<string | null>(openSubMenu);
+
+    useEffect(() => {
+        openSubMenuRef.current = openSubMenu;
+    }, [openSubMenu]);
+
+    const setOpenSubMenuBridge = useCallback<
+        Dispatch<SetStateAction<string | null>>
+    >(
+        (value) => {
+            if (typeof value === "function") {
+                const updater = value as (
+                    prev: string | null
+                ) => string | null;
+                setOpenSubMenu(updater(openSubMenuRef.current));
+            } else {
+                setOpenSubMenu(value);
+            }
+        },
+        [setOpenSubMenu]
+    );
+
+    useEffect(() => {
+        const onClickOutside = (e: MouseEvent) =>
+            handleClickOutside(e, navRef, setOpenSubMenuBridge);
+        const onKeyDown = (e: KeyboardEvent) =>
+            handleKeyDown(e, setOpenSubMenuBridge);
+
+        document.addEventListener("mousedown", onClickOutside);
+        document.addEventListener("keydown", onKeyDown);
+
+        return () => {
+            document.removeEventListener("mousedown", onClickOutside);
+            document.removeEventListener("keydown", onKeyDown);
+        };
+    }, [setOpenSubMenuBridge]);
+
+    return { navRef, openSubMenu, setOpenSubMenu: setOpenSubMenuBridge };
+};

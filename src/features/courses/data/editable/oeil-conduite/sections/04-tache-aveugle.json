@@ -1,0 +1,30 @@
+{
+    "id": "tache-aveugle",
+    "title": "Mise en évidence de la tache aveugle",
+    "intro": "La tache aveugle est une zone de la rétine caractérisée par l’absence de photorécepteurs. La stimulation lumineuse de cette zone ne produit donc pas de réponse visuelle du cerveau.",
+    "blocks": [
+        {
+            "type": "image-card",
+            "id": "experience-tache-aveugle",
+            "title": "Expérience de la tache aveugle",
+            "imagePosition": "right",
+            "image": {
+                "src": "/cours/oeil-conduite/refined/experience-tache-aveugle-quadrillage.jpg",
+                "alt": "Quadrillage de l’expérience de la tache aveugle avec une étoile verte à gauche et un cercle rouge à droite.",
+                "caption": "Quadrillage utilisé pour faire disparaître l’étoile dans la tache aveugle.",
+                "role": "schema"
+            },
+            "content": [
+                "Avec les deux yeux, la tache aveugle d’un œil est compensée par l’autre œil. Avec un seul œil, le phénomène devient perceptible.",
+                "L’expérience consiste à fixer le cercle rouge avec l’œil gauche en gardant l’étoile verte dans le champ périphérique. À environ 40 cm, l’étoile disparaît."
+            ]
+        },
+        {
+            "type": "callout",
+            "id": "consequence-controles",
+            "title": "Conséquence en conduite",
+            "tone": "warning",
+            "content": "Il ne faut pas seulement jeter un coup d’œil. Il faut tourner suffisamment la tête pour conserver une vision binoculaire lors des contrôles, notamment avec les rétroviseurs extérieurs et lors du franchissement d’un STOP."
+        }
+    ]
+}

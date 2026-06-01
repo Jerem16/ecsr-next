@@ -1,0 +1,72 @@
+{
+    "id": "feux",
+    "title": "Feux, intersection et temps de perception",
+    "intro": "Le cours applique le retard de perception à la situation des feux. Quand un feu est vu tardivement, la position réelle du véhicule est déjà plus avancée que la position perçue.",
+    "blocks": [
+        {
+            "type": "comparison-card",
+            "id": "feux-apres-carrefour",
+            "title": "Feux après le carrefour : logique pédagogique",
+            "intro": "Le support compare la perception du feu et la solution utilisée sur le continent américain : placer les feux après le carrefour et ajouter un décompte.",
+            "items": [
+                {
+                    "title": "Feu et intersection",
+                    "content": "Le conducteur doit identifier le feu, les usagers et l’intersection.",
+                    "image": {
+                        "src": "/cours/oeil-conduite/refined/photo-feu-avant-carrefour.jpg",
+                        "alt": "Intersection avec feu tricolore et usagers traversant la chaussée.",
+                        "caption": "Feu et intersection.",
+                        "role": "contexte"
+                    }
+                },
+                {
+                    "title": "Feu après le carrefour",
+                    "content": "Le décompte aide à anticiper le temps restant.",
+                    "image": {
+                        "src": "/cours/oeil-conduite/refined/photo-feu-apres-carrefour-decompte.jpg",
+                        "alt": "Feu tricolore placé après le carrefour avec un décompte lumineux.",
+                        "caption": "Feu après le carrefour avec décompte.",
+                        "role": "comparaison"
+                    }
+                }
+            ],
+            "conclusion": "Ces images sont liées : elles servent à expliquer que l’emplacement du feu et le décompte peuvent réduire l’ambiguïté pour le conducteur."
+        },
+        {
+            "type": "comparison-card",
+            "id": "feu-orange-rouge",
+            "title": "Feu orange et feu rouge : deux états à distinguer",
+            "intro": "Lorsque le feu passe à l’orange, le décompte s’éteint. Lorsque le feu est rouge, le décompte laisse la place à une main levée.",
+            "items": [
+                {
+                    "title": "Feu orange",
+                    "content": "Le changement de couleur peut être perçu trop tard.",
+                    "image": {
+                        "src": "/cours/oeil-conduite/refined/photo-feu-orange-decompte-eteint.jpg",
+                        "alt": "Feu tricolore orange avec décompte éteint.",
+                        "caption": "Feu orange : le décompte s’éteint.",
+                        "role": "comparaison"
+                    }
+                },
+                {
+                    "title": "Feu rouge",
+                    "content": "La main levée enlève l’équivoque.",
+                    "image": {
+                        "src": "/cours/oeil-conduite/refined/photo-feu-rouge-main-levee.jpg",
+                        "alt": "Feu rouge associé à une main levée sur le signal piéton.",
+                        "caption": "Feu rouge : main levée.",
+                        "role": "comparaison"
+                    }
+                }
+            ],
+            "conclusion": "Ces deux images doivent rester groupées, car elles expliquent une progression : orange = décompte éteint ; rouge = main levée."
+        },
+        {
+            "type": "callout",
+            "id": "feu-orange-moins-3m",
+            "title": "Point de vigilance",
+            "tone": "warning",
+            "content": "Si le feu passe à l’orange et que le conducteur se trouve à moins de 3 mètres, le support indique qu’il peut ne pas voir le changement de couleur à cause du retard de perception et de la difficulté à discerner les couleurs sur les côtés."
+        }
+    ]
+}

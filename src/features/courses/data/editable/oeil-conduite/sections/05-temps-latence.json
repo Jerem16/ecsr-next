@@ -1,0 +1,109 @@
+{
+    "id": "temps-latence",
+    "title": "Temps de latence et formation de l’image",
+    "intro": "La vision n’est pas instantanée. La lumière reçue par l’œil doit être transformée en courant électrique, transmise par le nerf optique, puis interprétée par le cerveau.",
+    "blocks": [
+        {
+            "type": "comparison-card",
+            "id": "trajet-oeil-cerveau",
+            "title": "De l’œil au cerveau",
+            "intro": "Deux schémas complémentaires permettent de comprendre le trajet de l’information visuelle et le rôle des rayonnements.",
+            "items": [
+                {
+                    "title": "Trajet entre les yeux et le cerveau",
+                    "content": "L’information visuelle part des yeux, circule par les nerfs optiques puis arrive au centre visuel du cerveau.",
+                    "image": {
+                        "src": "/cours/oeil-conduite/refined/schema-trajet-oeil-cerveau.jpg",
+                        "alt": "Schéma du trajet de l’information visuelle entre les yeux, le nerf optique et le cerveau.",
+                        "caption": "Trajet entre les yeux et le cerveau.",
+                        "role": "schema"
+                    }
+                },
+                {
+                    "title": "Coupe de l’œil et rayonnements",
+                    "content": "Le support situe aussi les UVA, UVB et UVC pour montrer que toutes les longueurs d’onde ne sont pas perçues de la même manière.",
+                    "image": {
+                        "src": "/cours/oeil-conduite/refined/schema-coupe-oeil-uv.jpg",
+                        "alt": "Coupe de l’œil montrant l’arrivée des rayons UVA, UVB et UVC et les principales parties de l’œil.",
+                        "caption": "Coupe de l’œil et rayonnement ultraviolet.",
+                        "role": "schema"
+                    }
+                }
+            ],
+            "conclusion": "L’œil est à l’avant du crâne, mais le centre visuel est à l’arrière. Il faut donc un temps de traitement avant que l’image soit consciemment interprétée."
+        },
+        {
+            "type": "table",
+            "id": "table-temps-latence",
+            "title": "Temps de latence et distance parcourue",
+            "caption": "Conséquences pédagogiques du retard de perception",
+            "columns": [
+                "Situation",
+                "Calcul ou donnée",
+                "Conséquence pédagogique"
+            ],
+            "rows": [
+                [
+                    {
+                        "label": "Temps de latence visuelle",
+                        "strong": true
+                    },
+                    {
+                        "label": "0,22 seconde, soit 22/100e de seconde."
+                    },
+                    {
+                        "label": "L’image arrive toujours avec un léger retard."
+                    }
+                ],
+                [
+                    {
+                        "label": "À 90 km/h",
+                        "strong": true
+                    },
+                    {
+                        "label": "Le véhicule parcourt 25 m/s."
+                    },
+                    {
+                        "label": "Pendant 0,22 s, il parcourt environ 5,50 m."
+                    }
+                ],
+                [
+                    {
+                        "label": "Deux véhicules qui se croisent à 90 km/h",
+                        "strong": true
+                    },
+                    {
+                        "label": "Chaque véhicule parcourt environ 5,50 m pendant la latence."
+                    },
+                    {
+                        "label": "Quand on voit l’autre à 11 m, il est déjà quasiment à côté."
+                    }
+                ],
+                [
+                    {
+                        "label": "À 45 km/h",
+                        "strong": true
+                    },
+                    {
+                        "label": "Le véhicule parcourt 12,5 m/s."
+                    },
+                    {
+                        "label": "Pendant 0,22 s, il parcourt environ 2,75 m."
+                    }
+                ],
+                [
+                    {
+                        "label": "Feu vu à 10 m à 90 km/h",
+                        "strong": true
+                    },
+                    {
+                        "label": "10 m - 5,50 m = 4,50 m."
+                    },
+                    {
+                        "label": "La position réellement atteinte est déjà beaucoup plus proche."
+                    }
+                ]
+            ]
+        }
+    ]
+}

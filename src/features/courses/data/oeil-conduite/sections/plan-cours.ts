@@ -1,0 +1,29 @@
+import type { CourseSection } from "../../../types/course";
+
+export const oeilConduitePlanCoursSection: CourseSection = {
+            id: "plan-cours",
+            title: "Plan du cours",
+            intro: "Le cours suit la progression du support source, en transformant les pages textuelles en cartes, tableaux et visuels pédagogiques.",
+            blocks: [
+                {
+                    type: "list-card",
+                    id: "plan-general",
+                    title: "Progression proposée",
+                    ordered: true,
+                    items: [
+                        "Rôle des organes sensoriels et place de la vue.",
+                        "Constitution de l’œil et tache aveugle.",
+                        "Temps de latence et retard de perception.",
+                        "Champ perceptif, vitesse et zones de vision.",
+                        "Conduite de nuit, pathologies, précautions et réglementation.",
+                    ],
+                    keywords: [
+                        "Vue",
+                        "Perception",
+                        "Latence",
+                        "Champ perceptif",
+                        "Nuit",
+                    ],
+                },
+            ],
+        };

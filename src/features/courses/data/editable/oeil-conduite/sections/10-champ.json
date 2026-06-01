@@ -1,0 +1,112 @@
+{
+    "id": "champ",
+    "title": "Champ perceptif, vitesse et zones de vision",
+    "intro": "Le champ de vision global est large à l’arrêt, mais le champ réellement exploitable se réduit avec la vitesse.",
+    "blocks": [
+        {
+            "type": "image-card",
+            "id": "schema-champ-vitesse",
+            "title": "Réduction du champ perceptif avec la vitesse",
+            "imagePosition": "right",
+            "image": {
+                "src": "/cours/oeil-conduite/refined/schema-champ-perceptif-vitesse.jpg",
+                "alt": "Schéma montrant la réduction du champ perceptif selon la vitesse : 0 km/h, 35 km/h, 65 km/h, 100 km/h et 140 km/h.",
+                "caption": "Schéma de réduction du champ perceptif.",
+                "role": "schema"
+            },
+            "content": [
+                "Le champ de vision global est présenté comme étant de 180°. Mais avec la vitesse, le champ réellement exploitable se réduit.",
+                "Plus l’allure augmente, plus le conducteur doit anticiper loin et mobiliser son regard."
+            ]
+        },
+        {
+            "type": "table",
+            "id": "table-champ-vitesse",
+            "title": "Réduction du champ perceptif avec la vitesse",
+            "caption": "Valeurs utilisées dans le support pédagogique",
+            "columns": [
+                "Vitesse",
+                "Champ perceptif exploitable indiqué dans le support",
+                "Lecture pédagogique"
+            ],
+            "rows": [
+                [
+                    {
+                        "label": "0 km/h",
+                        "strong": true
+                    },
+                    {
+                        "label": "180°"
+                    },
+                    {
+                        "label": "Champ global large."
+                    }
+                ],
+                [
+                    {
+                        "label": "35 km/h",
+                        "strong": true
+                    },
+                    {
+                        "label": "105°"
+                    },
+                    {
+                        "label": "Le champ utile commence déjà à se refermer."
+                    }
+                ],
+                [
+                    {
+                        "label": "65 km/h",
+                        "strong": true
+                    },
+                    {
+                        "label": "70°"
+                    },
+                    {
+                        "label": "Les informations latérales deviennent moins exploitables."
+                    }
+                ],
+                [
+                    {
+                        "label": "100 km/h",
+                        "strong": true
+                    },
+                    {
+                        "label": "50°"
+                    },
+                    {
+                        "label": "Le regard doit être plus anticipé et plus mobile."
+                    }
+                ],
+                [
+                    {
+                        "label": "140 km/h",
+                        "strong": true
+                    },
+                    {
+                        "label": "30°"
+                    },
+                    {
+                        "label": "Le champ perceptif devient très réduit."
+                    }
+                ]
+            ]
+        },
+        {
+            "type": "image-card",
+            "id": "vision-nette-floue-angles-morts",
+            "title": "Vision nette, vision floue et angles morts",
+            "imagePosition": "left",
+            "image": {
+                "src": "/cours/oeil-conduite/refined/schema-zone-vision-nette-floue-angles-morts.jpg",
+                "alt": "Schéma indiquant une zone de vision nette, deux zones de vision floue et deux angles morts.",
+                "caption": "Zone nette, zones floues et angles morts.",
+                "role": "schema"
+            },
+            "content": [
+                "La zone de vision nette est très réduite au centre du regard. Le reste du champ visuel est moins précis : couleurs moins évidentes, formes imprécises, mouvements latéraux parfois perçus sans être identifiés.",
+                "Les angles morts rappellent que certains espaces ne sont pas visibles sans contrôle adapté."
+            ]
+        }
+    ]
+}

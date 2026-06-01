@@ -1,0 +1,217 @@
+/* ==========================================================================
+   FILE: src/assets/styles/04_rmdl/_rmdl.scss
+   ROLE: component
+   SCOPE: Styles RMDL (rendu éditorial)
+   DEPENDENCIES: variables CSS (fonts/typo)
+   BREAKPOINTS:
+     - Mobile: default
+     - Desktop: >= 1024px
+   NOTES: Conserver ce bloc isolé pour éviter les conflits avec le reste du site.
+   ========================================================================== */
+
+/* --- Table of contents -----------------------------------------------------
+  2) Base / structure
+  3) States (hover, focus, active, open)
+--------------------------------------------------------------------------- */
+
+/* 2) Base / structure */
+/**
+ * Styles RMDL (Option A)
+ * Intégration : importer ce fichier dans `src/assets/styles/main.scss`.
+ */
+
+/* RMDL — Typo & layout
+   Objectif : rendu lisible, stable, sans impacter le reste du site.
+*/
+
+/* Titres */
+.rmdl-h1,
+.rmdl-h2,
+.rmdl-h3 {
+    font-family: var(--font-content);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: var(--lh-h);
+    margin: 1.25rem 0 0.75rem;
+    max-inline-size: var(--measure);
+}
+
+.rmdl-h1 {
+    font-size: var(--fs-h1);
+    margin-top: 0.25rem;
+}
+
+.rmdl-h2 {
+    font-size: var(--fs-h2);
+    margin-top: 1.75rem;
+}
+
+.rmdl-h3 {
+    font-size: var(--fs-h3);
+    margin-top: 1.25rem;
+}
+
+/* Paragraphes */
+.rmdl-p {
+    font-family: var(--font-content);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    margin: 0.75rem 0;
+    text-wrap: pretty;
+    max-inline-size: var(--measure);
+}
+
+/* Strong : on reste neutre (le navigateur gère déjà), mais on évite les surprises */
+.rmdl-p strong {
+    font-weight: 700;
+}
+
+/* Label */
+.rmdl-lb {
+    font-weight: 700;
+}
+
+/* Parenthèses italique (pi)
+   - Les parenthèses restent normales
+   - Le contenu <em> hérite du gras si englobé par <strong>
+*/
+.rmdl-pi {
+    white-space: nowrap;
+}
+
+.rmdl-pi > span {
+    font-weight: 400 !important; /* Parenthèses toujours normales, même dans <strong> */
+}
+
+.rmdl-pi em {
+    font-style: italic;
+}
+
+/* Symboles neutres (règle s0) — nécessite que le renderer wrap les symboles */
+.rmdl-neutral {
+    font-weight: 400 !important;
+}
+
+/* Listes */
+.rmdl-list {
+    margin: 0.75rem 0 0.75rem 1.25rem;
+    padding: 0;
+    max-inline-size: var(--measure);
+}
+
+.rmdl-list.rmdl-l {
+    list-style: disc;
+}
+
+.rmdl-list.rmdl-ol {
+    list-style: decimal;
+}
+
+.rmdl-list.rmdl-l2 {
+    list-style: circle;
+    margin-left: 1.25rem;
+}
+
+.rmdl-list.rmdl-ol2 {
+    list-style: lower-alpha;
+    margin-left: 1.25rem;
+}
+
+.rmdl-li {
+    margin: 0.35rem 0;
+    font-family: var(--font-content);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+}
+
+.rmdl-li > .rmdl-p {
+    margin: 0.35rem 0;
+}
+
+/* Quote */
+.rmdl-quote {
+    margin: 1rem 0;
+    padding: 0.85rem 1rem;
+    border-left: 4px solid currentColor;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.04);
+    font-family: var(--font-content);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    max-inline-size: var(--measure);
+}
+
+.rmdl-quote-content .rmdl-p {
+    margin: 0;
+}
+
+/* Code */
+.rmdl-code {
+    margin: 1rem 0;
+    padding: 0.85rem 1rem;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.06);
+    overflow-x: auto;
+    max-inline-size: var(--measure);
+}
+
+.rmdl-code code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+    font-size: 0.95em;
+    line-height: 1.5;
+    white-space: pre;
+    tab-size: 2;
+}
+
+/* Liens / CTA (prévu pour RmdlLink) */
+.rmdl-a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.rmdl-a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+.rmdl-a.rmdl-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    text-decoration: none;
+    transition: transform 120ms ease, background-color 120ms ease;
+}
+
+.rmdl-a.rmdl-cta:hover {
+    transform: translateY(-1px);
+}
+
+/* Glossaire / ab (prévu pour RmdlAb : data-def) */
+.rmdl-ab {
+    position: relative;
+    cursor: help;
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+}
+
+.rmdl-ab[data-def]:hover::after {
+    content: attr(data-def);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: 0.55rem;
+    min-width: 220px;
+    max-width: 360px;
+    padding: 0.6rem 0.75rem;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    z-index: 50;
+}

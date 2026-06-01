@@ -1,0 +1,37 @@
+/* ==========================================================================
+   FILE: src/assets/styles/main.scss
+   ROLE: global
+   SCOPE: Point d'entrée des styles (imports)
+   DEPENDENCIES: partials utils/base/components/pages
+   BREAKPOINTS:
+     - Mobile: default
+     - Desktop: >= 1024px
+   NOTES: Conserver l'ordre d'import pour éviter toute régression.
+   ========================================================================== */
+
+/* --- Table of contents -----------------------------------------------------
+  2) Base / structure
+--------------------------------------------------------------------------- */
+
+/* 2) Base / structure */
+/* Utils */
+@import "./00_utils/variables";
+@import "./00_utils/_functions";
+@import "./00_utils/_mixins";
+@import "./00_utils/_fonts";
+
+@import "./01_base/general";
+@import "./03_pages/page";
+@import "./01_base/media-query";
+@import "./01_base/navToggler";
+
+@import "./02_components/header/header";
+@import "./02_components/header/logo";
+@import "./02_components/header/sidebar";
+@import "./02_components/header/desktop-adaptable-nav";
+@import "./02_components/header/mobile/index";
+
+@import "./04_rmdl/_rmdl.scss";
+
+/* Features */
+@import "../../features/courses/styles/course";

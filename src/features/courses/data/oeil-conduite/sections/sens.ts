@@ -1,0 +1,107 @@
+import type { CourseSection } from "../../../types/course";
+
+export const oeilConduiteSensSection: CourseSection = {
+            id: "sens",
+            title: "Rôle des organes sensoriels et place de la vue",
+            intro: "La conduite mobilise plusieurs sens, mais la vue reste le canal principal d’information. Le support insiste sur une idée centrale : environ 90 % des informations utiles à la conduite passent par la vue.",
+            blocks: [
+                {
+                    type: "table",
+                    id: "table-sens-mobilises",
+                    title: "Sens mobilisés dans la conduite",
+                    caption:
+                        "Place des principaux sens dans la tâche de conduite",
+                    columns: [
+                        "Sens",
+                        "Rôle dans la conduite",
+                        "Idée à retenir",
+                    ],
+                    rows: [
+                        [
+                            {
+                                label: "L’ouïe",
+                                strong: true,
+                            },
+                            {
+                                label: "Peu utile pour la conduite. On peut conduire en étant sourd.",
+                            },
+                            {
+                                label: "Information secondaire.",
+                            },
+                        ],
+                        [
+                            {
+                                label: "L’odorat",
+                                strong: true,
+                            },
+                            {
+                                label: "Peu utile pour la conduite.",
+                            },
+                            {
+                                label: "Information secondaire.",
+                            },
+                        ],
+                        [
+                            {
+                                label: "Le goût",
+                                strong: true,
+                            },
+                            {
+                                label: "Peu utile pour la conduite.",
+                            },
+                            {
+                                label: "Sans rôle direct.",
+                            },
+                        ],
+                        [
+                            {
+                                label: "Le toucher",
+                                strong: true,
+                            },
+                            {
+                                label: "Permet de ressentir les mouvements, les accélérations, les freinages et les changements de trajectoire.",
+                            },
+                            {
+                                label: "Aide au ressenti du véhicule.",
+                            },
+                        ],
+                        [
+                            {
+                                label: "La vue",
+                                strong: true,
+                            },
+                            {
+                                label: "Essentielle : environ 90 % des informations utiles à la conduite passent par elle.",
+                            },
+                            {
+                                label: "Sens principal pour percevoir, analyser et anticiper.",
+                            },
+                        ],
+                    ],
+                },
+                {
+                    type: "callout",
+                    id: "perception-apprentissage",
+                    title: "Point pédagogique",
+                    tone: "info",
+                    content:
+                        "La perception ne dépend pas seulement de l’œil. Elle dépend aussi de l’apprentissage du regard, de l’expérience, des représentations, de l’âge, de la vigilance et des facteurs psychologiques.",
+                },
+                {
+                    type: "text-card",
+                    id: "voir-regarder-observer",
+                    title: "Voir, regarder, observer",
+                    content: [
+                        "Voir, c’est recevoir une information visuelle. Regarder, c’est diriger volontairement son regard. Observer, c’est rechercher les indices utiles pour comprendre la situation.",
+                        "En conduite, l’objectif n’est donc pas seulement de voir la route, mais de prélever les bonnes informations au bon moment.",
+                    ],
+                    keywords: [
+                        "Voir",
+                        "Regarder",
+                        "Observer",
+                        "PADA",
+                        "Anticipation",
+                    ],
+                },
+            ],
+        };

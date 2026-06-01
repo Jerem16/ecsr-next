@@ -1,0 +1,92 @@
+import type { CourseSection } from "../../../types/course";
+
+export const oeilConduiteNuitSection: CourseSection = {
+            id: "nuit",
+            title: "La conduite de nuit",
+            intro: "La nuit modifie fortement la perception. La vision centrale diminue rapidement, les contrastes s’inversent et les distances deviennent plus difficiles à apprécier.",
+            blocks: [
+                {
+                    type: "table",
+                    id: "table-jour-nuit",
+                    title: "Vision de jour et conduite de nuit",
+                    caption:
+                        "Différences principales entre perception de jour et perception de nuit",
+                    columns: [
+                        "Point observé",
+                        "De jour",
+                        "De nuit",
+                        "Conséquence",
+                    ],
+                    rows: [
+                        [
+                            {
+                                label: "Contrastes",
+                                strong: true,
+                            },
+                            {
+                                label: "Les obstacles apparaissent sur fond clair.",
+                            },
+                            {
+                                label: "Les obstacles éclairés par les phares apparaissent sur fond sombre.",
+                            },
+                            {
+                                label: "L’inversion des contrastes complique l’orientation.",
+                            },
+                        ],
+                        [
+                            {
+                                label: "Vision centrale",
+                                strong: true,
+                            },
+                            {
+                                label: "Elle reste efficace en condition normale.",
+                            },
+                            {
+                                label: "Elle diminue très rapidement.",
+                            },
+                            {
+                                label: "L’identification des obstacles devient plus difficile.",
+                            },
+                        ],
+                        [
+                            {
+                                label: "Distances et vitesses",
+                                strong: true,
+                            },
+                            {
+                                label: "L’estimation est plus facile avec plus de repères.",
+                            },
+                            {
+                                label: "L’estimation devient moins fiable.",
+                            },
+                            {
+                                label: "Il faut adapter l’allure.",
+                            },
+                        ],
+                        [
+                            {
+                                label: "Feux de croisement",
+                                strong: true,
+                            },
+                            {
+                                label: "Pas de limite liée à l’éclairage du véhicule.",
+                            },
+                            {
+                                label: "Visibilité souvent limitée à environ 50 m.",
+                            },
+                            {
+                                label: "La vitesse doit rester compatible avec la distance visible.",
+                            },
+                        ],
+                    ],
+                },
+                {
+                    type: "callout",
+                    id: "allure-visibilite-nuit",
+                    title: "Conséquence directe",
+                    tone: "warning",
+                    content:
+                        "Hors routes éclairées, la visibilité dépend beaucoup des phares. Les feux de croisement éclairant environ 50 mètres, l’allure doit rester compatible avec la distance visible.",
+                },
+            ],
+        };

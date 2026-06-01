@@ -1,0 +1,131 @@
+"Wii-Design, expert en création de sites web professionnels et sur-mesure. En tant que développeur web freelance, je vous accompagne dans la conception de votre site internet, que ce soit un site vitrine, un site e-commerce, ou une application web moderne. Grâce à mes compétences avancées en développement front-end avec React.js et Next.js, je crée des solutions inovante et performantes adaptées à vos besoins.\n\nAfin d'assurer une expérience utilisateur optimale, je conçois et développe des sites web responsives, compatibles sur tous les types d'appareils. Votre site web, sera non seulement responsive et accessible, mais également conforme aux normes les plus modernes du design web. J'assure également une optimisation SEO poussée afin d'améliorer votre visibilité des sites web sur les moteurs de recherche, en appliquant une optimisation globale des performances du site ainsi que des techniques de référencement naturel avancées.\n\nJ’intègre des fonctionnalités avancées permettant à votre application de communiquer et d'interagir efficacement avec des API externes, des services tiers, et des systèmes de réservation en ligne. De plus, j'implémente des solutions de sécurisation qui garantissent la protection de vos données et celle des utilisateurs. \n\nQue vous soyez une PME, une startup ou que vous ayez un projet personnel, bénéficiez d’un site rapide, performant et sécurisé, avec un temps de chargement optimisé et des performances web maximisées. Je vous propose un accompagnement personnalisé, de la création de maquettes jusqu'à la mise en ligne de votre projet. Grâce à mon expertise en hébergement web et en déploiement de site web via des outils comme GitHub Actions, Docker, et AWS Amplify, je vous assure une mise en production fluide et sécurisée.\n\nSi vous avez besoin d’une maintenance de site web ou d’une refonte de site internet, je peux également intervenir pour améliorer les performances, la sécurité et l’UX/UI de votre site existant, tout en optimisant le référencement SEO pour booster votre présence en ligne.",
+
+
+Wii-Design – Création de sites web professionnels, performants et sur-mesure.
+Développeur web freelance, je vous accompagne dans la réalisation de votre site vitrine, e-commerce ou application web moderne.
+Spécialisé en React.js et Next.js, je conçois des solutions innovantes, rapides et évolutives, parfaitement adaptées à vos besoins.
+
+Chaque site est responsive, accessible, optimisé pour tous les appareils et conforme aux standards modernes du web design.
+J’intègre les meilleures pratiques en SEO pour maximiser votre visibilité sur Google, améliorer le temps de chargement et booster vos performances globales.
+
+Fonctionnalités personnalisées : connexion API, services tiers, systèmes de réservation, et sécurité renforcée pour la protection des données.
+Je vous propose un accompagnement complet, de la maquette au déploiement (GitHub Actions, Docker, AWS Amplify), pour une mise en ligne fluide et sécurisée.
+
+Besoin d'une refonte ou d'une maintenance web ? J’optimise les performances, la sécurité et l’UX de votre site existant, avec un référencement naturel renforcé.
+
+
+#MAIN-MENU
+1. Accueil
+
+    Introduction, ton positionnement, ton CTA principal (devis / contact / RDV)
+
+🔹 2. Services
+
+Découpe claire avec des blocs ou onglets, par exemple :
+🧱Développement web	🎨Design UX/UI	⚙️Performance & SEO	🚀DevOps & Déploiement	🤝Conseil & Accompagnement
+
+Chaque bloc pourrait mener vers un détail de service (via page dédiée ou un accordéon / modale).
+🔹 3. Réalisations / Portfolio
+
+    Présentation de tes projets (avec filtres par techno, domaine, etc.)
+
+🔹 4. À propos
+
+    Ton parcours, ta vision du métier, pourquoi « Wii-Design », soft-skills, formations, etc.
+
+🔹 5. Processus de travail
+
+    Étapes de collaboration avec toi : brief > maquettes > dev > tests > livraison
+
+🔹 6. Témoignages / Avis
+
+    Retours de clients ou collaborateurs
+
+🔹 7. Blog / Ressources (optionnel mais très bon pour ton SEO)
+
+    Partage de tes connaissances (React, DevOps, design, etc.)
+
+🔹 8. Contact
+
+    Formulaire / lien vers Google Calendar / réseaux sociaux / e-mail pro
+
+🔹 9. Mentions légales & CGV
+
+    Obligatoire si tu fais des prestations facturées
+
+
+#SIDE-BAR
+
+🧠 1. Cadrage & Stratégie
+
+    L’étape de fondation du projet.
+
+    Identification des besoins & objectifs
+
+    Audit / analyse concurrentielle
+
+    Cahier des charges & spécifications
+
+    User stories, personas
+
+    Planning, MVP, roadmap
+
+🧩 2. UX/UI Design
+
+    Concevoir une interface efficace, esthétique et intuitive.
+
+    Wireframes, maquettes (Figma)
+
+    Prototypage interactif
+
+    Tests utilisateurs
+
+    Accessibilité (WCAG)
+
+    Responsive mobile-first
+
+⚙️ 3. Développement Web
+
+    L’implémentation technique.
+
+    Front-end avec React / Next.js / Tailwind
+
+    Intégration d’API / back-end
+
+    Fonctionnalités spécifiques (authentification, messagerie, réservation…)
+
+🚀 4. Performance & SEO
+
+    Rendre le site rapide, visible et éco-conçu.
+
+    Optimisation Lighthouse & Core Web Vitals
+
+    Balises SEO, structure sémantique
+
+    Accessibilité clavier / screen reader
+
+    Green IT
+
+🛠️ 5. DevOps & Déploiement
+
+    Mettre le projet en ligne, proprement.
+
+    CI/CD avec GitHub Actions
+
+    Dockerisation
+
+    Déploiement AWS Amplify / CloudFront
+
+    Versioning Git
+
+🤝 6. Suivi & Accompagnement
+
+    Après la mise en ligne : tu restes présent.
+
+    Conseils marketing / contenus
+
+    Tutos clients / prise en main
+
+    Maintenance / évolutions
+
+    Suivi Agile / itérations

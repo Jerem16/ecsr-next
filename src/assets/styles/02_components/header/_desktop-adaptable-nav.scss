@@ -1,0 +1,466 @@
+/* ==========================================================================
+   FILE: src/assets/styles/02_components/header/_desktop-adaptable-nav.scss
+   ROLE: component
+   SCOPE: Navigation desktop adaptable
+   DEPENDENCIES: variables.scss, mixins.scss
+   BREAKPOINTS:
+     - Mobile: default (non utilisé ici)
+     - Desktop: >= 1024px
+   NOTES: Bloc desktop dédié, évite les régressions mobile.
+   ========================================================================== */
+
+/* --- Table of contents -----------------------------------------------------
+  2) Base / structure
+  3) States (hover, focus, active, open)
+  4) Animations
+  5) Responsive - Desktop (>= 1024px)
+--------------------------------------------------------------------------- */
+
+/* 5) Responsive - Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+    .desktop-adaptable-nav {
+        width: calc(100vw - 116px - $margin-nav);
+        margin-left: $margin-nav;
+        position: relative;
+        top: -7px;
+
+        .header {
+            padding: 0;
+            margin: 0 auto;
+            display: inline-flex;
+            gap: clamp(1rem, 2vw, 4rem);
+            box-sizing: border-box;
+            width: 100%;
+            height: 50px;
+            flex-flow: row nowrap;
+        }
+
+        .head-flex {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .head-space {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 0;
+        }
+
+        nav {
+            animation: opacityAnimationDelay 0.9s ease-in-out forwards;
+        }
+
+        .main-nav {
+            display: inline-flex;
+            justify-content: space-around;
+            width: auto;
+            border-radius: 100px;
+            background: $white;
+            @include menuShadow(rgba(0, 0, 0, 0.5));
+            transition: all 0.45s ease, color 0.3s ease;
+            z-index: 1000;
+            padding: 1rem 1.5rem;
+            gap: 1.5rem;
+
+            .nav-circle,
+            .nav-padding {
+                padding: 0;
+            }
+
+            &:hover,
+            &:focus {
+                transform: scale(1);
+            }
+        }
+
+        .reservationId,
+        .search,
+        .connection {
+            display: inline-flex;
+            justify-content: space-around;
+            width: auto;
+            border-radius: 100px;
+            background: $white;
+            @include menuShadow(rgba(0, 0, 0, 0.5));
+            transition: all 0.45s ease, color 0.3s ease;
+
+            &:hover,
+            &:focus {
+                @include menuShadow(rgba(0, 0, 0, 0.25));
+            }
+        }
+
+        .reservationId {
+            background: $primary-blue;
+            color: $white;
+            cursor: pointer;
+
+            .nav-link,
+            .icon-color {
+                fill: $white;
+                color: $white;
+                text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.35);
+                filter: drop-shadow(1px 2px 1px rgba(0, 0, 0, 0.25));
+                transition: fill 0.3s ease, color 0.3s ease;
+            }
+
+            &:hover,
+            &:focus {
+                background: $primary-orange;
+                transform: scale(1.05);
+                @include menuShadow(rgba(0, 0, 0, 0.2));
+
+                .nav-link,
+                .icon-color {
+                    fill: $white !important;
+                    color: $white !important;
+                }
+
+                .icon-color_secondary {
+                    fill: $secondary-orange;
+                }
+            }
+
+            .head-link.active .icon-color,
+            .head-link.active .nav-link {
+                fill: $white !important;
+                color: $white !important;
+            }
+
+            .head-link.active .nav-icon {
+                filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.35));
+            }
+
+            .main-link,
+            .nav-icon {
+                filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.35));
+            }
+        }
+
+        .research,
+        .connection {
+            cursor: pointer;
+            width: auto;
+
+            .nav-link,
+            .icon-color {
+                transition: fill 0.3s ease, color 0.3s ease;
+            }
+
+            &:hover,
+            &:focus {
+                @include menuShadow(rgba(0, 0, 0, 0.2));
+
+                .nav-link,
+                .icon-color {
+                    fill: $primary-blue !important;
+                    color: $primary-black !important;
+                }
+
+                button {
+                    .nav-link,
+                    .icon-color {
+                        fill: $primary-black !important;
+                        color: $primary-black !important;
+                    }
+                }
+            }
+
+            .head-link.active .icon-color,
+            .head-link.active .nav-link {
+                fill: $primary-black !important;
+                color: $primary-black !important;
+            }
+        }
+
+        .research {
+            &:hover,
+            &:focus {
+                transform: scale(1);
+            }
+        }
+
+        .connection {
+            .nav-link {
+                width: 114px;
+            }
+
+            &:hover,
+            &:focus {
+                transform: scale(1.05);
+
+                .nav-link,
+                .icon-color {
+                    fill: $primary-blue !important;
+                    color: $primary-blue !important;
+                }
+            }
+        }
+
+        .reservationId,
+        .search,
+        .connection,
+        .head-link,
+        .nav-link {
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-circle {
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .nav-padding {
+            padding: 1rem 1.5rem;
+        }
+
+        .main-nav .icon-color_secondary {
+            fill: $light-blue;
+        }
+
+        .head-link,
+        .nav-link {
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        nav .group_link-submenu {
+            position: relative;
+            min-width: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+        }
+
+        .head-link {
+            min-height: 20px;
+            min-width: 20px;
+            display: inline-flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden;
+            transform: scale(0);
+            width: 0;
+        }
+
+        .show-link {
+            max-height: 100px;
+            visibility: visible;
+            white-space: nowrap;
+            transform: scale(1);
+            transform-origin: left;
+            width: 100%;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin-left: 10px;
+            font-family: var(--font-ui);
+            font-size: var(--fs-ui);
+            line-height: var(--lh-ui);
+        }
+
+        input.nav-link,
+        option.nav-link {
+            text-transform: capitalize;
+        }
+
+        .group_link-submenu .nav-link.hidden {
+            opacity: 0;
+            width: 0;
+            margin: 0 !important;
+            visibility: hidden;
+            max-height: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .group_link-submenu .nav-link.show-link {
+            opacity: 1;
+            visibility: visible;
+            max-height: 52px;
+            transform: translateY(0);
+            transition: all 0.3s ease-in-out;
+            animation: opacityWidthAnimationIn 0.3s ease-in-out forwards;
+        }
+
+        .nav-icon {
+            display: flex;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin: 1px;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            left: -1rem;
+            top: 100%;
+            height: auto;
+            margin-left: 1.5rem;
+            padding-top: 2rem;
+            box-sizing: border-box;
+            z-index: 10;
+            transition: all 0.35s ease;
+            opacity: 0;
+        }
+
+        nav .group_link-submenu:hover .submenu,
+        nav .group_link-submenu:focus .submenu,
+        .submenu.open {
+            display: block;
+            opacity: 1;
+        }
+
+        nav .nav-circle:hover .submenu,
+        nav .nav-circle:focus .submenu,
+        nav .nav-circle .submenu.open,
+        nav .nav-padding .submenu:not(.open) {
+            display: none;
+        }
+
+        .submenu_group {
+            background-color: $white;
+            border-radius: 1.5rem;
+            padding: 1rem;
+            display: flex;
+            flex-flow: column;
+            @include menuShadowHover(rgba(0, 0, 0, 0.25));
+        }
+
+        .submenu_group .nav-link {
+            position: relative;
+            display: block;
+            margin: 0;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            color: $primary-black;
+            text-decoration: none;
+            overflow: hidden;
+            transition: color 0.3s ease;
+        }
+
+        .submenu_group .nav-link:hover {
+            color: $white !important;
+            background: $primary-blue !important;
+            box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        .icon-color,
+        .nav-link {
+            fill: $primary-black;
+            color: $primary-black;
+            transition: fill 0.35s ease, color 0.35s ease;
+        }
+
+        .group_link-submenu:hover .submenu.open,
+        .group_link-submenu:hover .head-link .nav-link,
+        .group_link-submenu:hover .head-link .icon-color,
+        .main-nav:hover .group_link-submenu .head-link:hover .icon-color,
+        .main-nav:hover .group_link-submenu .head-link:hover .nav-link,
+        .nav-link:hover,
+        .group_link-submenu:hover,
+        .submenu_group .nav-link:hover {
+            fill: $primary-orange;
+            color: $primary-orange;
+            transition: fill 0.35s ease, color 0.35s ease, transform 0.35s ease;
+            z-index: 20;
+        }
+
+        .head-link.active .icon-color,
+        .head-link.active .nav-icon,
+        .head-link.active .nav-link,
+        .submenu_group .nav-link.active {
+            fill: $primary-blue;
+            color: $primary-blue;
+            background: none;
+        }
+
+        .logo-link {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo {
+            margin: 0;
+            width: 50px;
+            height: 50px;
+            position: relative;
+            top: 0;
+            z-index: 1;
+            @include menuShadow(rgba(0, 0, 0, 0.5));
+            border-radius: 50%;
+            background: $white;
+            cursor: pointer;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .desktop-adaptable-nav {
+        .submenu {
+            min-width: 220px;
+            // width: fit-content;
+        }
+
+        .submenu_group {
+            max-height: min(72vh, 620px);
+            overflow-y: auto;
+            width: fit-content;
+            // width: 100%;
+            // min-width: 280px;
+        }
+
+        .submenu_branch {
+            border-radius: 0.75rem;
+            background: rgba(18, 53, 91, 0.04);
+        }
+
+        .submenu_summary {
+            cursor: pointer;
+            padding: 0.55rem 0.7rem;
+            color: $primary-black;
+            font-family: var(--font-ui);
+            font-size: var(--fs-ui);
+            font-weight: 800;
+            line-height: var(--lh-ui);
+            border-radius: 0.75rem;
+        }
+
+        .submenu_summary:hover,
+        .submenu_summary:focus-visible {
+            color: $primary-blue;
+            outline: none;
+        }
+
+        .submenu_nested {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0 0.35rem 0.55rem 0.7rem;
+        }
+
+        .submenu_group .nav-link--overview {
+            margin: 0 0.35rem 0.35rem;
+            font-weight: 800;
+            background: rgba(26, 109, 229, 0.08);
+        }
+
+        .submenu_group .nav-link--level-1,
+        .submenu_group .nav-link--level-2 {
+            padding-left: 1rem;
+            font-size: 0.92rem;
+        }
+    }
+}

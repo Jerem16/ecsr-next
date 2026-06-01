@@ -1,0 +1,122 @@
+import type { CourseSection } from "../../../types/course";
+
+export const oeilConduiteCroisementSection: CourseSection = {
+            id: "croisement",
+            title: "Conséquence à 90 km/h : retard de perception",
+            intro: "À 90 km/h, un véhicule parcourt 25 mètres par seconde. Pendant le temps de latence de 0,22 seconde, il parcourt environ 5,50 mètres.",
+            blocks: [
+                {
+                    type: "sequence-card",
+                    id: "camion-retard-perception",
+                    title: "Exemple du camion : ce que l’on croit voir et ce qui se passe réellement",
+                    intro: "L’image du camion illustre le retard de perception. Quand deux véhicules se croisent à 90 km/h, chacun avance pendant que l’information visuelle est traitée.",
+                    parts: [
+                        {
+                            type: "figure",
+                            title: "Situation observée",
+                            image: {
+                                src: "/cours/oeil-conduite/refined/photo-croisement-camion-90kmh.jpg",
+                                alt: "Camion croisé sur une route depuis le point de vue du conducteur.",
+                                caption:
+                                    "Image essentielle pour expliquer le retard de perception à 90 km/h.",
+                                role: "comparaison",
+                            },
+                            content: [
+                                {
+                                    type: "paragraph",
+                                    text: "Le conducteur croit percevoir la position actuelle du camion, alors que l’information traitée par le cerveau est déjà en retard.",
+                                },
+                                {
+                                    type: "list",
+                                    ordered: true,
+                                    items: [
+                                        "L’image arrive sur la rétine.",
+                                        "Le cerveau traite l’information avec un léger retard.",
+                                        "Le véhicule a déjà avancé pendant ce délai.",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            type: "alert",
+                            tone: "warning",
+                            content: [
+                                {
+                                    type: "paragraph",
+                                    text: "Quand on voit le véhicule en face à environ 11 mètres, dans la réalité il est déjà quasiment à côté.",
+                                    strong: true,
+                                },
+                            ],
+                        },
+                        {
+                            type: "figure",
+                            title: "Perception et réalité",
+                            image: {
+                                src: "/cours/oeil-conduite/refined/photo-croisement-camion-90kmh-real.jpg",
+                                alt: "Camion croisé sur une route depuis le point de vue du conducteur, montrant l’écart entre perception et réalité.",
+                                caption:
+                                    "Perception et réalité : le véhicule est déjà quasiment à côté pendant que l’information visuelle est encore traitée.",
+                                role: "comparaison",
+                            },
+                            content: [
+                                {
+                                    type: "paragraph",
+                                    text: "Le conducteur peut entendre le camion et ressentir son appel d’air alors que son cerveau traite encore l’information visuelle.",
+                                },
+                                {
+                                    type: "key-values",
+                                    items: [
+                                        {
+                                            label: "Audition",
+                                            value: "140 à 160 ms.",
+                                        },
+                                        {
+                                            label: "Toucher",
+                                            value: "Environ 155 ms.",
+                                        },
+                                        {
+                                            label: "Vision",
+                                            value: "Environ 220 ms pour une réaction simple au stimulus.",
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: "note",
+                                    text: [
+                                        {
+                                            text: "Le temps de réaction utilisé en conduite reste généralement estimé à environ 1 seconde",
+                                            strong: true,
+                                        },
+                                        {
+                                            text: ", car il inclut la perception, l’analyse, la décision et le début de l’action.",
+                                            italic: true,
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: "sources",
+                                    items: [
+                                        {
+                                            label: "BioNumbers — Temps de réaction au son, à la lumière et au toucher",
+                                            href: "https://bionumbers.hms.harvard.edu/bionumber.aspx?id=110800&s=n&v=4",
+                                        },
+                                        {
+                                            label: "BioNumbers — Temps de réaction simple à un stimulus",
+                                            href: "https://bionumbers.hms.harvard.edu/bionumber.aspx?id=110799&s=n&v=2",
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    type: "callout",
+                    id: "phrase-cle-retard",
+                    title: "Phrase clé",
+                    tone: "warning",
+                    content:
+                        "Nous voyons toujours la réalité avec 22/100e de seconde de retard.",
+                },
+            ],
+        };
