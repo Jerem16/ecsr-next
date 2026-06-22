@@ -16,7 +16,7 @@
 /* 5) Responsive - Desktop (>= 1024px) */
 @media (max-width: 1390px) {
     body {
-        background: $white;
+        background: var(--ecsr-bg, #f5f7fb);
     }
     .segment {
         width: $width-card_bg;

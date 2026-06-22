@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import type { CourseBlock, CourseSection } from "../types/course";
+import { courseFrameClassName } from "./courseClassNames";
 
 interface CourseSidebarProps {
     sections: CourseSection[];
@@ -36,6 +37,15 @@ const getAnchorOffset = (): number => {
     const toolbarHeight = toolbar ? toolbar.getBoundingClientRect().height : 0;
 
     return Math.max(declaredOffset, fallbackOffset + toolbarHeight + 18);
+};
+
+const getSidebarLinkClassName = (isActive: boolean) => {
+    const baseClassName = "block min-w-0 rounded-[14px] px-3 py-2.5 font-extrabold !whitespace-normal break-words no-underline outline-none transition-colors";
+    const stateClassName = isActive
+        ? "active bg-[var(--course-primary-soft)] text-[var(--course-primary)]"
+        : "text-[var(--course-muted)] hover:bg-[var(--course-primary-soft)] hover:text-[var(--course-primary)] focus-visible:bg-[var(--course-primary-soft)] focus-visible:text-[var(--course-primary)]";
+
+    return `${baseClassName} ${stateClassName}`;
 };
 
 export const CourseSidebar = ({ sections }: CourseSidebarProps) => {
@@ -148,17 +158,17 @@ export const CourseSidebar = ({ sections }: CourseSidebarProps) => {
     }, [flatLinks]);
 
     return (
-        <aside className="course-sidebar" aria-label="Sommaire du cours">
-            <nav className="course-sidebar__card">
-                <p className="course-sidebar__label">Sommaire</p>
-                <ol>
+        <aside className="course-sidebar sticky top-[108px] min-w-0 max-[1100px]:static" aria-label="Sommaire du cours">
+            <nav className={`course-sidebar__card ${courseFrameClassName} overflow-hidden rounded-[24px] p-[18px] max-[1100px]:max-h-[280px] max-[1100px]:overflow-auto`}>
+                <p className="course-sidebar__label mb-2.5 mt-0 text-[0.78rem] font-black uppercase tracking-[0.06em] text-[var(--course-accent)]">Sommaire</p>
+                <ol className="grid min-w-0 gap-1.5">
                     {links.map((link) => {
                         const isParentActive = activeSection === link.id || link.children.some((childLink) => childLink.id === activeSection);
 
                         return (
                             <li key={link.id}>
                                 <a
-                                    className={isParentActive ? "active" : ""}
+                                    className={getSidebarLinkClassName(isParentActive)}
                                     href={`#${link.id}`}
                                     onClick={(event) => scrollToLink(event, link.id)}
                                 >
@@ -169,7 +179,7 @@ export const CourseSidebar = ({ sections }: CourseSidebarProps) => {
                                         {link.children.map((childLink) => (
                                             <li key={childLink.id}>
                                                 <a
-                                                    className={activeSection === childLink.id ? "active" : ""}
+                                                    className={getSidebarLinkClassName(activeSection === childLink.id)}
                                                     href={`#${childLink.id}`}
                                                     onClick={(event) => scrollToLink(event, childLink.id)}
                                                 >

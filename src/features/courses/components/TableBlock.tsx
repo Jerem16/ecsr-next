@@ -1,5 +1,10 @@
 import type { TableBlock as TableBlockType } from "../types/course";
 import { AppIcon } from "./AppIcon";
+import {
+    courseBlockTypeClassName,
+    courseCardTitleClassName,
+    courseContentFrameClassName,
+} from "./courseClassNames";
 
 interface TableBlockProps {
     block: TableBlockType;
@@ -7,10 +12,10 @@ interface TableBlockProps {
 
 export const TableBlock = ({ block }: TableBlockProps) => {
     return (
-        <article className="course-table-card" id={block.id}>
-            <p className="course-block-type"><AppIcon name="table" /> Tableau HTML</p>
-            <h3>{block.title}</h3>
-            <div className="course-table-wrap">
+        <article className={`course-table-card ${courseContentFrameClassName}`} id={block.id}>
+            <p className={courseBlockTypeClassName}><AppIcon name="table" /> Tableau HTML</p>
+            <h3 className={courseCardTitleClassName}>{block.title}</h3>
+            <div className="course-table-wrap mt-3.5 w-full overflow-x-auto rounded-[18px] overscroll-x-contain">
                 <table>
                     <caption>{block.caption}</caption>
                     <thead>

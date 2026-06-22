@@ -11,6 +11,13 @@ interface RichContentProps {
     content: RichContentNode[];
 }
 
+const richContentClassName = "course-rich-content grid min-w-0 gap-2.5";
+const paragraphClassName = "m-0 text-[var(--course-muted)] leading-[1.68]";
+const strongParagraphClassName = "course-rich-content__strong m-0 font-black text-[var(--course-primary)] leading-[1.68]";
+const strongClassName = "font-black text-[var(--course-primary)]";
+const richLinkClassName = "font-extrabold text-[var(--course-primary)] underline underline-offset-[3px] [overflow-wrap:anywhere] hover:text-[var(--course-accent)] focus-visible:text-[var(--course-accent)] focus-visible:outline-none";
+const listClassName = "course-rich-content__list mt-3.5 grid gap-[0.45rem] pl-[1.45rem] marker:font-black marker:text-[var(--course-accent)]";
+
 const isRecord = (value: unknown): value is Record<string, unknown> => {
     return typeof value === "object" && value !== null;
 };
@@ -59,16 +66,16 @@ const renderSegment = (segment: RichTextSegment, key: string): ReactNode => {
     }
 
     if (segment.strong) {
-        output = <strong>{output}</strong>;
+        output = <strong className={strongClassName}>{output}</strong>;
     }
 
     if (segment.href) {
         const isInternalAnchor = segment.href.startsWith("#");
 
         output = isInternalAnchor ? (
-            <a href={segment.href}>{output}</a>
+            <a className={richLinkClassName} href={segment.href}>{output}</a>
         ) : (
-            <a href={segment.href} target="_blank" rel="noopener noreferrer">
+            <a className={richLinkClassName} href={segment.href} target="_blank" rel="noopener noreferrer">
                 {output}
             </a>
         );
@@ -95,7 +102,7 @@ export const renderInlineContent = (content: RichInlineContent, keyPrefix: strin
 
 export const RichContent = ({ content }: RichContentProps) => {
     return (
-        <div className="course-rich-content">
+        <div className={richContentClassName}>
             {content.map((node, index) => {
                 const key = `rich-content-${index}`;
 
@@ -108,11 +115,11 @@ export const RichContent = ({ content }: RichContentProps) => {
                         }
 
                         if (node.strong) {
-                            paragraphContent = <strong>{paragraphContent}</strong>;
+                            paragraphContent = <strong className={strongClassName}>{paragraphContent}</strong>;
                         }
 
                         return (
-                            <p key={key} className={node.strong ? "course-rich-content__strong" : undefined}>
+                            <p key={key} className={node.strong ? strongParagraphClassName : paragraphClassName}>
                                 {paragraphContent}
                             </p>
                         );
@@ -120,8 +127,8 @@ export const RichContent = ({ content }: RichContentProps) => {
                     case "list": {
                         const ListTag = node.ordered ? "ol" : "ul";
                         const className = node.ordered
-                            ? "course-rich-content__list course-rich-content__list--ordered"
-                            : "course-rich-content__list";
+                            ? `${listClassName} course-rich-content__list--ordered list-decimal`
+                            : `${listClassName} list-disc`;
 
                         return (
                             <ListTag key={key} className={className}>
@@ -135,28 +142,31 @@ export const RichContent = ({ content }: RichContentProps) => {
                     }
                     case "key-values":
                         return (
-                            <dl key={key} className="course-rich-content__key-values">
+                            <dl key={key} className="course-rich-content__key-values m-0 grid gap-2">
                                 {node.items.map((item) => (
-                                    <div key={`${item.label}-${typeof item.value === "string" ? item.value : item.label}`}>
-                                        <dt>{item.label}</dt>
-                                        <dd>{renderInlineContent(item.value, `${key}-${item.label}`)}</dd>
+                                    <div
+                                        className="grid grid-cols-[minmax(110px,0.28fr)_minmax(0,1fr)] items-baseline gap-2 max-[520px]:grid-cols-1"
+                                        key={`${item.label}-${typeof item.value === "string" ? item.value : item.label}`}
+                                    >
+                                        <dt className="font-black text-[var(--course-primary)]">{item.label}</dt>
+                                        <dd className={paragraphClassName}>{renderInlineContent(item.value, `${key}-${item.label}`)}</dd>
                                     </div>
                                 ))}
                             </dl>
                         );
                     case "note":
                         return (
-                            <p key={key} className="course-rich-content__note">
-                                <strong>{node.label ?? "Note"} :</strong> {renderInlineContent(node.text, key)}
+                            <p key={key} className={`course-rich-content__note rounded-[14px] bg-[var(--course-primary-soft)] px-3.5 py-3 ${paragraphClassName}`}>
+                                <strong className={strongClassName}>{node.label ?? "Note"} :</strong> {renderInlineContent(node.text, key)}
                             </p>
                         );
                     case "sources":
                         return (
-                            <p key={key} className="course-rich-content__sources">
-                                <strong>{node.label ?? "Sources"} :</strong>{" "}
+                            <p key={key} className={`course-rich-content__sources text-[0.92rem] ${paragraphClassName}`}>
+                                <strong className={strongClassName}>{node.label ?? "Sources"} :</strong>{" "}
                                 {node.items.map((item, itemIndex) => (
                                     <span key={item.href}>
-                                        <a href={item.href} target="_blank" rel="noopener noreferrer">
+                                        <a className={richLinkClassName} href={item.href} target="_blank" rel="noopener noreferrer">
                                             {item.label}
                                         </a>
                                         {itemIndex < node.items.length - 1 ? " / " : "."}
