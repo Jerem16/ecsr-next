@@ -93,8 +93,7 @@ export const linkInlineContentToSection = (content: RichInlineContent, sectionId
 };
 
 export const createBlockId = (block: CourseBlock, sections: CourseSection[]): string => {
-    const title = "title" in block ? block.title : block.type;
-    const baseId = slugifyEditorLabel(title, block.type);
+    const baseId = slugifyEditorLabel(block.title, block.type);
 
     return createUniqueId(baseId, getBlockIds(sections));
 };

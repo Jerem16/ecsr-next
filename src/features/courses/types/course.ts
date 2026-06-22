@@ -139,6 +139,14 @@ export interface SequenceTextPart {
 
 export type SequenceCardPart = SequenceFigurePart | SequenceAlertPart | SequenceTextPart;
 
+export interface SequenceCardBlock {
+    type: "sequence-card";
+    id?: string;
+    title: string;
+    intro?: string;
+    parts: SequenceCardPart[];
+}
+
 export interface TableCell {
     label: string;
     strong?: boolean;

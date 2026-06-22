@@ -69,7 +69,7 @@ const validateCourseSections = (sections: unknown): void => {
     });
 };
 
-export const parseCourse = (value: unknown): Course => {
+function assertCourse(value: unknown): asserts value is Course {
     if (!isRecord(value)) {
         throw new Error("Le contenu reçu n’est pas un cours valide.");
     }
@@ -80,5 +80,9 @@ export const parseCourse = (value: unknown): Course => {
     requireStringArray(value, "objectives");
     validateCourseSections(value.sections);
 
-    return value as Course;
+}
+
+export const parseCourse = (value: unknown): Course => {
+    assertCourse(value);
+    return value;
 };
