@@ -22,7 +22,7 @@ export default function RootLayout({
     return (
         <html lang="fr">
             <head>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link
                     rel="preconnect"
                     href="https://fonts.gstatic.com"
@@ -31,7 +31,7 @@ export default function RootLayout({
                 <link
                     rel="stylesheet"
                     href="https://fonts.googleapis.com/css2?family=Carlito:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
-                />
+                /> */}
                 <link
                     rel="preload"
                     href="/img/logo1.svg"

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { NavigationNode } from "@/features/navigation/data/ecsrStructure";
 
 interface NodeCardGridProps {
@@ -37,15 +38,17 @@ export function NodeCardGrid({
                             <ul>
                                 {node.children.map((child) => (
                                     <li key={child.id}>
-                                        <a className="ecsr-inline-link" href={`${child.href}#top`}>
+                                        <Link className="ecsr-inline-link" href={`${child.href}#top`} prefetch>
                                             {child.title}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
                         </details>
                     ) : null}
-                    <a href={`${node.href}#top`}>Ouvrir</a>
+                    <Link href={`${node.href}#top`} prefetch>
+                        Ouvrir
+                    </Link>
                 </article>
             ))}
         </section>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const homeCards = [
     {
         id: "cours",
@@ -36,7 +38,9 @@ export default function Home() {
                     <article className="ecsr-card" id={card.id} key={card.id}>
                         <h2>{card.title}</h2>
                         <p>{card.text}</p>
-                        <a href={card.href}>Ouvrir</a>
+                        <Link href={card.href} prefetch>
+                            Ouvrir
+                        </Link>
                     </article>
                 ))}
             </section>

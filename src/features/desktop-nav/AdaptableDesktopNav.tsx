@@ -35,10 +35,10 @@ const DesktopNavContent = () => {
     const { activeSection } = useScrollContext();
     const { navRef } = useMenuBehavior();
     const pathname = usePathname();
-    const [tabletMain, setTabletMain] = useState(false);
-    const [openMainButton, setOpenMainButton] = useState(false);
-    const [openButton, setOpenButton] = useState(false);
-    const [bigMenu, setBigMenu] = useState(false);
+    const [tabletMain, setTabletMain] = useState(true);
+    const [openMainButton, setOpenMainButton] = useState(true);
+    const [openButton, setOpenButton] = useState(true);
+    const [bigMenu, setBigMenu] = useState(true);
     const [openMenu, setOpenMenu] = useState<string | null>(null);
     const [lastClickedMenu, setLastClickedMenu] = useState<string | null>(null);
 
@@ -57,8 +57,6 @@ const DesktopNavContent = () => {
             ),
         [activeSection, currentRoute]
     );
-
-    if (!tabletMain) return null;
 
     const showLink = (menuId: string) => {
         setOpenMenu(menuId);

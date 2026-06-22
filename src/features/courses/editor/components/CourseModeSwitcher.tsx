@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Course } from "../../types/course";
 import { CourseEditToolbar } from "./CourseEditToolbar";
 import { CourseEditableLayout } from "./CourseEditableLayout";
@@ -21,6 +21,14 @@ export const CourseModeSwitcher = ({ course }: CourseModeSwitcherProps) => {
     const [isEditing, setIsEditing] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [status, setStatus] = useState<string>();
+
+    useEffect(() => {
+        setDisplayedCourse(course);
+        setDraftCourse(course);
+        setIsEditing(false);
+        setIsSaving(false);
+        setStatus(undefined);
+    }, [course]);
 
     const startEditing = () => {
         setDraftCourse(displayedCourse);
