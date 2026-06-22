@@ -2,8 +2,9 @@
 
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
-import type { CourseSourcePage, SourcePagesBlock } from "../../../types/course";
+import type { CourseImage, CourseSourcePage, SourcePagesBlock } from "../../../types/course";
 import { asRichSingleContent } from "../../utils/contentAdapters";
+import { ImageFields } from "../fields/ImageFields";
 import { RichTextField } from "../fields/RichTextField";
 import { StringListField } from "../fields/StringListField";
 import { TextInputField } from "../fields/TextInputField";
@@ -11,6 +12,7 @@ import { BlockEditorFrame } from "./BlockEditorFrame";
 
 interface SourcePagesBlockEditorProps {
     block: SourcePagesBlock;
+    courseSlug: string;
     onChange: (block: SourcePagesBlock) => void;
     onDelete: () => void;
 }
@@ -23,7 +25,13 @@ const createSourcePage = (): CourseSourcePage => ({
     transcript: [],
 });
 
-export const SourcePagesBlockEditor = ({ block, onChange, onDelete }: SourcePagesBlockEditorProps) => {
+const sourcePageToImage = (page: CourseSourcePage): CourseImage => ({
+    src: page.image,
+    alt: page.alt,
+    role: "source",
+});
+
+export const SourcePagesBlockEditor = ({ block, courseSlug, onChange, onDelete }: SourcePagesBlockEditorProps) => {
     const updatePage = (index: number, page: CourseSourcePage) => {
         onChange({ ...block, pages: block.pages.map((currentPage, pageIndex) => (pageIndex === index ? page : currentPage)) });
     };
@@ -57,9 +65,14 @@ export const SourcePagesBlockEditor = ({ block, onChange, onDelete }: SourcePage
                         <div className="course-editor-grid course-editor-grid--2">
                             <TextInputField label="Numéro" value={String(page.page)} onChange={(value) => updatePage(index, { ...page, page: Number(value) })} />
                             <TextInputField label="Titre" value={page.title} onChange={(title) => updatePage(index, { ...page, title })} />
-                            <TextInputField label="Image" value={page.image} onChange={(image) => updatePage(index, { ...page, image })} />
-                            <TextInputField label="Texte alternatif" value={page.alt} onChange={(alt) => updatePage(index, { ...page, alt })} />
                         </div>
+                        <ImageFields
+                            image={sourcePageToImage(page)}
+                            courseSlug={courseSlug}
+                            showCaption={false}
+                            showRole={false}
+                            onChange={(image) => updatePage(index, { ...page, image: image.src, alt: image.alt })}
+                        />
                         <StringListField label="Transcription" values={page.transcript} addLabel="Ajouter une ligne" onChange={(transcript) => updatePage(index, { ...page, transcript })} />
                     </section>
                 ))}

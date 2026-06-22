@@ -17,6 +17,7 @@ import { BlockEditorFrame } from "./BlockEditorFrame";
 
 interface SequenceCardEditorProps {
     block: SequenceCardBlock;
+    courseSlug: string;
     onChange: (block: SequenceCardBlock) => void;
     onDelete: () => void;
 }
@@ -69,7 +70,7 @@ const createPart = (type: SequenceCardPart["type"]): SequenceCardPart => {
     return createFigurePart();
 };
 
-export const SequenceCardEditor = ({ block, onChange, onDelete }: SequenceCardEditorProps) => {
+export const SequenceCardEditor = ({ block, courseSlug, onChange, onDelete }: SequenceCardEditorProps) => {
     const updatePart = (index: number, part: SequenceCardPart) => {
         onChange({ ...block, parts: block.parts.map((currentPart, partIndex) => (partIndex === index ? part : currentPart)) });
     };
@@ -113,7 +114,7 @@ export const SequenceCardEditor = ({ block, onChange, onDelete }: SequenceCardEd
                         {part.type === "figure" ? (
                             <>
                                 <TextInputField label="Titre" value={part.title} onChange={(title) => updatePart(index, { ...part, title })} />
-                                <ImageFields image={part.image} onChange={(image) => updatePart(index, { ...part, image })} />
+                                <ImageFields image={part.image} courseSlug={courseSlug} onChange={(image) => updatePart(index, { ...part, image })} />
                                 <RichTextField label="Contenu" value={part.content} onChange={(content) => updatePart(index, { ...part, content })} />
                             </>
                         ) : null}

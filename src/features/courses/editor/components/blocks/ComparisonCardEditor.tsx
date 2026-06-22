@@ -11,6 +11,7 @@ import { BlockEditorFrame } from "./BlockEditorFrame";
 
 interface ComparisonCardEditorProps {
     block: ComparisonCardBlock;
+    courseSlug: string;
     onChange: (block: ComparisonCardBlock) => void;
     onDelete: () => void;
 }
@@ -26,7 +27,7 @@ const createComparisonItem = (): ComparisonItem => ({
     },
 });
 
-export const ComparisonCardEditor = ({ block, onChange, onDelete }: ComparisonCardEditorProps) => {
+export const ComparisonCardEditor = ({ block, courseSlug, onChange, onDelete }: ComparisonCardEditorProps) => {
     const updateItem = (index: number, item: ComparisonItem) => {
         onChange({ ...block, items: block.items.map((currentItem, itemIndex) => (itemIndex === index ? item : currentItem)) });
     };
@@ -58,7 +59,7 @@ export const ComparisonCardEditor = ({ block, onChange, onDelete }: ComparisonCa
                             </button>
                         </div>
                         <TextInputField label="Titre" value={item.title} onChange={(title) => updateItem(index, { ...item, title })} />
-                        <ImageFields image={item.image} onChange={(image) => updateItem(index, { ...item, image })} />
+                        <ImageFields image={item.image} courseSlug={courseSlug} onChange={(image) => updateItem(index, { ...item, image })} />
                         <RichTextField label="Contenu" value={asRichSingleContent(item.content)} onChange={(content) => updateItem(index, { ...item, content })} />
                     </section>
                 ))}

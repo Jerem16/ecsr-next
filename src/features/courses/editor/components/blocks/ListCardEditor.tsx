@@ -1,8 +1,9 @@
 "use client";
 
 import type { ListCardBlock } from "../../../types/course";
-import { asRichSingleContent, richInlineContentToText, textToRichInlineContent } from "../../utils/contentAdapters";
+import { asRichSingleContent } from "../../utils/contentAdapters";
 import { CheckboxField } from "../fields/CheckboxField";
+import { RichInlineListField } from "../fields/RichInlineListField";
 import { RichTextField } from "../fields/RichTextField";
 import { StringListField } from "../fields/StringListField";
 import { TextInputField } from "../fields/TextInputField";
@@ -15,8 +16,6 @@ interface ListCardEditorProps {
 }
 
 export const ListCardEditor = ({ block, onChange, onDelete }: ListCardEditorProps) => {
-    const itemTexts = block.items.map(richInlineContentToText);
-
     return (
         <BlockEditorFrame title={block.title} blockType="Liste" onDelete={onDelete}>
             <div className="course-editor-grid course-editor-grid--2">
@@ -25,11 +24,11 @@ export const ListCardEditor = ({ block, onChange, onDelete }: ListCardEditorProp
             </div>
             <CheckboxField label="Liste ordonnée" checked={Boolean(block.ordered)} onChange={(ordered) => onChange({ ...block, ordered })} />
             <RichTextField label="Introduction" value={asRichSingleContent(block.intro)} onChange={(intro) => onChange({ ...block, intro })} />
-            <StringListField
+            <RichInlineListField
                 label="Élément"
-                values={itemTexts}
+                values={block.items}
                 addLabel="Ajouter un élément"
-                onChange={(items) => onChange({ ...block, items: items.map(textToRichInlineContent) })}
+                onChange={(items) => onChange({ ...block, items })}
             />
             <StringListField label="Mot-clé" values={block.keywords ?? []} onChange={(keywords) => onChange({ ...block, keywords })} />
         </BlockEditorFrame>

@@ -65,6 +65,7 @@ export const saveEditableCourse = async (course: Course): Promise<Course> => {
                 category: course.category,
                 summary: course.summary,
                 objectives: course.objectives,
+                objectivesOrdered: course.objectivesOrdered,
             },
             null,
             4,

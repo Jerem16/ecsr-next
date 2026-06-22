@@ -96,7 +96,14 @@ export const CourseEditableLayout = ({ course, onChange }: CourseEditableLayoutP
                     <TextInputField label="Titre" value={course.title} onChange={(title) => onChange({ ...course, title })} />
                 </div>
                 <RichTextField label="Résumé" value={asRichSingleContent(course.summary)} onChange={(summary) => onChange({ ...course, summary })} />
-                <StringListField label="Objectif" values={course.objectives} addLabel="Ajouter un objectif" onChange={(objectives) => onChange({ ...course, objectives })} />
+                <StringListField
+                    label="Objectif"
+                    values={course.objectives}
+                    ordered={Boolean(course.objectivesOrdered)}
+                    addLabel="Ajouter un objectif"
+                    onOrderedChange={(objectivesOrdered) => onChange({ ...course, objectivesOrdered })}
+                    onChange={(objectives) => onChange({ ...course, objectives })}
+                />
             </section>
 
             <section className="course-editor-panel">
@@ -131,6 +138,7 @@ export const CourseEditableLayout = ({ course, onChange }: CourseEditableLayoutP
                                 {section.blocks.map((block, blockIndex) => (
                                     <EditableBlockRenderer
                                         block={block}
+                                        courseSlug={course.slug}
                                         key={block.id ?? `${section.id}-${blockIndex}`}
                                         onChange={(nextBlock) => updateBlock(sectionIndex, blockIndex, nextBlock)}
                                         onDelete={() => removeBlock(sectionIndex, blockIndex)}

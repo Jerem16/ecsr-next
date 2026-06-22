@@ -27,7 +27,7 @@ const segmentToHtml = (segment: RichTextSegment): string => {
     return output;
 };
 
-const inlineToHtml = (content: RichInlineContent): string => {
+export const inlineToHtml = (content: RichInlineContent): string => {
     if (typeof content === "string") {
         return escapeHtml(content);
     }
@@ -37,6 +37,10 @@ const inlineToHtml = (content: RichInlineContent): string => {
     }
 
     return segmentToHtml(content);
+};
+
+export const inlineContentToParagraphHtml = (content: RichInlineContent): string => {
+    return `<p>${inlineToHtml(content)}</p>`;
 };
 
 export const richContentNodesToHtml = (nodes: RichContentNode[]): string => {
@@ -91,6 +95,10 @@ const isHTMLElement = (node: Node): node is HTMLElement => {
 };
 
 const mergeSegment = (segments: RichTextSegment[], segment: RichTextSegment): RichTextSegment[] => {
+    if (!segment.text) {
+        return segments;
+    }
+
     const previous = segments.at(-1);
 
     if (
@@ -129,6 +137,22 @@ const readInlineSegments = (node: Node, marks: InlineMarkState): RichTextSegment
     }
 
     const tagName = node.tagName.toLowerCase();
+
+    if (tagName === "br") {
+        return [
+            {
+                text: "\n",
+                strong: marks.strong || undefined,
+                italic: marks.italic || undefined,
+                href: marks.href,
+            },
+        ];
+    }
+
+    if (tagName === "ul" || tagName === "ol") {
+        return [];
+    }
+
     const nextMarks: InlineMarkState = {
         strong: marks.strong || tagName === "strong" || tagName === "b",
         italic: marks.italic || tagName === "em" || tagName === "i",
@@ -155,13 +179,84 @@ const segmentsToInlineContent = (segments: RichTextSegment[]): RichInlineContent
     return segments;
 };
 
+export const richContentNodesToInlineContent = (nodes: RichContentNode[]): RichInlineContent => {
+    const firstList = nodes.find((node) => node.type === "list");
+
+    if (firstList?.type === "list" && firstList.items.length > 0) {
+        return firstList.items[0] ?? "";
+    }
+
+    const firstParagraph = nodes.find((node) => node.type === "paragraph");
+
+    if (firstParagraph?.type === "paragraph") {
+        return firstParagraph.text;
+    }
+
+    return "";
+};
+
 const readElementAsInlineContent = (element: Element): RichInlineContent => {
     const segments = Array.from(element.childNodes).reduce<RichTextSegment[]>((segments, childNode) => {
+        if (isHTMLElement(childNode)) {
+            const childTag = childNode.tagName.toLowerCase();
+
+            if (childTag === "ul" || childTag === "ol") {
+                return segments;
+            }
+        }
+
         const childSegments = readInlineSegments(childNode, { strong: false, italic: false });
         return childSegments.reduce<RichTextSegment[]>(mergeSegment, segments);
     }, []);
 
     return segmentsToInlineContent(segments);
+};
+
+const readListItems = (listElement: HTMLElement): RichInlineContent[] => {
+    return Array.from(listElement.children)
+        .filter((child): child is HTMLElement => child.tagName.toLowerCase() === "li")
+        .map(readElementAsInlineContent)
+        .filter((item) => (typeof item === "string" ? item.trim().length > 0 : true));
+};
+
+const pushElementNode = (element: HTMLElement, nodes: RichContentNode[]) => {
+    const tagName = element.tagName.toLowerCase();
+
+    if (tagName === "ul" || tagName === "ol") {
+        const items = readListItems(element);
+
+        if (items.length > 0) {
+            nodes.push({
+                type: "list",
+                ordered: tagName === "ol" || undefined,
+                items,
+            });
+        }
+
+        return;
+    }
+
+    if (tagName === "p" || tagName === "div" || tagName.match(/^h[1-6]$/)) {
+        const inlineContent = readElementAsInlineContent(element);
+        const hasText = typeof inlineContent === "string" ? inlineContent.trim().length > 0 : true;
+
+        if (hasText) {
+            nodes.push({
+                type: "paragraph",
+                text: inlineContent,
+            });
+        }
+
+        Array.from(element.children).forEach((child) => {
+            if (child instanceof HTMLElement) {
+                const childTagName = child.tagName.toLowerCase();
+
+                if (childTagName === "ul" || childTagName === "ol") {
+                    pushElementNode(child, nodes);
+                }
+            }
+        });
+    }
 };
 
 export const htmlToRichContentNodes = (html: string): RichContentNode[] => {
@@ -184,26 +279,8 @@ export const htmlToRichContentNodes = (html: string): RichContentNode[] => {
             return;
         }
 
-        if (!isHTMLElement(childNode)) {
-            return;
-        }
-
-        const tagName = childNode.tagName.toLowerCase();
-
-        if (tagName === "ul" || tagName === "ol") {
-            nodes.push({
-                type: "list",
-                ordered: tagName === "ol" || undefined,
-                items: Array.from(childNode.querySelectorAll(":scope > li")).map(readElementAsInlineContent),
-            });
-            return;
-        }
-
-        if (tagName === "p" || tagName === "div" || tagName.match(/^h[1-6]$/)) {
-            nodes.push({
-                type: "paragraph",
-                text: readElementAsInlineContent(childNode),
-            });
+        if (isHTMLElement(childNode)) {
+            pushElementNode(childNode, nodes);
         }
     });
 

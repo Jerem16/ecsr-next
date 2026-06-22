@@ -190,5 +190,6 @@ export interface Course {
     category: string;
     summary: RichSingleContent;
     objectives: string[];
+    objectivesOrdered?: boolean;
     sections: CourseSection[];
 }

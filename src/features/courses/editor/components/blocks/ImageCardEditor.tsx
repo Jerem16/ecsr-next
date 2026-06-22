@@ -10,6 +10,7 @@ import { BlockEditorFrame } from "./BlockEditorFrame";
 
 interface ImageCardEditorProps {
     block: ImageCardBlock;
+    courseSlug: string;
     onChange: (block: ImageCardBlock) => void;
     onDelete: () => void;
 }
@@ -19,7 +20,7 @@ const imagePositionOptions: SelectOption<NonNullable<ImageCardBlock["imagePositi
     { value: "right", label: "Image à droite" },
 ];
 
-export const ImageCardEditor = ({ block, onChange, onDelete }: ImageCardEditorProps) => {
+export const ImageCardEditor = ({ block, courseSlug, onChange, onDelete }: ImageCardEditorProps) => {
     return (
         <BlockEditorFrame title={block.title} blockType="Image" onDelete={onDelete}>
             <div className="course-editor-grid course-editor-grid--2">
@@ -32,7 +33,7 @@ export const ImageCardEditor = ({ block, onChange, onDelete }: ImageCardEditorPr
                     onChange={(imagePosition) => onChange({ ...block, imagePosition })}
                 />
             </div>
-            <ImageFields image={block.image} onChange={(image) => onChange({ ...block, image })} />
+            <ImageFields image={block.image} courseSlug={courseSlug} onChange={(image) => onChange({ ...block, image })} />
             <RichTextField label="Contenu" value={asRichBlockContent(block.content)} onChange={(content) => onChange({ ...block, content })} />
         </BlockEditorFrame>
     );

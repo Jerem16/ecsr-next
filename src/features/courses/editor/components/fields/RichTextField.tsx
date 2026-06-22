@@ -17,43 +17,48 @@ interface RichTextFieldProps {
     label: string;
     value: RichContentNode[];
     onChange: (value: RichContentNode[]) => void;
+    allowLists?: boolean;
 }
 
-export const RichTextField = ({ label, value, onChange }: RichTextFieldProps) => {
-    const initialHtml = useMemo(() => richContentNodesToHtml(value), []);
+export const RichTextField = ({ label, value, onChange, allowLists = true }: RichTextFieldProps) => {
+    const htmlValue = useMemo(() => richContentNodesToHtml(value), [value]);
 
     const editor = useEditor({
         extensions: [
-            StarterKit,
+            StarterKit.configure({
+                bulletList: allowLists ? {} : false,
+                orderedList: allowLists ? {} : false,
+                listItem: allowLists ? {} : false,
+            }),
             Link.configure({
                 openOnClick: false,
                 autolink: true,
                 linkOnPaste: true,
             }),
         ],
-        content: initialHtml,
+        content: htmlValue,
         editorProps: {
             attributes: {
                 class: "course-editor-rich__content",
             },
         },
+        immediatelyRender: false,
         onUpdate: ({ editor: updatedEditor }) => {
             onChange(htmlToRichContentNodes(updatedEditor.getHTML()));
         },
     });
 
     useEffect(() => {
-        if (!editor) {
+        if (!editor || editor.isFocused) {
             return;
         }
 
         const currentHtml = editor.getHTML();
-        const nextHtml = richContentNodesToHtml(value);
 
-        if (currentHtml !== nextHtml && currentHtml === "<p></p>") {
-            editor.commands.setContent(nextHtml);
+        if (currentHtml !== htmlValue) {
+            editor.commands.setContent(htmlValue, false);
         }
-    }, [editor, value]);
+    }, [editor, htmlValue]);
 
     const setLink = () => {
         if (!editor) {
@@ -79,19 +84,43 @@ export const RichTextField = ({ label, value, onChange }: RichTextFieldProps) =>
         <div className="course-editor-rich">
             <span className="course-editor-rich__label">{label}</span>
             <div className="course-editor-rich__toolbar" aria-label={`Outils de mise en forme : ${label}`}>
-                <button type="button" onClick={() => editor?.chain().focus().toggleBold().run()} aria-label="Gras">
+                <button
+                    type="button"
+                    className={editor?.isActive("bold") ? "is-active" : undefined}
+                    onClick={() => editor?.chain().focus().toggleBold().run()}
+                    aria-label="Gras"
+                >
                     <FormatBoldIcon fontSize="small" />
                 </button>
-                <button type="button" onClick={() => editor?.chain().focus().toggleItalic().run()} aria-label="Italique">
+                <button
+                    type="button"
+                    className={editor?.isActive("italic") ? "is-active" : undefined}
+                    onClick={() => editor?.chain().focus().toggleItalic().run()}
+                    aria-label="Italique"
+                >
                     <FormatItalicIcon fontSize="small" />
                 </button>
-                <button type="button" onClick={() => editor?.chain().focus().toggleBulletList().run()} aria-label="Liste à puces">
-                    <FormatListBulletedIcon fontSize="small" />
-                </button>
-                <button type="button" onClick={() => editor?.chain().focus().toggleOrderedList().run()} aria-label="Liste ordonnée">
-                    <FormatListNumberedIcon fontSize="small" />
-                </button>
-                <button type="button" onClick={setLink} aria-label="Lien">
+                {allowLists ? (
+                    <>
+                        <button
+                            type="button"
+                            className={editor?.isActive("bulletList") ? "is-active" : undefined}
+                            onClick={() => editor?.chain().focus().toggleBulletList().run()}
+                            aria-label="Liste à puces"
+                        >
+                            <FormatListBulletedIcon fontSize="small" />
+                        </button>
+                        <button
+                            type="button"
+                            className={editor?.isActive("orderedList") ? "is-active" : undefined}
+                            onClick={() => editor?.chain().focus().toggleOrderedList().run()}
+                            aria-label="Liste ordonnée"
+                        >
+                            <FormatListNumberedIcon fontSize="small" />
+                        </button>
+                    </>
+                ) : null}
+                <button type="button" className={editor?.isActive("link") ? "is-active" : undefined} onClick={setLink} aria-label="Lien">
                     <LinkIcon fontSize="small" />
                 </button>
                 <button type="button" onClick={() => editor?.chain().focus().setParagraph().run()} aria-label="Paragraphe">
