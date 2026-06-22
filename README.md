@@ -4,19 +4,21 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 2. nvm install 22.14.0
 3. nvm use 22.14.0
 
-## Getting Started
+## Install & Getting Started
+
+> > corepack enable
+> >
+> > yarn install
+> >
+> > yarn dev
 
 # Favicon
 
-- 1 yarn add sharp
-
-- 2 Importer le "logo.svg" dans dans le dossier public/img/favicon
-
-- 3 run => node generate-favicons.js
-
-- 4 Go => [node generate-favicons.js](https://favicon.io/favicon-converter/)
-
-- 5 Envoie de favicon-512x512.png pour génèrer les favicon remplacer "favicon-16x16.png" , renommer "favicon-512x512.png" et "favicon-192x192.png" par android-chrome-512x512.png et android-chrome-192x192.png
+-   1 yarn add sharp
+-   2 Importer le "logo.svg" dans dans le dossier public/img/favicon
+-   3 run => node generate-favicons.js
+-   4 Go => [node generate-favicons.js](https://favicon.io/favicon-converter/)
+-   5 Envoie de favicon-512x512.png pour génèrer les favicon remplacer "favicon-16x16.png" , renommer "favicon-512x512.png" et "favicon-192x192.png" par android-chrome-512x512.png et android-chrome-192x192.png
 
 First, run the development server:
 

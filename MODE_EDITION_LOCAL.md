@@ -157,3 +157,16 @@ Le mode édition affiche maintenant le même sommaire latéral que le rendu publ
 - Quand une section est créée depuis un élément de liste, l’élément devient un lien interne vers la nouvelle section.
 
 Cette logique reste locale : les modifications sont sauvegardées dans les fichiers du projet, puis synchronisables manuellement par Git.
+
+## Correctif sommaire et ancres
+
+Le sommaire du cours utilise maintenant un scroll calculé au clic au lieu de dépendre seulement du comportement natif des ancres.
+
+Objectifs :
+
+- Éviter que la barre d’édition locale masque le haut d’une carte.
+- Stabiliser le lien actif dans le sommaire quand une section contient plusieurs cartes proches.
+- Éviter les sauts entre deux entrées du sommaire pendant le scroll fluide.
+- Afficher la section parente comme active quand une carte interne est sélectionnée.
+
+La barre d’édition locale est maintenant compacte par défaut. Elle peut être dépliée avec l’icône d’édition pour afficher les actions détaillées.
