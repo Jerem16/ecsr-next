@@ -63,7 +63,11 @@ const renderSegment = (segment: RichTextSegment, key: string): ReactNode => {
     }
 
     if (segment.href) {
-        output = (
+        const isInternalAnchor = segment.href.startsWith("#");
+
+        output = isInternalAnchor ? (
+            <a href={segment.href}>{output}</a>
+        ) : (
             <a href={segment.href} target="_blank" rel="noopener noreferrer">
                 {output}
             </a>

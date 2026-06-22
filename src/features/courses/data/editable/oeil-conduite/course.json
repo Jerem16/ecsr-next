@@ -1284,7 +1284,28 @@
                     ]
                 }
             ]
+        },
+        {
+            "id": "nouvelle-section-15",
+            "title": "Nouvelle section 15",
+            "intro": [
+                {
+                    "type": "paragraph",
+                    "text": ""
+                }
+            ],
+            "blocks": []
+        },
+        {
+            "id": "nouvelle-section-16",
+            "title": "Nouvelle section 16",
+            "intro": [
+                {
+                    "type": "paragraph",
+                    "text": ""
+                }
+            ],
+            "blocks": []
         }
-    ],
-    "objectivesOrdered": true
+    ]
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import type { ListCardBlock } from "../../../types/course";
+import type { ListCardBlock, RichInlineContent } from "../../../types/course";
 import { asRichSingleContent } from "../../utils/contentAdapters";
 import { CheckboxField } from "../fields/CheckboxField";
 import { RichInlineListField } from "../fields/RichInlineListField";
@@ -13,9 +13,10 @@ interface ListCardEditorProps {
     block: ListCardBlock;
     onChange: (block: ListCardBlock) => void;
     onDelete: () => void;
+    onCreateSectionFromItem?: (item: RichInlineContent, itemIndex: number) => void;
 }
 
-export const ListCardEditor = ({ block, onChange, onDelete }: ListCardEditorProps) => {
+export const ListCardEditor = ({ block, onChange, onDelete, onCreateSectionFromItem }: ListCardEditorProps) => {
     return (
         <BlockEditorFrame title={block.title} blockType="Liste" onDelete={onDelete}>
             <div className="course-editor-grid course-editor-grid--2">
@@ -28,7 +29,9 @@ export const ListCardEditor = ({ block, onChange, onDelete }: ListCardEditorProp
                 label="Élément"
                 values={block.items}
                 addLabel="Ajouter un élément"
+                itemActionLabel="Créer une section liée depuis cet élément"
                 onChange={(items) => onChange({ ...block, items })}
+                onItemAction={onCreateSectionFromItem}
             />
             <StringListField label="Mot-clé" values={block.keywords ?? []} onChange={(keywords) => onChange({ ...block, keywords })} />
         </BlockEditorFrame>

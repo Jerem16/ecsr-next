@@ -1,6 +1,6 @@
 "use client";
 
-import type { CourseBlock } from "../../types/course";
+import type { CourseBlock, RichInlineContent } from "../../types/course";
 import { CalloutBlockEditor } from "./blocks/CalloutBlockEditor";
 import { ComparisonCardEditor } from "./blocks/ComparisonCardEditor";
 import { ImageCardEditor } from "./blocks/ImageCardEditor";
@@ -15,14 +15,15 @@ interface EditableBlockRendererProps {
     courseSlug: string;
     onChange: (block: CourseBlock) => void;
     onDelete: () => void;
+    onCreateSectionFromItem?: (item: RichInlineContent, itemIndex: number) => void;
 }
 
-export const EditableBlockRenderer = ({ block, courseSlug, onChange, onDelete }: EditableBlockRendererProps) => {
+export const EditableBlockRenderer = ({ block, courseSlug, onChange, onDelete, onCreateSectionFromItem }: EditableBlockRendererProps) => {
     switch (block.type) {
         case "text-card":
             return <TextCardEditor block={block} onChange={onChange} onDelete={onDelete} />;
         case "list-card":
-            return <ListCardEditor block={block} onChange={onChange} onDelete={onDelete} />;
+            return <ListCardEditor block={block} onChange={onChange} onDelete={onDelete} onCreateSectionFromItem={onCreateSectionFromItem} />;
         case "image-card":
             return <ImageCardEditor block={block} courseSlug={courseSlug} onChange={onChange} onDelete={onDelete} />;
         case "comparison-card":

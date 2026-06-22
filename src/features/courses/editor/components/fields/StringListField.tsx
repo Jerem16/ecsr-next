@@ -4,6 +4,7 @@ import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
+import { moveItem } from "../../utils/courseEditorIds";
 import { TextInputField } from "./TextInputField";
 
 interface StringListFieldProps {
@@ -29,6 +30,10 @@ export const StringListField = ({
 
     const removeValue = (index: number) => {
         onChange(values.filter((_, itemIndex) => itemIndex !== index));
+    };
+
+    const moveValue = (index: number, targetIndex: number) => {
+        onChange(moveItem(values, index, targetIndex));
     };
 
     return (
@@ -70,6 +75,16 @@ export const StringListField = ({
                 {values.map((value, index) => (
                     <div className="course-editor-list__row" key={`${label}-${index}`}>
                         <TextInputField label={`${label} ${index + 1}`} value={value} onChange={(nextValue) => updateValue(index, nextValue)} />
+                        <label className="course-editor-field course-editor-field--compact">
+                            <span>Position</span>
+                            <select value={index} onChange={(event) => moveValue(index, Number(event.target.value))}>
+                                {values.map((_, optionIndex) => (
+                                    <option value={optionIndex} key={`${label}-${index}-position-${optionIndex}`}>
+                                        {optionIndex + 1}
+                                    </option>
+                                ))}
+                            </select>
+                        </label>
                         <button type="button" className="course-editor-icon-button" onClick={() => removeValue(index)} aria-label="Supprimer">
                             <DeleteIcon fontSize="small" />
                         </button>

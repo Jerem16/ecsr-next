@@ -141,3 +141,19 @@ Le bloc « Objectif » du panneau « Informations du cours » possède maintenan
 Ce choix est sauvegardé dans le cours avec la propriété `objectivesOrdered`.
 
 Quand `objectivesOrdered` vaut `true`, la page de cours affiche les objectifs dans une liste ordonnée `<ol>`. Sinon, elle garde une liste à puces `<ul>`.
+
+## Mise à jour — sommaire dynamique, sections liées et déplacement
+
+Le mode édition affiche maintenant le même sommaire latéral que le rendu public.
+
+- Les sections ajoutées apparaissent immédiatement dans le sommaire.
+- Les cartes qui possèdent un `id` apparaissent en sous-niveau sous leur section.
+- Les objectifs pédagogiques restent accessibles via l’ancre `#objectifs`.
+- Chaque section peut être déplacée avec le sélecteur `Position`.
+- Chaque bloc peut être déplacé avec le sélecteur `Position du bloc`.
+- L’ajout d’un bloc permet de choisir son type et sa position d’insertion.
+- Les ajouts rapides permettent de créer directement une carte texte, une carte image ou une liste.
+- Dans une carte de type liste, chaque élément peut servir de base pour créer une section liée.
+- Quand une section est créée depuis un élément de liste, l’élément devient un lien interne vers la nouvelle section.
+
+Cette logique reste locale : les modifications sont sauvegardées dans les fichiers du projet, puis synchronisables manuellement par Git.

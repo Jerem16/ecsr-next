@@ -1,25 +1,50 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { CourseSection } from "../types/course";
+import type { CourseBlock, CourseSection } from "../types/course";
 
 interface CourseSidebarProps {
     sections: CourseSection[];
 }
 
+interface CourseSidebarChildLink {
+    id: string;
+    title: string;
+}
+
+interface CourseSidebarLink {
+    id: string;
+    title: string;
+    children: CourseSidebarChildLink[];
+}
+
+const getBlockTitle = (block: CourseBlock): string => {
+    return block.title;
+};
+
 export const CourseSidebar = ({ sections }: CourseSidebarProps) => {
     const [activeSection, setActiveSection] = useState("course-top");
-    const links = useMemo(
+    const links = useMemo<CourseSidebarLink[]>(
         () => [
-                { id: "course-top", title: "Introduction" },
-                { id: "objectifs", title: "Objectifs pédagogiques" },
-                ...sections.map(({ id, title }) => ({ id, title }))
-            ],
-        [sections]
+            { id: "course-top", title: "Introduction", children: [] },
+            { id: "objectifs", title: "Objectifs pédagogiques", children: [] },
+            ...sections.map((section) => ({
+                id: section.id,
+                title: section.title,
+                children: section.blocks
+                    .filter((block) => Boolean(block.id))
+                    .map((block) => ({ id: block.id ?? "", title: getBlockTitle(block) })),
+            })),
+        ],
+        [sections],
+    );
+    const flatLinks = useMemo(
+        () => links.flatMap((link) => [link, ...link.children]),
+        [links],
     );
 
     useEffect(() => {
-        const nodes = links
+        const nodes = flatLinks
             .map((link) => document.getElementById(link.id))
             .filter((node): node is HTMLElement => node !== null);
 
@@ -39,13 +64,13 @@ export const CourseSidebar = ({ sections }: CourseSidebarProps) => {
             {
                 root: null,
                 rootMargin: "-120px 0px -55% 0px",
-                threshold: [0.15, 0.35, 0.6]
-            }
+                threshold: [0.15, 0.35, 0.6],
+            },
         );
 
         nodes.forEach((node) => observer.observe(node));
         return () => observer.disconnect();
-    }, [links]);
+    }, [flatLinks]);
 
     return (
         <aside className="course-sidebar" aria-label="Sommaire du cours">
@@ -60,6 +85,20 @@ export const CourseSidebar = ({ sections }: CourseSidebarProps) => {
                             >
                                 {link.title}
                             </a>
+                            {link.children.length > 0 ? (
+                                <ol className="course-sidebar__children" aria-label={`Cartes de la section ${link.title}`}>
+                                    {link.children.map((childLink) => (
+                                        <li key={childLink.id}>
+                                            <a
+                                                className={activeSection === childLink.id ? "active" : ""}
+                                                href={`#${childLink.id}`}
+                                            >
+                                                {childLink.title}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ol>
+                            ) : null}
                         </li>
                     ))}
                 </ol>
