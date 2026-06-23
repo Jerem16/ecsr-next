@@ -15,6 +15,15 @@ interface EditorSegmentedControlProps<Value extends string> {
     onChange: (value: Value) => void;
 }
 
+const segmentedButtonBaseClassName =
+    "inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl !px-3 !py-2 text-[0.9rem] font-black transition-[background,color,box-shadow,border-color] duration-150 max-[820px]:flex-1 [&_svg]:transition-colors [&_svg]:duration-150";
+
+const segmentedButtonActiveClassName =
+    "!bg-[var(--course-primary)] !text-white shadow-[0_8px_18px_rgba(18,53,91,0.18)] [&_svg]:!text-white";
+
+const segmentedButtonInactiveClassName =
+    "!text-[var(--course-primary)] hover:!bg-[var(--course-primary-soft)] focus-visible:!bg-[var(--course-primary-soft)] focus-visible:outline-none";
+
 export const EditorSegmentedControl = <Value extends string>({
     label,
     value,
@@ -32,11 +41,7 @@ export const EditorSegmentedControl = <Value extends string>({
                         <button
                             key={option.value}
                             type="button"
-                            className={`inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl px-3 py-2 text-[0.9rem] font-black transition-[background,color,box-shadow] duration-150 max-[820px]:flex-1 ${
-                                isActive
-                                    ? "bg-[var(--course-primary)] text-white shadow-[0_8px_18px_rgba(18,53,91,0.18)]"
-                                    : "text-[var(--course-primary)] hover:bg-[var(--course-primary-soft)] focus-visible:bg-[var(--course-primary-soft)] focus-visible:outline-none"
-                            }`}
+                            className={`${segmentedButtonBaseClassName} ${isActive ? segmentedButtonActiveClassName : segmentedButtonInactiveClassName}`}
                             onClick={() => onChange(option.value)}
                             aria-pressed={isActive}
                         >
