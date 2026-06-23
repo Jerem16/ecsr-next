@@ -154,8 +154,46 @@
                     "id": "voir-regarder-observer",
                     "title": "Voir, regarder, observer",
                     "content": [
-                        "Voir, c’est recevoir une information visuelle. Regarder, c’est diriger volontairement son regard. Observer, c’est rechercher les indices utiles pour comprendre la situation.",
-                        "En conduite, l’objectif n’est donc pas seulement de voir la route, mais de prélever les bonnes informations au bon moment."
+                        {
+                            "type": "paragraph",
+                            "text": "Pour commencer voici quelques notions :"
+                        },
+                        {
+                            "type": "list",
+                            "items": [
+                                [
+                                    {
+                                        "text": "Voir",
+                                        "strong": true
+                                    },
+                                    {
+                                        "text": ", c’est recevoir une information visuelle."
+                                    }
+                                ],
+                                [
+                                    {
+                                        "text": "Regarder",
+                                        "strong": true
+                                    },
+                                    {
+                                        "text": ", c’est diriger volontairement son regard."
+                                    }
+                                ],
+                                [
+                                    {
+                                        "text": "Observer",
+                                        "strong": true
+                                    },
+                                    {
+                                        "text": ", c’est rechercher les indices utiles pour comprendre la situation."
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "En conduite, il ne suffit pas seulement voir la route, mais il faut chercher les indices afin prélever les bonnes informations, au bon moment."
+                        }
                     ],
                     "keywords": [
                         "Voir",
@@ -1285,5 +1323,6 @@
                 }
             ]
         }
-    ]
+    ],
+    "objectivesOrdered": false
 }

@@ -2,6 +2,7 @@
 
 import type { TextCardBlock } from "../../../types/course";
 import { asRichBlockContent } from "../../utils/contentAdapters";
+import { editorGridTwoClassName } from "../editorClassNames";
 import { RichTextField } from "../fields/RichTextField";
 import { StringListField } from "../fields/StringListField";
 import { TextInputField } from "../fields/TextInputField";
@@ -16,7 +17,7 @@ interface TextCardEditorProps {
 export const TextCardEditor = ({ block, onChange, onDelete }: TextCardEditorProps) => {
     return (
         <BlockEditorFrame title={block.title} blockType="Carte texte" onDelete={onDelete}>
-            <div className="course-editor-grid course-editor-grid--2">
+            <div className={editorGridTwoClassName}>
                 <TextInputField label="ID du bloc" value={block.id ?? ""} onChange={(id) => onChange({ ...block, id })} />
                 <TextInputField label="Titre" value={block.title} onChange={(title) => onChange({ ...block, title })} />
             </div>

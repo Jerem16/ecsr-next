@@ -3,6 +3,10 @@
 import { useEffect, useRef, useState, type ChangeEvent } from "react";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import type { CourseImage } from "../../../types/course";
+import {
+    editorButtonClassName,
+    editorGridTwoClassName,
+} from "../editorClassNames";
 import { SelectField, type SelectOption } from "./SelectField";
 import { TextInputField } from "./TextInputField";
 
@@ -116,24 +120,24 @@ export const ImageFields = ({
     };
 
     return (
-        <div className="course-editor-image-fields">
+        <div className="course-editor-image-fields grid gap-3.5">
             {displaySrc ? (
-                <figure>
-                    <img src={displaySrc} alt={image.alt} loading="lazy" />
-                    {image.caption && showCaption ? <figcaption>{image.caption}</figcaption> : null}
+                <figure className="m-0 max-w-[420px]">
+                    <img className="block h-auto w-full rounded-2xl border border-[var(--course-border)] bg-white" src={displaySrc} alt={image.alt} loading="lazy" />
+                    {image.caption && showCaption ? <figcaption className="mt-2 text-center text-[0.9rem] italic text-[var(--course-muted)]">{image.caption}</figcaption> : null}
                 </figure>
             ) : null}
 
-            <div className="course-editor-image-upload">
-                <label className="course-editor-upload-button">
+            <div className="course-editor-image-upload grid justify-items-start gap-1.5">
+                <label className={`course-editor-upload-button ${editorButtonClassName} relative w-fit has-[input:disabled]:cursor-not-allowed has-[input:disabled]:opacity-60`}>
                     <FileUploadIcon fontSize="small" />
                     <span>{isUploading ? "Import en cours..." : "Importer une image"}</span>
-                    <input type="file" accept="image/*" onChange={handleFileChange} disabled={isUploading || !courseSlug} />
+                    <input className="absolute inset-0 h-full w-full cursor-pointer opacity-0" type="file" accept="image/*" onChange={handleFileChange} disabled={isUploading || !courseSlug} />
                 </label>
-                {uploadStatus ? <p>{uploadStatus}</p> : null}
+                {uploadStatus ? <p className="m-0 text-[0.9rem] leading-[1.45] text-[var(--course-muted)]">{uploadStatus}</p> : null}
             </div>
 
-            <div className="course-editor-grid course-editor-grid--2">
+            <div className={editorGridTwoClassName}>
                 <TextInputField label="Chemin de l’image" value={image.src} onChange={(src) => onChange({ ...image, src })} />
                 {showRole ? (
                     <SelectField

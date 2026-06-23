@@ -1,5 +1,10 @@
 "use client";
 
+import {
+    editorTextareaClassName,
+} from "../editorClassNames";
+import { EditorFieldShell } from "./EditorFieldShell";
+
 interface TextareaFieldProps {
     label: string;
     value: string;
@@ -10,9 +15,8 @@ interface TextareaFieldProps {
 
 export const TextareaField = ({ label, value, onChange, placeholder, rows = 4 }: TextareaFieldProps) => {
     return (
-        <label className="course-editor-field">
-            <span>{label}</span>
-            <textarea value={value} placeholder={placeholder} rows={rows} onChange={(event) => onChange(event.target.value)} />
-        </label>
+        <EditorFieldShell label={label}>
+            <textarea className={editorTextareaClassName} value={value} placeholder={placeholder} rows={rows} onChange={(event) => onChange(event.target.value)} />
+        </EditorFieldShell>
     );
 };

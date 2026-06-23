@@ -12,6 +12,11 @@ import StarterKit from "@tiptap/starter-kit";
 import Link from "@tiptap/extension-link";
 import type { RichContentNode } from "../../../types/course";
 import { htmlToRichContentNodes, richContentNodesToHtml } from "../../utils/richContentHtml";
+import {
+    editorActiveIconButtonClassName,
+    editorIconButtonClassName,
+} from "../editorClassNames";
+import { EditorFieldShell } from "./EditorFieldShell";
 
 interface RichTextFieldProps {
     label: string;
@@ -39,7 +44,7 @@ export const RichTextField = ({ label, value, onChange, allowLists = true }: Ric
         content: htmlValue,
         editorProps: {
             attributes: {
-                class: "course-editor-rich__content",
+                class: "course-editor-rich__content min-h-[116px] rounded-b-2xl border border-t-0 border-[var(--course-border)] bg-white px-4 py-3.5 text-[var(--course-text)] leading-[1.65] [&_li]:pl-[0.1rem] [&_li::marker]:font-black [&_li::marker]:text-[var(--course-accent)] [&_ol]:my-2 [&_ol]:grid [&_ol]:list-decimal [&_ol]:gap-[0.35rem] [&_ol]:pl-[1.45rem] [&_p]:mb-3 [&_p]:mt-0 [&_ul]:my-2 [&_ul]:grid [&_ul]:list-disc [&_ul]:gap-[0.35rem] [&_ul]:pl-[1.45rem]",
             },
         },
         immediatelyRender: false,
@@ -81,12 +86,11 @@ export const RichTextField = ({ label, value, onChange, allowLists = true }: Ric
     };
 
     return (
-        <div className="course-editor-rich">
-            <span className="course-editor-rich__label">{label}</span>
-            <div className="course-editor-rich__toolbar" aria-label={`Outils de mise en forme : ${label}`}>
+        <EditorFieldShell label={label} asLabel={false} className="course-editor-rich mt-4">
+            <div className="course-editor-rich__toolbar flex flex-wrap gap-1.5 rounded-t-2xl border border-[var(--course-border)] bg-[var(--course-primary-soft)] p-[7px]" aria-label={`Outils de mise en forme : ${label}`}>
                 <button
                     type="button"
-                    className={editor?.isActive("bold") ? "is-active" : undefined}
+                    className={editor?.isActive("bold") ? editorActiveIconButtonClassName : editorIconButtonClassName}
                     onClick={() => editor?.chain().focus().toggleBold().run()}
                     aria-label="Gras"
                 >
@@ -94,7 +98,7 @@ export const RichTextField = ({ label, value, onChange, allowLists = true }: Ric
                 </button>
                 <button
                     type="button"
-                    className={editor?.isActive("italic") ? "is-active" : undefined}
+                    className={editor?.isActive("italic") ? editorActiveIconButtonClassName : editorIconButtonClassName}
                     onClick={() => editor?.chain().focus().toggleItalic().run()}
                     aria-label="Italique"
                 >
@@ -104,7 +108,7 @@ export const RichTextField = ({ label, value, onChange, allowLists = true }: Ric
                     <>
                         <button
                             type="button"
-                            className={editor?.isActive("bulletList") ? "is-active" : undefined}
+                            className={editor?.isActive("bulletList") ? editorActiveIconButtonClassName : editorIconButtonClassName}
                             onClick={() => editor?.chain().focus().toggleBulletList().run()}
                             aria-label="Liste à puces"
                         >
@@ -112,7 +116,7 @@ export const RichTextField = ({ label, value, onChange, allowLists = true }: Ric
                         </button>
                         <button
                             type="button"
-                            className={editor?.isActive("orderedList") ? "is-active" : undefined}
+                            className={editor?.isActive("orderedList") ? editorActiveIconButtonClassName : editorIconButtonClassName}
                             onClick={() => editor?.chain().focus().toggleOrderedList().run()}
                             aria-label="Liste ordonnée"
                         >
@@ -120,14 +124,14 @@ export const RichTextField = ({ label, value, onChange, allowLists = true }: Ric
                         </button>
                     </>
                 ) : null}
-                <button type="button" className={editor?.isActive("link") ? "is-active" : undefined} onClick={setLink} aria-label="Lien">
+                <button type="button" className={editor?.isActive("link") ? editorActiveIconButtonClassName : editorIconButtonClassName} onClick={setLink} aria-label="Lien">
                     <LinkIcon fontSize="small" />
                 </button>
-                <button type="button" onClick={() => editor?.chain().focus().setParagraph().run()} aria-label="Paragraphe">
+                <button type="button" className={editorIconButtonClassName} onClick={() => editor?.chain().focus().setParagraph().run()} aria-label="Paragraphe">
                     <NotesIcon fontSize="small" />
                 </button>
             </div>
             <EditorContent editor={editor} />
-        </div>
+        </EditorFieldShell>
     );
 };

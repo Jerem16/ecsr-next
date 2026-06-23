@@ -2,8 +2,8 @@
 import type { Metadata } from "next";
 import MetaData from "./MetaData.js";
 import localFont from "next/font/local";
-import "./globals.css";
 import "@assets/styles/main.scss";
+import "./globals.css";
 import NavInterface from "@components/00-Header/NavInterface.jsx";
 
 const Roboto = localFont({

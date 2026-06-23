@@ -17,6 +17,21 @@ import {
 import { createDefaultBlock } from "../utils/createDefaultBlock";
 import { AddBlockControl } from "./AddBlockControl";
 import { EditableBlockRenderer } from "./EditableBlockRenderer";
+import {
+    editorButtonClassName,
+    editorCompactSelectClassName,
+    editorDangerIconButtonClassName,
+    editorGridTwoClassName,
+    editorGroupHeaderClassName,
+    editorKickerClassName,
+    editorPanelClassName,
+    editorPanelHeroClassName,
+    editorPanelKickerClassName,
+    editorPanelTitleClassName,
+    editorSectionClassName,
+    editorTitleClassName,
+} from "./editorClassNames";
+import { EditorFieldShell } from "./fields/EditorFieldShell";
 import { RichTextField } from "./fields/RichTextField";
 import type { SelectOption } from "./fields/SelectField";
 import { StringListField } from "./fields/StringListField";
@@ -166,15 +181,15 @@ export const CourseEditableLayout = ({ course, onChange }: CourseEditableLayoutP
 
     return (
         <div className="course-editor-shell">
-            <div className="course-layout course-layout--editor">
+            <div className="course-layout course-layout--editor items-start">
                 <CourseSidebar sections={course.sections} />
-                <div className="course-content course-editor" role="region" aria-label={`Édition du cours : ${course.title}`}>
-                    <section className="course-editor-panel course-editor-panel--hero" id="course-top" data-scroll-offset="24px">
-                        <div className="course-editor-panel__header">
-                            <p>Informations du cours</p>
-                            <h2>{course.title}</h2>
+                <div className="course-content course-editor grid min-w-0 gap-[22px]" role="region" aria-label={`Édition du cours : ${course.title}`}>
+                    <section className={`course-editor-panel course-editor-panel--hero ${editorPanelHeroClassName}`} id="course-top" data-scroll-offset="24px">
+                        <div className="course-editor-panel__header mb-[18px]">
+                            <p className={editorPanelKickerClassName}>Informations du cours</p>
+                            <h2 className={editorPanelTitleClassName}>{course.title}</h2>
                         </div>
-                        <div className="course-editor-grid course-editor-grid--2">
+                        <div className={editorGridTwoClassName}>
                             <TextInputField label="Slug" value={course.slug} onChange={(slug) => onChange({ ...course, slug })} />
                             <TextInputField label="Catégorie" value={course.category} onChange={(category) => onChange({ ...course, category })} />
                             <TextInputField label="Titre" value={course.title} onChange={(title) => onChange({ ...course, title })} />
@@ -182,10 +197,10 @@ export const CourseEditableLayout = ({ course, onChange }: CourseEditableLayoutP
                         <RichTextField label="Résumé" value={asRichSingleContent(course.summary)} onChange={(summary) => onChange({ ...course, summary })} />
                     </section>
 
-                    <section className="course-editor-panel" id="objectifs" data-scroll-offset="24px">
-                        <div className="course-editor-panel__header">
-                            <p>Objectifs pédagogiques</p>
-                            <h2>Objectifs du cours</h2>
+                    <section className={`course-editor-panel ${editorPanelClassName}`} id="objectifs" data-scroll-offset="24px">
+                        <div className="course-editor-panel__header mb-[18px]">
+                            <p className={editorPanelKickerClassName}>Objectifs pédagogiques</p>
+                            <h2 className={editorPanelTitleClassName}>Objectifs du cours</h2>
                         </div>
                         <StringListField
                             label="Objectif"
@@ -197,61 +212,59 @@ export const CourseEditableLayout = ({ course, onChange }: CourseEditableLayoutP
                         />
                     </section>
 
-                    <section className="course-editor-panel">
-                        <div className="course-editor-panel__header course-editor-panel__header--row">
+                    <section className={`course-editor-panel ${editorPanelClassName}`}>
+                        <div className={`course-editor-panel__header course-editor-panel__header--row mb-[18px] ${editorGroupHeaderClassName}`}>
                             <div>
-                                <p>Sections du cours</p>
-                                <h2>Structure pédagogique</h2>
+                                <p className={editorPanelKickerClassName}>Sections du cours</p>
+                                <h2 className={editorPanelTitleClassName}>Structure pédagogique</h2>
                             </div>
-                            <button type="button" className="course-editor-button" onClick={addSection}>
+                            <button type="button" className={editorButtonClassName} onClick={addSection}>
                                 <AddIcon fontSize="small" /> Ajouter une section
                             </button>
                         </div>
 
-                        <div className="course-editor-sections">
+                        <div className="course-editor-sections grid gap-[18px]">
                             {course.sections.map((section, sectionIndex) => (
-                                <article className="course-editor-section" id={section.id} data-scroll-offset="24px" key={section.id}>
-                                    <div className="course-editor-section__header">
+                                <article className={`course-editor-section ${editorSectionClassName}`} id={section.id} data-scroll-offset="24px" key={section.id}>
+                                    <div className={`course-editor-section__header mb-4 ${editorGroupHeaderClassName}`}>
                                         <div>
-                                            <p>Section {sectionIndex + 1}</p>
-                                            <h3>{section.title}</h3>
+                                            <p className={editorKickerClassName}>Section {sectionIndex + 1}</p>
+                                            <h3 className={editorTitleClassName}>{section.title}</h3>
                                         </div>
-                                        <div className="course-editor-order-actions">
-                                            <label className="course-editor-field course-editor-field--compact">
-                                                <span>Position</span>
-                                                <select value={sectionIndex} onChange={(event) => moveSection(sectionIndex, Number(event.target.value))}>
+                                        <div className="course-editor-order-actions flex flex-wrap items-end justify-end gap-2.5 max-[820px]:flex-col max-[820px]:items-stretch">
+                                            <EditorFieldShell label="Position" compact className="course-editor-field--compact min-w-[min(260px,100%)]">
+                                                <select className={editorCompactSelectClassName} value={sectionIndex} onChange={(event) => moveSection(sectionIndex, Number(event.target.value))}>
                                                     {course.sections.map((optionSection, optionIndex) => (
                                                         <option value={optionIndex} key={`${optionSection.id}-position`}>
                                                             {optionIndex + 1} — {optionSection.title}
                                                         </option>
                                                     ))}
                                                 </select>
-                                            </label>
-                                            <button type="button" className="course-editor-icon-button course-editor-icon-button--danger" onClick={() => removeSection(sectionIndex)} aria-label="Supprimer la section">
+                                            </EditorFieldShell>
+                                            <button type="button" className={editorDangerIconButtonClassName} onClick={() => removeSection(sectionIndex)} aria-label="Supprimer la section">
                                                 <DeleteIcon fontSize="small" />
                                             </button>
                                         </div>
                                     </div>
-                                    <div className="course-editor-grid course-editor-grid--2">
+                                    <div className={editorGridTwoClassName}>
                                         <TextInputField label="ID" value={section.id} onChange={(id) => updateSection(sectionIndex, { ...section, id })} />
                                         <TextInputField label="Titre" value={section.title} onChange={(title) => updateSection(sectionIndex, { ...section, title })} />
                                     </div>
                                     <RichTextField label="Introduction de section" value={asRichSingleContent(section.intro)} onChange={(intro) => updateSection(sectionIndex, { ...section, intro })} />
-                                    <div className="course-editor-section__blocks">
+                                    <div className="course-editor-section__blocks grid gap-[18px]">
                                         {section.blocks.map((block, blockIndex) => (
-                                            <div className="course-editor-block-shell" id={block.id} data-scroll-offset="24px" key={block.id ?? `${section.id}-${blockIndex}`}>
-                                                <div className="course-editor-block-position">
-                                                    <span>{blockTitle(block)}</span>
-                                                    <label className="course-editor-field course-editor-field--compact">
-                                                        <span>Position du bloc</span>
-                                                        <select value={blockIndex} onChange={(event) => moveBlock(sectionIndex, blockIndex, Number(event.target.value))}>
+                                            <div className="course-editor-block-shell grid gap-2.5 scroll-mt-[var(--course-anchor-offset)]" id={block.id} data-scroll-offset="24px" key={block.id ?? `${section.id}-${blockIndex}`}>
+                                                <div className="course-editor-block-position flex flex-wrap items-end justify-between gap-2.5 rounded-2xl border border-dashed border-[var(--course-border)] bg-[#fbfdff] px-3 py-2.5 max-[820px]:flex-col max-[820px]:items-stretch">
+                                                    <span className="self-center text-[0.9rem] font-black text-[var(--course-primary)]">{blockTitle(block)}</span>
+                                                    <EditorFieldShell label="Position du bloc" compact className="course-editor-field--compact min-w-[min(260px,100%)]">
+                                                        <select className={editorCompactSelectClassName} value={blockIndex} onChange={(event) => moveBlock(sectionIndex, blockIndex, Number(event.target.value))}>
                                                             {section.blocks.map((optionBlock, optionIndex) => (
                                                                 <option value={optionIndex} key={`${optionBlock.id ?? optionBlock.type}-${optionIndex}-position`}>
                                                                     {optionIndex + 1} — {blockTitle(optionBlock)}
                                                                 </option>
                                                             ))}
                                                         </select>
-                                                    </label>
+                                                    </EditorFieldShell>
                                                 </div>
                                                 <EditableBlockRenderer
                                                     block={block}
@@ -263,7 +276,7 @@ export const CourseEditableLayout = ({ course, onChange }: CourseEditableLayoutP
                                             </div>
                                         ))}
                                     </div>
-                                    <div className="course-editor-add-block">
+                                    <div className="course-editor-add-block mt-[18px] max-w-none">
                                         <AddBlockControl blockCount={section.blocks.length} options={blockTypeOptions} onAdd={(type, position) => addBlock(sectionIndex, type, position)} />
                                     </div>
                                 </article>

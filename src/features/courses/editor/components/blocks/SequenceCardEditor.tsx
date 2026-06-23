@@ -9,6 +9,16 @@ import type {
     SequenceFigurePart,
     SequenceTextPart,
 } from "../../../types/course";
+import {
+    editorDangerIconButtonClassName,
+    editorGhostButtonClassName,
+    editorGridTwoClassName,
+    editorGroupCardClassName,
+    editorGroupHeaderClassName,
+    editorInlineActionsClassName,
+    editorSubcardClassName,
+    editorTitleClassName,
+} from "../editorClassNames";
 import { ImageFields } from "../fields/ImageFields";
 import { RichTextField } from "../fields/RichTextField";
 import { SelectField, type SelectOption } from "../fields/SelectField";
@@ -81,27 +91,27 @@ export const SequenceCardEditor = ({ block, courseSlug, onChange, onDelete }: Se
 
     return (
         <BlockEditorFrame title={block.title} blockType="Séquence" onDelete={onDelete}>
-            <div className="course-editor-grid course-editor-grid--2">
+            <div className={editorGridTwoClassName}>
                 <TextInputField label="ID du bloc" value={block.id ?? ""} onChange={(id) => onChange({ ...block, id })} />
                 <TextInputField label="Titre" value={block.title} onChange={(title) => onChange({ ...block, title })} />
                 <TextInputField label="Introduction" value={block.intro ?? ""} onChange={(intro) => onChange({ ...block, intro })} />
             </div>
-            <div className="course-editor-group">
-                <div className="course-editor-group__header">
-                    <h4>Parties de la séquence</h4>
-                    <div className="course-editor-actions-inline">
+            <div className={editorGroupCardClassName}>
+                <div className={`course-editor-group__header ${editorGroupHeaderClassName}`}>
+                    <h4 className={editorTitleClassName}>Parties de la séquence</h4>
+                    <div className={editorInlineActionsClassName}>
                         {partTypeOptions.map((option) => (
-                            <button type="button" className="course-editor-button course-editor-button--ghost" onClick={() => onChange({ ...block, parts: [...block.parts, createPart(option.value)] })} key={option.value}>
+                            <button type="button" className={editorGhostButtonClassName} onClick={() => onChange({ ...block, parts: [...block.parts, createPart(option.value)] })} key={option.value}>
                                 <AddIcon fontSize="small" /> {option.label}
                             </button>
                         ))}
                     </div>
                 </div>
                 {block.parts.map((part, index) => (
-                    <section className="course-editor-subcard" key={`${block.id ?? block.title}-part-${index}`}>
-                        <div className="course-editor-subcard__header">
-                            <h5>Partie {index + 1}</h5>
-                            <button type="button" className="course-editor-icon-button" onClick={() => removePart(index)} aria-label="Supprimer la partie">
+                    <section className={`course-editor-subcard ${editorSubcardClassName}`} key={`${block.id ?? block.title}-part-${index}`}>
+                        <div className="course-editor-subcard__header mb-3 flex items-start justify-between gap-3">
+                            <h5 className={editorTitleClassName}>Partie {index + 1}</h5>
+                            <button type="button" className={editorDangerIconButtonClassName} onClick={() => removePart(index)} aria-label="Supprimer la partie">
                                 <DeleteIcon fontSize="small" />
                             </button>
                         </div>

@@ -6,6 +6,13 @@ import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import NotesIcon from "@mui/icons-material/Notes";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import type { CourseBlockType } from "../../types/course";
+import {
+    editorButtonClassName,
+    editorGhostButtonClassName,
+    editorGroupCardClassName,
+    editorSelectClassName,
+} from "./editorClassNames";
+import { EditorFieldShell } from "./fields/EditorFieldShell";
 import type { SelectOption } from "./fields/SelectField";
 
 interface AddBlockControlProps {
@@ -39,15 +46,10 @@ export const AddBlockControl = ({ options, blockCount, onAdd }: AddBlockControlP
     };
 
     return (
-        <div className="course-editor-add-block-control">
-            <div className="course-editor-quick-add" aria-label="Ajout rapide de carte">
+        <div className={`course-editor-add-block-control ${editorGroupCardClassName} grid-cols-[1fr_1fr_auto] items-end max-[820px]:grid-cols-1`}>
+            <div className="course-editor-quick-add col-span-full flex flex-wrap gap-2" aria-label="Ajout rapide de carte">
                 {quickActions.map((action) => (
-                    <button
-                        type="button"
-                        className="course-editor-button course-editor-button--ghost"
-                        key={action.type}
-                        onClick={() => addSelectedBlock(action.type)}
-                    >
+                    <button type="button" className={editorGhostButtonClassName} key={action.type} onClick={() => addSelectedBlock(action.type)}>
                         {action.icon === "text" ? <NotesIcon fontSize="small" /> : null}
                         {action.icon === "image" ? <AddPhotoAlternateIcon fontSize="small" /> : null}
                         {action.icon === "list" ? <FormatListBulletedIcon fontSize="small" /> : null}
@@ -55,27 +57,25 @@ export const AddBlockControl = ({ options, blockCount, onAdd }: AddBlockControlP
                     </button>
                 ))}
             </div>
-            <label className="course-editor-field">
-                <span>Type de bloc à ajouter</span>
-                <select value={selectedType} onChange={(event) => setSelectedType(event.target.value as CourseBlockType)}>
+            <EditorFieldShell label="Type de bloc à ajouter">
+                <select className={editorSelectClassName} value={selectedType} onChange={(event) => setSelectedType(event.target.value as CourseBlockType)}>
                     {options.map((option) => (
                         <option value={option.value} key={option.value}>
                             {option.label}
                         </option>
                     ))}
                 </select>
-            </label>
-            <label className="course-editor-field">
-                <span>Position</span>
-                <select value={position} onChange={(event) => setPosition(Number(event.target.value))}>
+            </EditorFieldShell>
+            <EditorFieldShell label="Position">
+                <select className={editorSelectClassName} value={position} onChange={(event) => setPosition(Number(event.target.value))}>
                     {insertionOptions.map((option) => (
                         <option value={option.value} key={option.value}>
                             {option.label}
                         </option>
                     ))}
                 </select>
-            </label>
-            <button type="button" className="course-editor-button" onClick={() => addSelectedBlock()}>
+            </EditorFieldShell>
+            <button type="button" className={`${editorButtonClassName} min-h-12`} onClick={() => addSelectedBlock()}>
                 <AddIcon fontSize="small" /> Ajouter le bloc
             </button>
         </div>

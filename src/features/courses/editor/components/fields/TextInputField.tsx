@@ -1,5 +1,10 @@
 "use client";
 
+import {
+    editorInputClassName,
+} from "../editorClassNames";
+import { EditorFieldShell } from "./EditorFieldShell";
+
 interface TextInputFieldProps {
     label: string;
     value: string;
@@ -9,9 +14,8 @@ interface TextInputFieldProps {
 
 export const TextInputField = ({ label, value, onChange, placeholder }: TextInputFieldProps) => {
     return (
-        <label className="course-editor-field">
-            <span>{label}</span>
-            <input value={value} placeholder={placeholder} onChange={(event) => onChange(event.target.value)} />
-        </label>
+        <EditorFieldShell label={label}>
+            <input className={editorInputClassName} value={value} placeholder={placeholder} onChange={(event) => onChange(event.target.value)} />
+        </EditorFieldShell>
     );
 };

@@ -2,6 +2,7 @@
 
 import type { ImageCardBlock } from "../../../types/course";
 import { asRichBlockContent } from "../../utils/contentAdapters";
+import { editorGridTwoClassName } from "../editorClassNames";
 import { ImageFields } from "../fields/ImageFields";
 import { RichTextField } from "../fields/RichTextField";
 import { SelectField, type SelectOption } from "../fields/SelectField";
@@ -23,7 +24,7 @@ const imagePositionOptions: SelectOption<NonNullable<ImageCardBlock["imagePositi
 export const ImageCardEditor = ({ block, courseSlug, onChange, onDelete }: ImageCardEditorProps) => {
     return (
         <BlockEditorFrame title={block.title} blockType="Image" onDelete={onDelete}>
-            <div className="course-editor-grid course-editor-grid--2">
+            <div className={editorGridTwoClassName}>
                 <TextInputField label="ID du bloc" value={block.id ?? ""} onChange={(id) => onChange({ ...block, id })} />
                 <TextInputField label="Titre" value={block.title} onChange={(title) => onChange({ ...block, title })} />
                 <SelectField

@@ -5,6 +5,17 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
 import { moveItem } from "../../utils/courseEditorIds";
+import {
+    editorCompactSelectClassName,
+    editorDangerIconButtonClassName,
+    editorGhostButtonClassName,
+    editorGroupCardClassName,
+    editorGroupHeaderClassName,
+    editorInlineActionsClassName,
+    editorListRowClassName,
+} from "../editorClassNames";
+import { EditorFieldShell } from "./EditorFieldShell";
+import { EditorSegmentedControl } from "./EditorSegmentedControl";
 import { TextInputField } from "./TextInputField";
 
 interface StringListFieldProps {
@@ -37,55 +48,45 @@ export const StringListField = ({
     };
 
     return (
-        <div className="course-editor-group">
-            <div className="course-editor-group__header">
+        <div className={editorGroupCardClassName}>
+            <div className={`course-editor-group__header ${editorGroupHeaderClassName}`}>
                 <div>
-                    <h4>{label}</h4>
+                    <h4 className="m-0 text-[var(--course-primary)]">{label}</h4>
                     {onOrderedChange ? (
-                        <p className="course-editor-group__hint">Choisis le type de liste affiché dans le cours.</p>
+                        <p className="course-editor-group__hint mt-1.5 mb-0 text-[0.88rem] leading-[1.4] text-[var(--course-muted)]">Choisis le type de liste affiché dans le cours.</p>
                     ) : null}
                 </div>
-                <div className="course-editor-actions-inline">
+                <div className={editorInlineActionsClassName}>
                     {onOrderedChange ? (
-                        <div className="course-editor-list-type" aria-label={`Type de liste : ${label}`}>
-                            <button
-                                type="button"
-                                className={!ordered ? "is-active" : undefined}
-                                onClick={() => onOrderedChange(false)}
-                                aria-pressed={!ordered}
-                            >
-                                <FormatListBulletedIcon fontSize="small" /> Puces
-                            </button>
-                            <button
-                                type="button"
-                                className={ordered ? "is-active" : undefined}
-                                onClick={() => onOrderedChange(true)}
-                                aria-pressed={Boolean(ordered)}
-                            >
-                                <FormatListNumberedIcon fontSize="small" /> Numérotée
-                            </button>
-                        </div>
+                        <EditorSegmentedControl
+                            label="Mode"
+                            value={ordered ? "ordered" : "unordered"}
+                            options={[
+                                { value: "unordered", label: "Puces", icon: <FormatListBulletedIcon fontSize="small" /> },
+                                { value: "ordered", label: "Numérotée", icon: <FormatListNumberedIcon fontSize="small" /> },
+                            ]}
+                            onChange={(value) => onOrderedChange(value === "ordered")}
+                        />
                     ) : null}
-                    <button type="button" className="course-editor-button course-editor-button--ghost" onClick={() => onChange([...values, ""])}>
+                    <button type="button" className={editorGhostButtonClassName} onClick={() => onChange([...values, ""])}>
                         <AddIcon fontSize="small" /> {addLabel}
                     </button>
                 </div>
             </div>
-            <div className="course-editor-list">
+            <div className="course-editor-list grid gap-3">
                 {values.map((value, index) => (
-                    <div className="course-editor-list__row" key={`${label}-${index}`}>
+                    <div className={`course-editor-list__row grid grid-cols-[minmax(0,1fr)_minmax(130px,180px)_auto] items-end gap-3 max-[820px]:grid-cols-1 ${editorListRowClassName}`} key={`${label}-${index}`}>
                         <TextInputField label={`${label} ${index + 1}`} value={value} onChange={(nextValue) => updateValue(index, nextValue)} />
-                        <label className="course-editor-field course-editor-field--compact">
-                            <span>Position</span>
-                            <select value={index} onChange={(event) => moveValue(index, Number(event.target.value))}>
+                        <EditorFieldShell label="Position" compact className="course-editor-field--compact min-w-[min(260px,100%)]">
+                            <select className={editorCompactSelectClassName} value={index} onChange={(event) => moveValue(index, Number(event.target.value))}>
                                 {values.map((_, optionIndex) => (
                                     <option value={optionIndex} key={`${label}-${index}-position-${optionIndex}`}>
                                         {optionIndex + 1}
                                     </option>
                                 ))}
                             </select>
-                        </label>
-                        <button type="button" className="course-editor-icon-button" onClick={() => removeValue(index)} aria-label="Supprimer">
+                        </EditorFieldShell>
+                        <button type="button" className={editorDangerIconButtonClassName} onClick={() => removeValue(index)} aria-label="Supprimer">
                             <DeleteIcon fontSize="small" />
                         </button>
                     </div>

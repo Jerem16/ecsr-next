@@ -2,6 +2,7 @@
 
 import type { ListCardBlock, RichInlineContent } from "../../../types/course";
 import { asRichSingleContent } from "../../utils/contentAdapters";
+import { editorGridTwoClassName } from "../editorClassNames";
 import { CheckboxField } from "../fields/CheckboxField";
 import { RichInlineListField } from "../fields/RichInlineListField";
 import { RichTextField } from "../fields/RichTextField";
@@ -19,7 +20,7 @@ interface ListCardEditorProps {
 export const ListCardEditor = ({ block, onChange, onDelete, onCreateSectionFromItem }: ListCardEditorProps) => {
     return (
         <BlockEditorFrame title={block.title} blockType="Liste" onDelete={onDelete}>
-            <div className="course-editor-grid course-editor-grid--2">
+            <div className={editorGridTwoClassName}>
                 <TextInputField label="ID du bloc" value={block.id ?? ""} onChange={(id) => onChange({ ...block, id })} />
                 <TextInputField label="Titre" value={block.title} onChange={(title) => onChange({ ...block, title })} />
             </div>

@@ -15,25 +15,29 @@
 --------------------------------------------------------------------------- */
 
 /* 2) Base / structure */
-a,
-body {
-    text-decoration: none;
-}
-*,
-body,
-body *,
-main,
-menu,
-ol,
-ul {
-    margin: 0;
-}
-*,
-.header,
-body,
-body *,
-main {
-    box-sizing: border-box;
+@layer base {
+    a,
+    body {
+        text-decoration: none;
+    }
+
+    *,
+    body,
+    body *,
+    main,
+    menu,
+    ol,
+    ul {
+        margin: 0;
+    }
+
+    *,
+    .header,
+    body,
+    body *,
+    main {
+        box-sizing: border-box;
+    }
 }
 .btn-style_blue,
 .logo,
@@ -44,12 +48,14 @@ main {
 .sld-container {
     min-height: 823px;
 }
-*,
-body *,
-menu,
-ol,
-ul {
-    padding: 0;
+@layer base {
+    *,
+    body *,
+    menu,
+    ol,
+    ul {
+        padding: 0;
+    }
 }
 a,
 hr {
@@ -186,16 +192,18 @@ h3 {
 .search {
     max-width: 223px !important;
 }
-button,
-option,
-select,
-textarea {
-    background: 0 0;
-    outline: 0;
-    margin: 0;
-    padding: 0;
-    border: none;
-    appearance: none;
+@layer base {
+    button,
+    option,
+    select,
+    textarea {
+        background: 0 0;
+        outline: 0;
+        margin: 0;
+        padding: 0;
+        border: none;
+        appearance: none;
+    }
 }
 option {
     cursor: pointer;

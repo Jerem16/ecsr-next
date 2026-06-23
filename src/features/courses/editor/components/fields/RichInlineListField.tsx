@@ -6,6 +6,13 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import type { RichInlineContent } from "../../../types/course";
 import { moveItem } from "../../utils/courseEditorIds";
 import { richContentNodesToInlineContent } from "../../utils/richContentHtml";
+import {
+    editorCompactSelectClassName,
+    editorDangerIconButtonClassName,
+    editorGhostButtonClassName,
+    editorListRowClassName,
+} from "../editorClassNames";
+import { EditorFieldShell } from "./EditorFieldShell";
 import { RichTextField } from "./RichTextField";
 
 interface RichInlineListFieldProps {
@@ -42,37 +49,36 @@ export const RichInlineListField = ({
     };
 
     return (
-        <div className="course-editor-rich-list">
-            <div className="course-editor-rich-list__header">
-                <span>{label}</span>
-                <button type="button" className="course-editor-button course-editor-button--ghost" onClick={() => onChange([...values, ""])}>
+        <div className="course-editor-rich-list mt-4 grid gap-3.5">
+            <div className="course-editor-rich-list__header flex flex-wrap items-center justify-between gap-3">
+                <span className="text-[0.9rem] font-black text-[var(--course-primary)]">{label}</span>
+                <button type="button" className={editorGhostButtonClassName} onClick={() => onChange([...values, ""])}>
                     <AddIcon fontSize="small" /> {addLabel}
                 </button>
             </div>
             {values.map((value, index) => (
-                <div className="course-editor-rich-list__item" key={`${label}-${index}`}>
+                <div className={`course-editor-rich-list__item grid grid-cols-[minmax(0,1fr)_minmax(150px,auto)] items-start gap-3.5 max-[820px]:grid-cols-1 ${editorListRowClassName}`} key={`${label}-${index}`}>
                     <RichTextField
                         label={`${label} ${index + 1}`}
                         value={inlineContentToRichNodes(value)}
                         allowLists={false}
                         onChange={(nodes) => updateItem(index, richContentNodesToInlineContent(nodes))}
                     />
-                    <div className="course-editor-rich-list__side">
-                        <label className="course-editor-field course-editor-field--compact">
-                            <span>Position</span>
-                            <select value={index} onChange={(event) => moveRichItem(index, Number(event.target.value))}>
+                    <div className="course-editor-rich-list__side grid content-start gap-2">
+                        <EditorFieldShell label="Position" compact className="course-editor-field--compact min-w-[min(260px,100%)]">
+                            <select className={editorCompactSelectClassName} value={index} onChange={(event) => moveRichItem(index, Number(event.target.value))}>
                                 {values.map((_, optionIndex) => (
                                     <option value={optionIndex} key={`${label}-${index}-position-${optionIndex}`}>
                                         {optionIndex + 1}
                                     </option>
                                 ))}
                             </select>
-                        </label>
-                        <div className="course-editor-rich-list__item-actions">
+                        </EditorFieldShell>
+                        <div className="course-editor-rich-list__item-actions flex items-start gap-2 max-[820px]:justify-start">
                             {onItemAction ? (
                                 <button
                                     type="button"
-                                    className="course-editor-button course-editor-button--ghost course-editor-rich-list__link-button"
+                                    className={`${editorGhostButtonClassName} course-editor-rich-list__link-button whitespace-nowrap`}
                                     onClick={() => onItemAction(value, index)}
                                     aria-label={itemActionLabel}
                                     title={itemActionLabel}
@@ -80,7 +86,7 @@ export const RichInlineListField = ({
                                     <AddLinkIcon fontSize="small" /> Créer section
                                 </button>
                             ) : null}
-                            <button type="button" className="course-editor-icon-button course-editor-icon-button--danger" onClick={() => removeItem(index)} aria-label="Supprimer l’élément">
+                            <button type="button" className={editorDangerIconButtonClassName} onClick={() => removeItem(index)} aria-label="Supprimer l’élément">
                                 <DeleteIcon fontSize="small" />
                             </button>
                         </div>
