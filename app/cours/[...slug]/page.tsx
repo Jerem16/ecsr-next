@@ -23,6 +23,14 @@ export function generateStaticParams() {
                     "/cours/vehicules/mecanique/moteur-thermique",
                     "/cours/vehicules/mecanique/moteur-electrique",
                     "/cours/vehicules/mecanique/organes-securite",
+                    "/cours/droit-reglementation-assurances/constat-amiable",
+                    "/cours/droit-reglementation-assurances/assurances",
+                    "/cours/droit-reglementation-assurances/permis-points",
+                    "/cours/droit-reglementation-assurances/retrait-permis",
+                    "/cours/droit-reglementation-assurances/traitement-infractions",
+                    "/cours/droit-reglementation-assurances/reglementation-circulation",
+                    "/cours/droit-reglementation-assurances/sources-du-droit",
+                    "/cours/droit-reglementation-assurances",
                 ].includes(node.href)
         )
         .map((node) => ({ slug: node.href.replace("/cours/", "").split("/") }));
