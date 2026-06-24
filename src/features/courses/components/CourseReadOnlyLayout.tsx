@@ -9,16 +9,17 @@ import {
 
 interface CourseReadOnlyLayoutProps {
     course: Course;
+    showSidebar?: boolean;
 }
 
-export const CourseReadOnlyLayout = ({ course }: CourseReadOnlyLayoutProps) => {
+export const CourseReadOnlyLayout = ({ course, showSidebar = true }: CourseReadOnlyLayoutProps) => {
     const ObjectivesListTag = course.objectivesOrdered ? "ol" : "ul";
 
     return (
         <>
             <CourseHero course={course} />
-            <div className="course-layout mt-7 grid min-w-0 grid-cols-[minmax(220px,280px)_minmax(0,1fr)] items-start gap-6 max-[1100px]:grid-cols-1">
-                <CourseSidebar sections={course.sections} />
+            <div className={`course-layout mt-7 grid min-w-0 items-start gap-6 ${showSidebar ? "course-layout--with-sidebar grid-cols-[minmax(220px,280px)_minmax(0,1fr)] max-[1100px]:grid-cols-1" : "course-layout--reader grid-cols-1"}`}>
+                {showSidebar ? <CourseSidebar sections={course.sections} /> : null}
                 <div className="course-content grid min-w-0 gap-[clamp(16px,2.5vw,28px)]" role="region" aria-label={`Cours : ${course.title}`}>
                     <section
                         className={`course-objectives ${courseFrameClassName} rounded-[28px] p-[clamp(22px,3vw,34px)]`}

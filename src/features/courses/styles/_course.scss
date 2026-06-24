@@ -36,6 +36,16 @@ body {
     // padding: clamp(96px, 9vw, 132px) 0 clamp(44px, 6vw, 78px);
 }
 
+.course-mobile-readonly {
+    display: block;
+}
+
+@media (min-width: 821px) {
+    .course-responsive-shell:has(.course-desktop-editor > .course-page) .course-mobile-readonly {
+        display: none;
+    }
+}
+
 .course-hero,
 .course-objectives,
 .course-section,
@@ -634,6 +644,10 @@ p.course-block-type {
 @media (max-width: 820px) {
     :root {
         --scroll-offset: 92px;
+    }
+
+    .course-desktop-editor {
+        display: none;
     }
 
     .course-page {

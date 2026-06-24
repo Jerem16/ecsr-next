@@ -13,7 +13,18 @@ type PageProps = {
 
 export function generateStaticParams() {
     return flattenNodes(courseGroups)
-        .filter((node) => node.href.startsWith("/cours/") && !["/cours/conducteur-conduite/oeil-conduite", "/cours/conducteur-conduite/produits-psychoactifs"].includes(node.href))
+        .filter(
+            (node) =>
+                node.href.startsWith("/cours/") &&
+                ![
+                    "/cours/conducteur-conduite/oeil-conduite",
+                    "/cours/conducteur-conduite/produits-psychoactifs",
+                    "/cours/vehicules/mecanique",
+                    "/cours/vehicules/mecanique/moteur-thermique",
+                    "/cours/vehicules/mecanique/moteur-electrique",
+                    "/cours/vehicules/mecanique/organes-securite",
+                ].includes(node.href)
+        )
         .map((node) => ({ slug: node.href.replace("/cours/", "").split("/") }));
 }
 
@@ -34,7 +45,9 @@ export default async function CoursePlaceholderPage({ params }: PageProps) {
             <section className="ecsr-hero" id="top">
                 <p className="ecsr-kicker">Cours</p>
                 <h1>{currentNode.title}</h1>
-                {currentNode.description ? <p>{currentNode.description}</p> : null}
+                {currentNode.description ? (
+                    <p>{currentNode.description}</p>
+                ) : null}
             </section>
 
             <NodeCardGrid

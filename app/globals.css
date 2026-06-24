@@ -27,24 +27,28 @@ main {
 }
 
 .ecsr-route-shell {
-    animation: ecsr-main-enter 180ms ease-out both;
-    will-change: opacity;
+    opacity: 1;
 }
 
-@keyframes ecsr-main-enter {
+.ecsr-route-shell--settled {
+    animation: ecsr-main-settle 180ms ease-out both;
+}
+
+@keyframes ecsr-main-settle {
     from {
-        opacity: 0;
+        opacity: 0.985;
+        transform: translateY(2px);
     }
 
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .ecsr-route-shell {
+    .ecsr-route-shell--settled {
         animation: none;
-        will-change: auto;
     }
 }
 

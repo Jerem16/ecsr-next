@@ -1,9 +1,9 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import type { Course } from "../../types/course";
 import { CourseEditToolbar } from "./CourseEditToolbar";
-import { CourseEditableLayout } from "./CourseEditableLayout";
 import { CourseReadOnlyLayout } from "../../components/CourseReadOnlyLayout";
 
 interface CourseModeSwitcherProps {
@@ -14,6 +14,11 @@ interface SaveCourseResponse {
     course?: Course;
     message?: string;
 }
+
+const CourseEditableLayout = dynamic(
+    () => import("./CourseEditableLayout").then((module) => module.CourseEditableLayout),
+    { ssr: false },
+);
 
 export const CourseModeSwitcher = ({ course }: CourseModeSwitcherProps) => {
     const [displayedCourse, setDisplayedCourse] = useState<Course>(course);
